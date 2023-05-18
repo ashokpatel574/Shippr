@@ -1,0 +1,36 @@
+/* Initial setup */
+
+:root {
+  --dark-color-one: #333;
+  --dark-color-two: #5a5a5a;
+  --primary-color-one: #3c0ac2;
+  --primary-: ##30089b;
+  --secondary-color-one: #fff;
+  --secondary-color-two: #f9fafb;
+  --secondary-color-three: #f6f7fb;
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  /* font-size: 10px; */
+  /* 10px / 16px = 0.625 = 62.5% */
+  /* Percentage of user's browser font-size setting */
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
