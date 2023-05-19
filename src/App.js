@@ -10,7 +10,7 @@ import { Routes, Route } from "react-router-dom";
 
 import ProductListingPage from "./frontend/pages/ProductListingPage";
 import SingleProductPage from "./frontend/pages/SingleProductPage";
-import LoginPage from "./frontend/pages/LoginPage";
+import SignUpPage from "./frontend/pages/SignUpPage";
 
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductListingPage />} />
         <Route path="/products/:productId" element={<SingleProductPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signUp" element={<SignUpPage />} />
       </Routes>
       <Footer />
     </main>

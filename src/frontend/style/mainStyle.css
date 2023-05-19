@@ -541,49 +541,68 @@
   font-size: 2.2rem;
 }
 
-/* Login page style */
+/* Login page and sign up style */
 
 .loginpage_container {
   background-color: #ccc;
   width: 100%;
-  min-height: 60rem;
+  min-height: 65rem;
 }
 
-.login_container {
+.signUpPage_container {
+  background-color: #ccc;
+  width: 100%;
+  min-height: 75rem;
+}
+
+.login_container,
+.signUp_container {
   max-width: 45rem;
   width: 100%;
   margin: 0 auto;
   flex-direction: column;
   background-color: #fff;
   padding: 2rem 3rem;
-  gap: 2.5rem;
+  gap: 2.25rem;
   border-radius: 1rem;
 }
 
-.login_container h3 {
+.login_container h3,
+.signUp_container h3 {
   font-size: 2.8rem;
-  padding-bottom: 1rem;
 }
 
 .login_email-container,
-.login_password-container {
+.login_password-container,
+.signUp_name-container,
+.signUp_email-container,
+.signUp_password-container,
+.signUp_passwordConfirm-container {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
 .login_email-container label,
-.login_password-container label {
+.login_password-container label,
+.signUp_name-container label,
+.signUp_email-container label,
+.signUp_password-container label,
+.signUp_passwordConfirm-container label {
   display: inline-block;
   font-size: 1.8rem;
   padding-bottom: 0.5rem;
 }
 
 .login_email-container input,
-.login_password-container input {
+.login_password-container input,
+.signUp_name-container input,
+.signUp_email-container input,
+.signUp_password-container input,
+.signUp_passwordConfirm-container input {
   display: inline-block;
   width: 100%;
-  padding: 0.75rem 1.5rem;
+  padding: 1.25rem 2rem;
   font-size: 1.8rem;
   border: none;
   border: 1px solid #ccc;
@@ -591,21 +610,26 @@
 }
 
 .loginUserBtn,
-.loginGuestBtn {
+.loginGuestBtn,
+.signUpUserBtn {
   width: 100%;
   padding: 0.75rem 1.5rem;
   font-size: 2rem;
 }
 
-.loginPage-switchtext {
+.loginPage-switchtext,
+.signUpPage-switchtext {
   font-size: 1.8rem;
   padding-bottom: 1rem;
 }
 
-.loginPage-switchtext span {
+.loginPage-switchtext span,
+.signUpPage-switchtext span {
   display: inline-block;
   color: var(--primary-color-one);
   text-decoration: underline;
   cursor: pointer;
   padding: 0 0.75rem;
 }
+
+/* Sign Up page style */
