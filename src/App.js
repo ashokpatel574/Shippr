@@ -10,6 +10,7 @@ import { Routes, Route } from "react-router-dom";
 
 import ProductListingPage from "./frontend/pages/ProductListingPage";
 import SingleProductPage from "./frontend/pages/SingleProductPage";
+import CartPage from "./frontend/pages/CartPage";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductListingPage />} />
         <Route path="/products/:productId" element={<SingleProductPage />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
       <Footer />
     </main>
