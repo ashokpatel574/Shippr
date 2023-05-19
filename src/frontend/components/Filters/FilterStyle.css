@@ -1,0 +1,96 @@
+.productslisting_side-navbar {
+  grid-area: sidebar;
+  position: sticky;
+  overflow-y: auto;
+  height: fit-content;
+  background-color: #fff;
+  padding-bottom: 5rem;
+}
+
+.productslisting_side-navbar-title-conatiner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 2rem 2.5rem;
+  font-weight: 600;
+}
+
+.productslisting_side-navbar-title-conatiner span {
+  font-size: 2rem;
+}
+
+.sideNavbar_category-container,
+.sideNavbar_price-container,
+.sideNavbar_size-container,
+.sideNavbar_customerRating-container,
+.sideNavbar_sort-container,
+.sideNavbar_availablity-container {
+  padding: 2rem 2rem 2rem 3rem;
+  border-bottom: 1px solid #eee;
+}
+
+.sideNavbar_category-container p,
+.sideNavbar_price-container p,
+.sideNavbar_size-container p,
+.sideNavbar_customerRating-container p,
+.sideNavbar_sort-container p,
+.sideNavbar_availablity-container p {
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.sideNavbar_category-container ul,
+.sideNavbar_size-container ul,
+.sideNavbar_customerRating-container ul,
+.sideNavbar_sort-container ul,
+.sideNavbar_availablity-container ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+.sideNavbar_category-container ul li,
+.sideNavbar_size-container ul li,
+.sideNavbar_customerRating-container ul li,
+.sideNavbar_sort-container ul li,
+.sideNavbar_availablity-container ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sideNavbar_category-container ul li label,
+.sideNavbar_size-container ul li label,
+.sideNavbar_customerRating-container ul li label,
+.sideNavbar_sort-container ul li label,
+.sideNavbar_availablity-container ul li label {
+  font-size: 1.7rem;
+}
+
+.sideNavbar_category-container .categoryTshirt,
+.sideNavbar_size-container input,
+.sideNavbar_customerRating-container input,
+.sideNavbar_sort-container input,
+.sideNavbar_availablity-container input {
+  height: 1.7rem;
+  width: 1.7rem;
+}
+
+/* price Range */
+
+.sideNavbar_priceRange-container label,
+.sideNavbar_size-container label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sideNavbar_priceRange-container input {
+  width: 20rem;
+}

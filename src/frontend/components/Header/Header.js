@@ -1,5 +1,5 @@
 import React from "react";
-import CompanyLogoBird from "../../assets/logo/shipprLogoBird.png";
+import CompanyLogoBird from "../../../assets/logo/shipprLogoBird.png";
 
 // Icons from material icon library
 import SearchIcon from "@mui/icons-material/Search";

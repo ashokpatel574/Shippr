@@ -1,3 +1,5 @@
+@import url(../components/Filters/ProductListStyle.css);
+
 /* Shippr App Container */
 
 .shipprApp_container {
@@ -212,4 +214,12 @@
 
 .categories_card:hover .categories_image-box img {
   transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* products List page Style */
+.productsListing_main-container {
+  position: relative;
+  padding: 4rem 2rem;
+  background-color: #ddd;
+  gap: 2rem;
 }
