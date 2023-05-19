@@ -134,14 +134,13 @@ a {
   align-items: center;
 }
 
-.grid-mainlayout-container {
+.grid-productsListlayout-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
-    "header header header header header"
-    "sidebar main main main main"
-    "sidebar main main main main"
-    "sidebar main main main main";
+    "sidebar  main main main"
+    "sidebar  main main main"
+    "sidebar  main main main";
   scroll-behavior: smooth;
 }
 
