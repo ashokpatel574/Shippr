@@ -632,4 +632,125 @@
   padding: 0 0.75rem;
 }
 
-/* Sign Up page style */
+/* WishList page style */
+
+.wishListpage_container {
+  background-color: #ccc;
+  width: 100%;
+  padding: 2rem 4rem;
+}
+
+.wishList_container {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  min-height: 100vh;
+}
+
+.wishListpage_productDetails-title {
+  font-size: 2.4rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.wishListpage_productList {
+  padding: 2.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  row-gap: 4rem;
+  column-gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.wishListpage_productList-card {
+  max-width: 30rem;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.wishListpage_productList_card-imgContainer {
+  position: relative;
+  width: 100%;
+}
+
+.wishListpage_productList_card-imgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wishListpage_productList_card-imgContainer .product-rating {
+  position: absolute;
+  top: 94%;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 0.5rem 1.5rem;
+  background-color: var(--success-color);
+  color: #fff;
+  font-size: 2rem;
+}
+
+.wishListpage_productList_card-imgContainer .remove-card {
+  position: absolute;
+  top: 5%;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 0.5rem 1.5rem;
+  background-color: var(--error-color);
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.wishListpage_productList_card-textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.wishListpage_productList_card-textContainer-title {
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  font-size: 1.6rem;
+}
+
+.wishListpage_productList_card-priceContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wishListpage_productList_card-textContainer .discountPrice {
+  font-size: 2rem;
+  color: var(--success-color);
+}
+
+.wishListpage_productList_card-textContainer .totalPrice {
+  font-size: 1.6rem;
+  text-decoration: line-through;
+  color: #777;
+}
+
+.wishListpage_productList_card-textContainer .discountPercent {
+  color: var(--error-color);
+}
+
+.wishListpage_productList_card-btnContainer .addToCartBtn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75rem 2rem;
+  font-size: 1.8rem;
+  border-radius: 5px;
+}
