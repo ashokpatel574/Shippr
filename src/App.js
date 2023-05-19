@@ -11,6 +11,7 @@ import { Routes, Route } from "react-router-dom";
 import ProductListingPage from "./frontend/pages/ProductListingPage";
 import SingleProductPage from "./frontend/pages/SingleProductPage";
 import SignUpPage from "./frontend/pages/SignUpPage";
+import WishListPage from "./frontend/pages/WishListPage";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/products" element={<ProductListingPage />} />
         <Route path="/products/:productId" element={<SingleProductPage />} />
         <Route path="/signUp" element={<SignUpPage />} />
+        <Route path="/wishlist" element={<WishListPage />} />
       </Routes>
       <Footer />
     </main>
