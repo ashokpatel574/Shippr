@@ -12,12 +12,14 @@ import ProductListingPage from "./frontend/pages/ProductListingPage";
 import SingleProductPage from "./frontend/pages/SingleProductPage";
 import SignUpPage from "./frontend/pages/SignUpPage";
 import WishListPage from "./frontend/pages/WishListPage";
+import MockAPI from "./frontend/pages/MockApi/MockApi";
 
 const App = () => {
   return (
     <main className="shipprApp_container flex-column">
       <Header />
       <Routes>
+        <Route path="/mock-man" element={<MockAPI />} />
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductListingPage />} />
         <Route path="/products/:productId" element={<SingleProductPage />} />
