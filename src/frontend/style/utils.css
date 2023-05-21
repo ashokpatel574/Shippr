@@ -134,37 +134,14 @@ a {
   align-items: center;
 }
 
-.grid-mainlayout-container {
+.grid-productsListlayout-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
-    "header header header header header"
-    "sidebar main main main main"
-    "sidebar main main main main"
-    "sidebar main main main main";
+    "sidebar  main main main"
+    "sidebar  main main main"
+    "sidebar  main main main";
   scroll-behavior: smooth;
-}
-
-.text-wrapper {
-  display: flex;
-  flex-direction: column;
-  line-height: 2rem;
-  flex-grow: 1;
-}
-
-.section-container-50-50 {
-  display: grid;
-  grid-template-columns: 40% calc(60% - 2rem);
-  align-items: center;
-}
-
-.component-page-main {
-  grid-area: main;
-}
-
-.grid-sample-child {
-  background-color: rgb(8, 176, 228);
-  flex-direction: column;
 }
 
 /* Gutters */
@@ -264,28 +241,6 @@ a {
   font-family: inherit;
   transition: all 0.3s;
   border: none;
-}
-
-.btn:hover,
-.btn:active {
-  background-color: var(--primary-color-two);
-}
-
-.btn_link,
-.btn_link:link,
-.btn_link:visited {
-  display: inline-block;
-  cursor: pointer;
-  color: var(--primary-color-one);
-  border-bottom: 2px solid currentColor;
-  text-decoration: none;
-  font-family: inherit;
-  transition: all 0.3s;
-}
-
-.btn_link:hover,
-.btn_link:active {
-  color: var(--primary-color-color);
 }
 
 .pointer {

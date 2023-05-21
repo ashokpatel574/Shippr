@@ -52,8 +52,8 @@ export const products = [
     _id: uuid(),
     title: "Tom And Jerry: Thinking Tom",
     images: [
-      "https://res.cloudinary.com/dz0snqho8/image/upload/v1684427707/shippr/Products/Tom_And_Jerry-1_uktpyt.webp",
-      "https://res.cloudinary.com/dz0snqho8/image/upload/v1684427707/shippr/Products/Tom_And_Jerry-2_szdk2a.webp",
+      "https://res.cloudinary.com/dz0snqho8/image/upload/v1684437297/shippr/Shippr%20Images/looseTshirt/Tom_And_Jerry-1_dlwwd2.webp",
+      "https://res.cloudinary.com/dz0snqho8/image/upload/v1684437297/shippr/Shippr%20Images/looseTshirt/Tom_And_Jerry-2_xibddu.webp",
     ],
     brand: "The Souled Store",
     price: 499,
