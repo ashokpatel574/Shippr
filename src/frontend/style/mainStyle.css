@@ -501,7 +501,6 @@
 
 .cartpage_priceSummary-info {
   width: 100%;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -546,7 +545,8 @@
 .loginpage_container {
   background-color: #ccc;
   width: 100%;
-  min-height: 65rem;
+  min-height: 58rem;
+  flex-direction: column;
 }
 
 .signUpPage_container {
@@ -607,6 +607,32 @@
   border: none;
   border: 1px solid #ccc;
   border-radius: 5px;
+  margin-bottom: 0.4rem;
+}
+
+.name-error,
+.email-error,
+.password-error,
+.passwordConfirm-error {
+  color: var(--error-color);
+}
+
+.loginApiError {
+  border: 1px solid var(--error-color);
+  padding: 0.8rem 2.4rem;
+  margin-top: 1rem;
+  background-color: var(--error-color);
+  color: #fff;
+  border-radius: 8px;
+}
+
+.api .signUp_name-container span,
+.signUp_email-container span,
+.signUp_password-container span,
+.signUp_passwordConfirm-container span {
+  display: inline-block;
+  font-size: 1.6rem;
+  padding-bottom: 0.5rem;
 }
 
 .loginUserBtn,
@@ -630,6 +656,87 @@
   text-decoration: underline;
   cursor: pointer;
   padding: 0 0.75rem;
+}
+
+/* Profile page style */
+
+.profilePage_container {
+  background-color: #ccc;
+  width: 100%;
+  min-height: 58rem;
+  flex-direction: column;
+}
+
+.accountInformation {
+  font-size: 2.8rem;
+  padding: 2rem;
+}
+
+.profilePage_container .profile_container {
+  max-width: 45rem;
+  width: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 3rem 3rem;
+  gap: 2.25rem;
+  border-radius: 1rem;
+}
+
+.accountInfo_togglebtn-conatiner {
+  width: 100%;
+  border: 1px solid var(--primary-color-one);
+}
+
+.userprofilebtn,
+.userAddressbtn {
+  font-size: 2rem;
+  width: 50%;
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.userProfileNavLink.active .userprofilebtn {
+  background-color: var(--primary-color-one);
+  color: #fff;
+}
+
+.userAddressNavLink.active .userAddressbtn {
+  background-color: var(--primary-color-one);
+  color: #fff;
+}
+
+.profileDetails_container,
+.addressDetails_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+.profileDetails_heading,
+.addressDetails_heading {
+  font-size: 2.2rem;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.logOutBtn {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.8rem;
+  background-color: var(--error-color);
+  margin-top: 5rem;
+}
+
+/*-----------------*/
+
+.login_container h3,
+.signUp_container h3 {
+  font-size: 2.8rem;
 }
 
 /* WishList page style */

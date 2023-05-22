@@ -1,30 +1,79 @@
 // React router
+import { Routes, Route } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 
 // components
 import Header from "./frontend/components/Header/Header";
 import Footer from "./frontend/components/Footer/Footer";
+import MockAPI from "./frontend/pages/MockApi/MockApi";
+import RequireAuth from "./frontend/components/RequiresAuth/RequireAuth";
+import { ToastContainer } from "react-toastify";
 
-// pages
+//  public pages
 import Home from "./frontend/pages/Home";
-import { Routes, Route } from "react-router-dom";
-
 import ProductListingPage from "./frontend/pages/ProductListingPage";
 import SingleProductPage from "./frontend/pages/SingleProductPage";
+import CartPage from "./frontend/pages/CartPage";
+import LoginPage from "./frontend/pages/LoginPage";
 import SignUpPage from "./frontend/pages/SignUpPage";
+import ErrorPage from "./frontend/pages/ErrorPage";
+
+// private pages
 import WishListPage from "./frontend/pages/WishListPage";
-import MockAPI from "./frontend/pages/MockApi/MockApi";
+import CheckoutPage from "./frontend/pages/CheckoutPage";
+import ProfilePage from "./frontend/pages/ProfilePage";
+import AddressPage from "./frontend/pages/AddressPage";
 
 const App = () => {
   return (
     <main className="shipprApp_container flex-column">
+      <ToastContainer
+        position="bottom-right"
+        autoClose={false}
+        newestOnTop={false}
+        closeOnClick
+        theme="colored"
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+      />
       <Header />
       <Routes>
         <Route path="/mock-man" element={<MockAPI />} />
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductListingPage />} />
         <Route path="/products/:productId" element={<SingleProductPage />} />
+        <Route
+          path="/wishlist"
+          element={
+            <RequireAuth>
+              <WishListPage />
+            </RequireAuth>
+          }
+        />
+        <Route path="/cart" element={<CartPage />} />
+        <Route
+          path="/checkout"
+          element={
+            <RequireAuth>
+              <CheckoutPage />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <RequireAuth>
+              <ProfilePage />
+            </RequireAuth>
+          }
+        >
+          <Route path="address" element={<AddressPage />} />
+        </Route>
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/signUp" element={<SignUpPage />} />
-        <Route path="/wishlist" element={<WishListPage />} />
+
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
     </main>
