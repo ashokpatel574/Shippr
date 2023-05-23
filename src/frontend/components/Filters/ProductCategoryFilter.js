@@ -11,27 +11,27 @@ const ProductCategoryFilter = () => {
               id="categoryTshirt"
               type="checkbox"
               className="categoryTshirt"
-              name="categoryTshirt"
+              name="tshirt"
             />
-            <label htmlFor="categoryTshirt"> T-Shirt</label>
+            <label htmlFor="categoryTshirt">T-Shirt</label>
           </li>
           <li>
             <input
               id="categoryTshirt"
               type="checkbox"
               className="categoryTshirt"
-              name="categoryTshirt"
+              name="losseTshirt"
             />
-            <label htmlFor="categoryTshirt"> T-Shirt</label>
+            <label htmlFor="categoryTshirt">Loose T-Shirt</label>
           </li>
           <li>
             <input
               id="categoryTshirt"
               type="checkbox"
               className="categoryTshirt"
-              name="categoryTshirt"
+              name="shirt"
             />
-            <label htmlFor="categoryTshirt"> T-Shirt</label>
+            <label htmlFor="categoryTshirt">Shirt</label>
           </li>
         </ul>
       </div>
