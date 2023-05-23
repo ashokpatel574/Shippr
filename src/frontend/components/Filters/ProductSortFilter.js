@@ -1,6 +1,17 @@
 import React from "react";
+import { ActionType, Filters, SortBy } from "../../constant";
+import { useData } from "../../context/DataContext";
 
 const ProductSortFilter = () => {
+  const { state, dispatch } = useData();
+  const sortChangeHandler = (e) => {
+    const { value } = e.target;
+    dispatch({
+      type: ActionType.ChangeFilter,
+      payload: { filterType: Filters.SortBy, filterValue: value },
+    });
+  };
+
   return (
     <>
       <div className="sideNavbar_sort-container">
@@ -9,29 +20,26 @@ const ProductSortFilter = () => {
           <li>
             <input
               id="LowToHigh"
-              type="checkbox"
+              type="radio"
               className="LowToHigh"
               name="sortBy"
+              value="Low-to-High"
+              checked={SortBy.LowToHigh === state?.filters?.sortBy}
+              onChange={sortChangeHandler}
             />
             <label htmlFor="LowToHigh"> Price: Low to High</label>
           </li>
           <li>
             <input
               id="HighToLow"
-              type="checkbox"
+              type="radio"
               className="HighToLow"
               name="sortBy"
+              value="High-to-Low"
+              checked={SortBy.HighToLow === state?.filters?.sortBy}
+              onChange={sortChangeHandler}
             />
             <label htmlFor="HighToLow">Price: High to Low</label>
-          </li>
-          <li>
-            <input
-              id="customerRatingSort"
-              type="checkbox"
-              className="customerRatingSort"
-              name="sortBy"
-            />
-            <label htmlFor="customerRatingSort">Customer Rating</label>
           </li>
         </ul>
       </div>

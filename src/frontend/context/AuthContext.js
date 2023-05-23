@@ -1,5 +1,5 @@
 import React, { useState, createContext, useContext } from "react";
-import { SignUpService, LoginService } from "../utils/apiService";
+import { SignUpService, LoginService } from "../utils/apiRequest";
 import { ToastType } from "../constant";
 import { ToastHandler } from "../utils/utils";
 

@@ -94,3 +94,7 @@
 .sideNavbar_priceRange-container input {
   width: 20rem;
 }
+
+.clearFilter {
+  cursor: pointer;
+}

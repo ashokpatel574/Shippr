@@ -480,6 +480,7 @@ export const products = [
       "https://res.cloudinary.com/dz0snqho8/image/upload/v1684437301/shippr/Shippr%20Images/Tshirts/Popeye-2_augftb.webp",
     ],
     brand: "The Souled Store",
+    sizes: ["sm", "m", "l", "xl"],
     price: 1199,
     discountpercent: 0.25,
     discountprice: 899,
