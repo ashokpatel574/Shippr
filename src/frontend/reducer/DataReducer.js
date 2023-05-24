@@ -36,7 +36,7 @@ const DataReducer = (state, action) => {
       if (action.payload.products) {
         const maxPriceValue = action.payload.products.reduce(
           (acc, { discountprice }) =>
-            Number(discountprice) > acc ? Number(discountprice) : acc,
+            Number(discountprice) > acc ? Number(discountprice) : Number(acc),
           0
         );
 
@@ -65,6 +65,22 @@ const DataReducer = (state, action) => {
           },
         };
       }
+
+      return state;
+    }
+
+    case ActionType.SetWishList: {
+      return {
+        ...state,
+        wishlist: [...action.payload.wishlist],
+      };
+    }
+
+    case ActionType.SetCartList: {
+      return {
+        ...state,
+        cartlist: [...action.payload.cart],
+      };
     }
 
     case ActionType.ClearFilter: {
@@ -87,38 +103,6 @@ const DataReducer = (state, action) => {
           ...state.filters,
           [action.payload.filterType]: action.payload.filterValue,
         },
-      };
-    }
-
-    case ActionType.SetWishList: {
-      return {
-        ...state,
-        wishlist: [...action.payload.wishlist],
-        products: state.products.map((productItem) => {
-          return {
-            ...productItem,
-            inWishList: action.payload.wishlist?.some(
-              (wishlistItem) => wishlistItem._id === productItem._id
-            ),
-          };
-        }),
-      };
-    }
-
-    case ActionType.SetCartList: {
-      return {
-        ...state,
-        cartlist: [...action.payload.cartlist],
-        products: state.products.map((productItem) => {
-          const productInCart = action.payload.cartlist?.find(
-            (cartItem) => cartItem._id === productItem._id
-          );
-          return {
-            ...productItem,
-            inCart: productInCart ? true : false,
-            qty: productInCart?.length || 0,
-          };
-        }),
       };
     }
 

@@ -3,14 +3,24 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 const LoginPage = () => {
-  const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
-  const [loginErrorDetails, setLoginErrorDetails] = useState({
+  const [loginInputDetails, setLoginInputDetails] = useState({
     email: "",
     password: "",
   });
+  const [loginErrorMessage, setLoginErrorMessage] = useState({
+    email: "",
+    password: "",
+  });
+
+  const {
+    token,
+    loginCredentialError,
+    loginCredentialLoader,
+    getUserCredentials,
+  } = useAuth();
+
   const navigate = useNavigate();
   const location = useLocation();
-  const { getUserCredentials, loginCredentialError, token } = useAuth();
 
   const guestUserClickHandler = () => {
     const guestUserDetails = {
@@ -21,13 +31,11 @@ const LoginPage = () => {
   };
 
   const userLoginClickHandler = () => {
-    const { email, password } = loginDetails;
-
     let flag = false;
     const newLoginErrorDetails = {};
-    Object.keys(loginErrorDetails).forEach((key) => {
+    Object.keys(loginErrorMessage).forEach((key) => {
       newLoginErrorDetails[key] = "";
-      if (loginDetails[key] === "") {
+      if (loginInputDetails[key] === "") {
         newLoginErrorDetails[key] = `${
           key[0].toUpperCase() + key.slice(1)
         } is required!`;
@@ -36,11 +44,12 @@ const LoginPage = () => {
     });
 
     if (!flag) {
-      setLoginErrorDetails({ email: "", password: "" });
+      setLoginErrorMessage({ email: "", password: "" });
     }
 
+    const { email, password } = loginInputDetails;
     flag
-      ? setLoginErrorDetails(newLoginErrorDetails)
+      ? setLoginErrorMessage(newLoginErrorDetails)
       : getUserCredentials(email, password);
   };
 
@@ -52,6 +61,10 @@ const LoginPage = () => {
 
   return (
     <article className="loginpage_container flex-center">
+      {loginCredentialLoader && (
+        <section className="login_container flex-center">Loading</section>
+      )}
+
       <section className="login_container flex-center">
         {loginCredentialError && (
           <p className="loginApiError">{loginCredentialError?.data}</p>
@@ -65,12 +78,15 @@ const LoginPage = () => {
             className="loginEmail"
             name="email"
             placeholder="Enter email here"
-            value={loginDetails.email}
+            value={loginInputDetails.email}
             onChange={(e) =>
-              setLoginDetails({ ...loginDetails, email: e.target.value })
+              setLoginInputDetails({
+                ...loginInputDetails,
+                email: e.target.value,
+              })
             }
           />
-          <span className="name-error">{loginErrorDetails.email}</span>
+          <span className="name-error">{loginErrorMessage.email}</span>
         </div>
         <div className="login_password-container">
           <label htmlFor="password">Password</label>
@@ -80,12 +96,15 @@ const LoginPage = () => {
             className="loginPassword"
             placeholder="Enter password here"
             name="password"
-            value={loginDetails.password}
+            value={loginInputDetails.password}
             onChange={(e) =>
-              setLoginDetails({ ...loginDetails, password: e.target.value })
+              setLoginInputDetails({
+                ...loginInputDetails,
+                password: e.target.value,
+              })
             }
           />
-          <span className="email-error">{loginErrorDetails.password}</span>
+          <span className="email-error">{loginErrorMessage.password}</span>
         </div>
 
         <button onClick={userLoginClickHandler} className="btn loginUserBtn">

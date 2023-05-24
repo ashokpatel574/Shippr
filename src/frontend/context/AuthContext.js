@@ -1,7 +1,8 @@
 import React, { useState, createContext, useContext } from "react";
-import { SignUpService, LoginService } from "../utils/apiRequest";
-import { ToastType } from "../constant";
+
+import { LoginService, SignUpService } from "../utils/apiUtils";
 import { ToastHandler } from "../utils/utils";
+import { ToastType } from "../constant";
 
 const AuthContext = createContext();
 
@@ -9,15 +10,16 @@ export const AuthContextProvider = ({ children }) => {
   const localStorageToken = JSON.parse(
     localStorage.getItem("loginCredentials")
   );
-
   const [token, setToken] = useState(localStorageToken?.token);
   const [currentUser, setCurrentUser] = useState(localStorageToken?.user);
   const [loginCredentialError, setLoginCredentialError] = useState(null);
+  const [loginCredentialLoader, setLoginCredentialLoader] = useState(true);
 
   // loginpage setup
   const getUserCredentials = async (email, password) => {
     try {
       setLoginCredentialError(null);
+      setLoginCredentialLoader(true);
       const {
         data: { foundUser, encodedToken },
         status,
@@ -30,6 +32,7 @@ export const AuthContextProvider = ({ children }) => {
         );
         setCurrentUser(foundUser);
         setToken(encodedToken);
+        setLoginCredentialLoader(false);
         setLoginCredentialError(null);
         ToastHandler(ToastType.Success, "Successfully logged in");
       }
@@ -38,6 +41,7 @@ export const AuthContextProvider = ({ children }) => {
         response: { status, statusText },
       } = error;
 
+      setLoginCredentialLoader(false);
       if (status === 404) {
         setLoginCredentialError({
           data: `User Email Id Not Found`,
@@ -82,8 +86,7 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
-  // log out page setup
-
+  //log out page setup
   const removeUserCredentials = async () => {
     localStorage.removeItem("loginCredentials");
     setToken(null);
@@ -96,6 +99,7 @@ export const AuthContextProvider = ({ children }) => {
       value={{
         token,
         currentUser,
+        loginCredentialLoader,
         loginCredentialError,
         getUserCredentials,
         setUserCredentials,

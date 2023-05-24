@@ -13,7 +13,7 @@ const ProfilePage = () => {
     navigate("/");
   };
 
-  const profile = () => {
+  const Profile = () => {
     return (
       <div className="profileDetails_container">
         <p className="profileDetails_heading">Profile Details</p>
@@ -51,6 +51,7 @@ const ProfilePage = () => {
           <p className="addressDetails_heading">Address Details</p>
         </div>
       </section>
+      <Profile />
     </article>
   );
 };
