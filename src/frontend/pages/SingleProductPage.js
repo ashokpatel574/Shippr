@@ -1,19 +1,27 @@
 import React from "react";
 
 import { useData } from "../context/DataContext";
-import { useParams } from "react-router";
+import { useParams, useNavigate, useLocation } from "react-router";
+import { isProductInCart, isProductInWishlist } from "../utils/utils";
+import {
+  DeleteWishListItem,
+  PostWishListItem,
+  PostCartItem,
+} from "../utils/apiUtils";
+import { ToastHandler } from "../utils/utils";
+import { ToastType } from "../constant";
+import { useAuth } from "../context/AuthContext";
 
 const SingleProductPage = () => {
-  const { state } = useData();
+  const { state, dispatch } = useData();
+  const { token } = useAuth();
   const { productId } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const singleProductDetails = state?.products?.find(
     (productItem) => productItem._id === productId
   );
-
-  const addToCartBtnHandler = (id) => {};
-
-  const addToWishlistBtnHandler = (id) => {};
 
   if (singleProductDetails) {
     const {
@@ -26,6 +34,43 @@ const SingleProductPage = () => {
       sizes,
       description,
     } = singleProductDetails;
+
+    const inWishList = isProductInWishlist(state.wishlist, _id);
+    const inCartList = isProductInCart(state.cartlist, _id);
+
+    const addToWishlistBtnHandler = (productId) => {
+      if (!token) {
+        navigate("/login", { state: { from: location } });
+      } else {
+        inWishList
+          ? DeleteWishListItem({
+              productId: productId,
+              encodedToken: token,
+              dispatch: dispatch,
+            })
+          : PostWishListItem({
+              product: singleProductDetails,
+              encodedToken: token,
+              dispatch: dispatch,
+            });
+
+        inWishList
+          ? ToastHandler(ToastType.Warn, "Removed from wishlist")
+          : ToastHandler(ToastType.Success, "Added to wishlist");
+      }
+    };
+
+    const addToCartBtnHandler = (product) => {
+      inCartList
+        ? navigate(`/cart`)
+        : PostCartItem({
+            product: product,
+            encodedToken: token,
+            dispatch: dispatch,
+          });
+
+      !inCartList && ToastHandler(ToastType.Success, "Added to cart");
+    };
 
     return (
       <section className="singleProductpage_section">
@@ -67,16 +112,16 @@ const SingleProductPage = () => {
 
             <div className="singleProduct_btnContainer">
               <button
-                onClick={() => addToCartBtnHandler(_id)}
+                onClick={() => addToCartBtnHandler(singleProductDetails)}
                 className="btn addToCartBtn"
               >
-                Add to cart
+                {inCartList ? "Go to Cart" : "Add to cart"}
               </button>
               <button
                 onClick={() => addToWishlistBtnHandler(_id)}
                 className="btn addToWishListBtn"
               >
-                WishList
+                {inWishList ? `Remove from Wishlist` : `Add to Wishlist`}
               </button>
             </div>
 

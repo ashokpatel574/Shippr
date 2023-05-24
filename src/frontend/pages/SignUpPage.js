@@ -21,6 +21,7 @@ const SignUpPage = () => {
     password: "",
     passwordConfirm: "",
   });
+
   const navigate = useNavigate();
   const location = useLocation();
   const { setUserCredentials, token } = useAuth();

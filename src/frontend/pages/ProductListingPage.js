@@ -1,6 +1,8 @@
 import React from "react";
-import ProductCard from "../components/ProductCard/ProductCard";
-import FilterMain from "../components/Filters/FilterMain";
+
+import ProductCard from "../components/productCard/ProductCard";
+
+import FilterMain from "../components/filters/FilterMain";
 import { useData } from "../context/DataContext";
 
 const ProductListingPage = () => {

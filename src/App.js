@@ -3,10 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 // components
-import Header from "./frontend/components/Header/Header";
-import Footer from "./frontend/components/Footer/Footer";
-import MockAPI from "./frontend/pages/MockApi/MockApi";
-import RequireAuth from "./frontend/components/RequiresAuth/RequireAuth";
+import Header from "./frontend/components/header/Header";
+import Footer from "./frontend/components/footer/Footer";
+import MockAPI from "./frontend/components/mockApi/MockApi";
+import RequireAuth from "./frontend/components/requiresAuth/RequireAuth";
 import { ToastContainer } from "react-toastify";
 
 //  public pages
