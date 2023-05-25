@@ -658,80 +658,6 @@
   padding: 0 0.75rem;
 }
 
-/* Profile page style */
-
-.profilePage_container {
-  background-color: #ccc;
-  width: 100%;
-  min-height: 58rem;
-  flex-direction: column;
-}
-
-.accountInformation {
-  font-size: 2.8rem;
-  padding: 2rem;
-}
-
-.profilePage_container .profile_container {
-  max-width: 45rem;
-  width: 100%;
-  margin: 0 auto;
-  flex-direction: column;
-  background-color: #fff;
-  padding: 3rem 3rem;
-  gap: 2.25rem;
-  border-radius: 1rem;
-}
-
-.accountInfo_togglebtn-conatiner {
-  width: 100%;
-  border: 1px solid var(--primary-color-one);
-}
-
-.userprofilebtn,
-.userAddressbtn {
-  font-size: 2rem;
-  width: 50%;
-  padding: 1rem 2rem;
-  border: none;
-  cursor: pointer;
-}
-
-.userProfileNavLink.active .userprofilebtn {
-  background-color: var(--primary-color-one);
-  color: #fff;
-}
-
-.userAddressNavLink.active .userAddressbtn {
-  background-color: var(--primary-color-one);
-  color: #fff;
-}
-
-.profileDetails_container,
-.addressDetails_container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 1.5rem;
-  padding: 2rem 0;
-}
-
-.profileDetails_heading,
-.addressDetails_heading {
-  font-size: 2.2rem;
-  font-weight: 500;
-  text-decoration: underline;
-}
-
-.logOutBtn {
-  padding: 0.8rem 1.6rem;
-  font-size: 1.8rem;
-  background-color: var(--error-color);
-  margin-top: 5rem;
-}
-
 /*-----------------*/
 
 .login_container h3,
@@ -859,5 +785,142 @@
   width: 100%;
   padding: 0.75rem 2rem;
   font-size: 1.8rem;
+  border-radius: 5px;
+}
+
+/* Profile page style */
+
+.userInfo_container {
+  background-color: #ccc;
+  width: 100%;
+  min-height: 65rem;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+
+.userInfo_container-title {
+  font-size: 3.6rem;
+  padding-bottom: 3rem;
+}
+
+.userInfo_wrapper {
+  max-width: 50rem;
+  width: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 3rem 3rem;
+  gap: 2.25rem;
+  border-radius: 1rem;
+}
+
+.userInfo_wrapper-btn-container {
+  width: 100%;
+  border: 2px solid var(--primary-color-one);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.userProfilebtn,
+.userAddressbtn {
+  display: inline-block;
+  text-align: center;
+  font-size: 2.4rem;
+  width: 50%;
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.userProfileNavLink.active .userProfilebtn {
+  background-color: var(--primary-color-one);
+  color: #fff;
+}
+
+.userAddressNavLink.active .userAddressbtn {
+  background-color: var(--primary-color-one);
+  color: #fff;
+}
+
+.userProfile_container,
+.userAddress_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.userProfile_container-heading,
+.userAddress_container-heading {
+  font-size: 2.4rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.userProfile-name,
+.userProfile-email {
+  font-size: 2.4rem;
+}
+
+.logOutBtn {
+  padding: 1rem 1.8rem;
+  font-size: 2rem;
+  background-color: var(--error-color);
+  margin-top: 3rem;
+}
+
+.addNewAddressBtn {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.userAddressList_container,
+.userAddress_card-container,
+.userAddress-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.userAddressList_container {
+  gap: 2rem;
+  padding: 1.5rem 0;
+}
+
+.userAddress_card-container {
+  gap: 2rem;
+}
+
+.userAddress-details {
+  gap: 0.3rem;
+}
+
+.userAddress-details p {
+  font-size: 2rem;
+}
+
+.userAddress-details .name {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.userAddress_cardBtn-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2em;
+}
+
+.userAddress_cardBtn-container .editBtn,
+.userAddress_cardBtn-container .removeBtn {
+  margin-top: 0.5rem;
+  padding: 0.4rem 1.2rem;
+  font-size: 2rem;
   border-radius: 5px;
 }

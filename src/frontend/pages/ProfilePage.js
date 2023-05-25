@@ -1,57 +1,48 @@
 import React, { useState } from "react";
-import { useAuth } from "../context/AuthContext";
-import { NavLink, useNavigate } from "react-router-dom";
+import UserProfile from "../components/profile/UserProfile";
+import UserAddress from "../components/profile/UserAddress";
+import { NavLink } from "react-router-dom";
 
 const ProfilePage = () => {
-  const [profileInfo, setProfile] = useState("");
-  const { currentUser, removeUserCredentials } = useAuth();
+  const [profileInfo, setProfile] = useState("profileDetails");
 
-  const navigate = useNavigate();
+  const profileHandler = (type) => {
+    if (type === "profileDetails") {
+      setProfile(type);
+    }
 
-  const logOutClickHandler = () => {
-    removeUserCredentials();
-    navigate("/");
+    if (type === "addressDetails") {
+      setProfile(type);
+    }
   };
-
-  const Profile = () => {
-    return (
-      <div className="profileDetails_container">
-        <p className="profileDetails_heading">Profile Details</p>
-        <p>
-          Name: {currentUser?.firstName} {currentUser?.lastName}
-        </p>
-        <p>Email: {currentUser?.email}</p>
-        <button onClick={logOutClickHandler} className="btn logOutBtn">
-          Log out
-        </button>
-      </div>
-    );
-  };
-
-  const profileClickHandler = () => {};
-  const addressClickHandler = () => {};
 
   return (
-    <article className="profilePage_container flex-center">
-      <h3 className="accountInformation">Account Information</h3>
-      <section className="profile_container flex-center">
-        <div className="accountInfo_togglebtn-conatiner">
-          <NavLink className="userProfileNavLink">
-            <button className="userprofilebtn" onClick={profileClickHandler}>
+    <article className="userInfo_container flex-center">
+      <h3 className="userInfo_container-title">Account Information</h3>
+      <section className="userInfo_wrapper flex-center">
+        <div className="userInfo_wrapper-btn-container">
+          <NavLink to="userInfo" className="userProfileNavLink">
+            <span
+              className="userProfilebtn"
+              onClick={() => profileHandler("profileDetails")}
+            >
               Profile
-            </button>
+            </span>
           </NavLink>
-          <NavLink className="userAddressNavLink">
-            <button className="userAddressbtn" onClick={addressClickHandler}>
+          <NavLink to="userAddress" className="userAddressNavLink">
+            <span
+              className="userAddressbtn"
+              onClick={() => profileHandler("addressDetails")}
+            >
               Address
-            </button>
+            </span>
           </NavLink>
         </div>
-        <div className="addressDetails_container">
-          <p className="addressDetails_heading">Address Details</p>
-        </div>
+
+        <>{profileInfo === "profileDetails" && <UserProfile />}</>
+
+        <>{profileInfo === "addressDetails" && <UserAddress />}</>
       </section>
-      <Profile />
     </article>
   );
 };
