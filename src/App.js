@@ -7,6 +7,8 @@ import Header from "./frontend/components/header/Header";
 import Footer from "./frontend/components/footer/Footer";
 import MockAPI from "./frontend/components/mockApi/MockApi";
 import RequireAuth from "./frontend/components/requiresAuth/RequireAuth";
+import UserProfile from "./frontend/components/profile/UserProfile";
+import UserAddress from "./frontend/components/profile/UserAddress";
 import { ToastContainer } from "react-toastify";
 
 //  public pages
@@ -22,7 +24,6 @@ import ErrorPage from "./frontend/pages/ErrorPage";
 import WishListPage from "./frontend/pages/WishListPage";
 import CheckoutPage from "./frontend/pages/CheckoutPage";
 import ProfilePage from "./frontend/pages/ProfilePage";
-import AddressPage from "./frontend/pages/AddressPage";
 
 const App = () => {
   return (
@@ -68,7 +69,8 @@ const App = () => {
             </RequireAuth>
           }
         >
-          <Route path="address" element={<AddressPage />} />
+          <Route index path="userInfo" element={<UserProfile />} />
+          <Route path="userAddress" element={<UserAddress />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signUp" element={<SignUpPage />} />
