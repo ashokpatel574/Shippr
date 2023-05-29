@@ -1,6 +1,7 @@
 import React from "react";
 import { useData } from "../../context/DataContext";
 import { ActionType, Filters } from "../../constant";
+import StarIcon from "@mui/icons-material/Star";
 
 const RatingFilter = () => {
   const { state, dispatch } = useData();
@@ -27,7 +28,9 @@ const RatingFilter = () => {
               checked={state?.filters?.rating === "4"}
               onChange={ratingFilterChangeHandler}
             />
-            <label htmlFor="productRating-4"> 4 and above</label>
+            <label htmlFor="productRating-4">
+              4 <StarIcon className="starIcon" /> and above
+            </label>
           </li>
           <li>
             <input
@@ -39,7 +42,9 @@ const RatingFilter = () => {
               checked={state?.filters?.rating === "3"}
               onChange={ratingFilterChangeHandler}
             />
-            <label htmlFor="productRating-3"> 3 and above</label>
+            <label htmlFor="productRating-3">
+              3 <StarIcon className="starIcon" /> and above
+            </label>
           </li>
           <li>
             <input
@@ -51,7 +56,9 @@ const RatingFilter = () => {
               checked={state?.filters?.rating === "2"}
               onChange={ratingFilterChangeHandler}
             />
-            <label htmlFor="productRating-3"> 2 and above</label>
+            <label htmlFor="productRating-3">
+              2 <StarIcon className="starIcon" /> and above
+            </label>
           </li>
         </ul>
       </div>

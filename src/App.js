@@ -27,7 +27,7 @@ import ProfilePage from "./frontend/pages/ProfilePage";
 
 const App = () => {
   return (
-    <main className="shipprApp_container flex-column">
+    <main className="shipprApp_container flex-column ">
       <ToastContainer
         position="bottom-right"
         autoClose={false}
