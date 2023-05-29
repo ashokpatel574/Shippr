@@ -17,7 +17,7 @@ const FilterMain = () => {
   };
   return (
     <>
-      <div className="productslisting_side-navbar-title-conatiner">
+      <div className="productslisting_side-navbar-header flex-space-between">
         <span>Filters</span>
         <span onClick={filterClearHandler} className="clearFilter">
           Clear All

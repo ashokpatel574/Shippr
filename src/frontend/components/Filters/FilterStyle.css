@@ -1,23 +1,17 @@
-.productslisting_side-navbar {
-  grid-area: sidebar;
-  position: sticky;
-  overflow-y: auto;
-  height: fit-content;
-  background-color: #fff;
-  padding-bottom: 5rem;
-}
-
-.productslisting_side-navbar-title-conatiner {
-  display: flex;
-  justify-content: space-between;
+.productslisting_side-navbar-header {
   align-items: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--boder-color-light);
   padding: 2rem 2.5rem;
   font-weight: 600;
 }
 
-.productslisting_side-navbar-title-conatiner span {
+.productslisting_side-navbar-header span {
   font-size: 2rem;
+  letter-spacing: 0.7px;
+}
+
+.clearFilter {
+  cursor: pointer;
 }
 
 .sideNavbar_category-container,
@@ -27,7 +21,7 @@
 .sideNavbar_sort-container,
 .sideNavbar_availablity-container {
   padding: 2rem 2rem 2rem 3rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--boder-color-light);
 }
 
 .sideNavbar_category-container p,
@@ -38,6 +32,7 @@
 .sideNavbar_availablity-container p {
   margin-bottom: 1.5rem;
   font-weight: 500;
+  color: var(--primary-color-one);
 }
 
 .sideNavbar_category-container ul,
@@ -93,8 +88,4 @@
 
 .sideNavbar_priceRange-container input {
   width: 20rem;
-}
-
-.clearFilter {
-  cursor: pointer;
 }

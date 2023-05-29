@@ -10,6 +10,12 @@
   --secondary-color-three: #f6f7fb;
   --success-color: #2ecc71;
   --error-color: #e74c3c;
+  --border-radius: 0.8rem;
+  --border-color-normal: #ccc;
+  --border-color-highlight: #3c0ac2;
+  --boder-color-light: #eee;
+  --background-color-one: #ddd;
+  --background-color-two: #fff;
 }
 
 *,
@@ -30,7 +36,10 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  overflow-x: hidden;
   position: relative;
-  min-height: 100vh;
+
+  /* If any child element has postion sticky then this  overflow-x property in parent container element doesn't work well , so we are using overflow clip but only draw back of overflow clip is that 5% of safari broswer and IE broswer do not support so for fall back we are using overflow-x hidden */
+  overflow-x: hidden;
+  overflow-x: clip;
+  /* min-height: 100vh; */
 }

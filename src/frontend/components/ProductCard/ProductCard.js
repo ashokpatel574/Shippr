@@ -57,7 +57,10 @@ const ProductCard = ({ productItem }) => {
   };
 
   return (
-    <li key={productId} className="productsListing_container-card">
+    <li
+      key={productId}
+      className="productsListing_container-card flex-column flex-justify-center"
+    >
       <div className="productsListing_card-imgContainer">
         <img src={images[0]} alt={title} onClick={productCardClickHandler} />
         <span className="product-rating">{rating}</span>
@@ -74,14 +77,14 @@ const ProductCard = ({ productItem }) => {
           )}
         </span>
       </div>
-      <div className="productsListing_card-textContainer">
+      <div className="productsListing_card-textContainer flex-start flex-column">
         <p>{title}</p>
-        <p className="productsListing_card-priceContainer">
+        <p className="productsListing_card-priceContainer flex-center">
           <span className="discountPrice">Rs.{discountprice}</span>
-          <span className="totalPrice">Rs.{price}</span>
+          <span className="totalPrice txt-crossed-off">Rs.{price}</span>
 
           <span className="discountPercent">
-            {`(${discountpercent * 100}OFF%)`}
+            {`(${discountpercent * 100} OFF%)`}
           </span>
         </p>
       </div>

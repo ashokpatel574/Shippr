@@ -105,13 +105,29 @@ a {
 
 /* flex and grid utilities */
 
-.flex-row {
+.flex-wrap {
   display: flex;
   flex-wrap: wrap;
 }
+
+.flex-nowrap {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
 .flex-center {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-justify-center {
+  display: flex;
   justify-content: center;
 }
 
@@ -125,9 +141,30 @@ a {
   justify-content: space-between;
 }
 
+.flex-space-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-space-around {
+  display: flex;
+  justify-content: space-around;
+}
+
 .flex-start {
   display: flex;
   align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.flex-align-start {
+  display: flex;
+  align-items: flex-start;
+}
+
+.flex-justify-start {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .flex-align-center {

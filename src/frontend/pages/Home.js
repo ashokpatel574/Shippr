@@ -13,7 +13,7 @@ const Home = () => {
   }, []);
 
   return (
-    <article className="hero_container">
+    <article className="hero_container ">
       <div className="heroImg_container">
         <Link to="products">
           <img src={HeroImg} alt="Hero" />

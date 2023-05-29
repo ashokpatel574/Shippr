@@ -63,15 +63,15 @@ const WishListCard = ({ wishlistItem }) => {
   };
 
   return (
-    <li key={title} className="productsListing_container-card">
-      <div className="productsListing_card-imgContainer">
+    <li key={title} className="wishList_card-container flex-column">
+      <div className="wishlist_card-imgContainer">
         <img src={images[0]} alt={title} onClick={wishlistCardClickHandler} />
         <span className="product-rating">{rating}</span>
         <span
           onClick={() => removeWishlistHandler(wishlistId)}
-          className="wishListIcon_container selected flex-center"
+          className="wishListIcon_container remove-card  flex-center"
         >
-          <CloseIcon />
+          <CloseIcon className="closeIcon" />
         </span>
       </div>
       <div className="productsListing_card-textContainer">

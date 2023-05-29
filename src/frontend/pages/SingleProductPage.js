@@ -76,7 +76,7 @@ const SingleProductPage = () => {
       <section className="singleProductpage_section">
         <div className="singleProductpage_main-container">
           <div className="singleProduct_imgContainer">
-            <ul>
+            <ul className="flex-start flex-wrap">
               {images?.map((imageItem, id) => (
                 <li key={id}>
                   <img src={imageItem} alt={"Tshirt"} />
@@ -87,7 +87,7 @@ const SingleProductPage = () => {
           <div className="singleProduct_detailsContainer">
             <h3 className="singleProduct_title">{title}</h3>
 
-            <div className="singleProduct_priceContainer">
+            <div className="singleProduct_priceContainer flex-justify-start">
               <span className="discountPrice">Rs. {discountprice}</span>
               <span className="totalPrice">Rs. {price}</span>
 
@@ -97,8 +97,8 @@ const SingleProductPage = () => {
             </div>
 
             <div className="singleProduct_sizesContainer">
-              <h3>Size</h3>
-              <ul>
+              <h3>Sizes</h3>
+              <ul className="flex-justify-start">
                 {sizes?.map((sizeListItem, id) => (
                   <li key={id} className="singleProduct_sizes">
                     <label htmlFor="sizefilter">
@@ -108,9 +108,10 @@ const SingleProductPage = () => {
                   </li>
                 ))}
               </ul>
+              <span className="size-error">Size is required!</span>
             </div>
 
-            <div className="singleProduct_btnContainer">
+            <div className="singleProduct_btnContainer flex-justify-start flex-wrap">
               <button
                 onClick={() => addToCartBtnHandler(singleProductDetails)}
                 className="btn addToCartBtn"

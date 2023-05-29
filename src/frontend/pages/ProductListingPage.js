@@ -14,8 +14,8 @@ const ProductListingPage = () => {
         <aside className="productslisting_side-navbar">
           <FilterMain />
         </aside>
-        <article className="productsListing_container">
-          <ul>
+        <article className="productsListing_container ">
+          <ul className=" flex-space-evenly flex-wrap ">
             {filteredData?.map((productItem, id) => (
               <ProductCard productItem={productItem} key={id} />
             ))}
