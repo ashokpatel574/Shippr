@@ -126,3 +126,12 @@ export const IncDecCartItem = async ({ productId, encodedToken, type }) => {
     }
   );
 };
+
+export const UpdateUserAddress = (dispatch, addressDetails) => {
+  dispatch({
+    type: ActionType.AddAddress,
+    payload: {
+      address: addressDetails,
+    },
+  });
+};

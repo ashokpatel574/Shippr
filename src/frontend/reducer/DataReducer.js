@@ -17,14 +17,13 @@ export const initialState = {
   showNav: true,
   addressList: [
     {
-      address: "101, 100Ft Road, MG Street ",
-      alternatemobile: 1234567891,
-      city: "Bangalore",
       id: "2364c34d-7645-49cb-8b74",
-      mobile: 1987654321,
       name: "Ashok Patel",
-      pincode: "560043",
-      countryState: "Karnataka",
+      address: "101, 100Ft Road, MG Street ",
+      city: "Bangalore",
+      mobile: 1987654321,
+      pincode: 560043,
+      state: "Karnataka",
       country: "India",
     },
   ],
@@ -104,6 +103,16 @@ const DataReducer = (state, action) => {
           ...state.filters,
           [action.payload.filterType]: action.payload.filterValue,
         },
+      };
+    }
+
+    case ActionType.AddAddress: {
+      return {
+        ...state,
+        addressList: [
+          ...state.addressList,
+          { country: "India", ...action.payload.address },
+        ],
       };
     }
 

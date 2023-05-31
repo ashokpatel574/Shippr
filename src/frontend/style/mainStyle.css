@@ -932,39 +932,36 @@
 /* Profile page style */
 
 .userInfo_container {
-  background-color: #ccc;
+  background-color: var(--background-color-one);
   width: 100%;
-  height: 100%;
   flex-direction: column;
   padding: 5rem 0 8rem 0;
 }
 
 .userInfo_container-title {
   font-size: 3.6rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
 }
 
 .userInfo_wrapper {
   max-width: 50rem;
   width: 100%;
-  height: 100%;
   margin: 0 auto;
   flex-direction: column;
-  background-color: #fff;
-  padding: 3rem 3rem;
+  background-color: var(--background-color-two);
+  padding: 3rem;
   gap: 2rem;
   border-radius: 1rem;
 }
 
-.userInfo_wrapper-btn-container {
+.userInfo_NavLink-container {
   width: 100%;
   border: 2px solid var(--primary-color-one);
   border-radius: 4px;
-  overflow: hidden;
 }
 
-.userProfilebtn,
-.userAddressbtn {
+.userProfile_title,
+.userAddress_title {
   display: inline-block;
   text-align: center;
   font-size: 2.4rem;
@@ -974,28 +971,21 @@
   cursor: pointer;
 }
 
-.userProfileNavLink.active .userProfilebtn {
+.userProfileNavLink.active .userProfile_title {
   background-color: var(--primary-color-one);
-  color: #fff;
+  color: var(--secondary-color-one);
 }
 
-.userAddressNavLink.active .userAddressbtn {
+.userAddressNavLink.active .userAddress_title {
   background-color: var(--primary-color-one);
-  color: #fff;
+  color: var(--secondary-color-one);
 }
 
 .userProfile_container,
 .userAddress_container {
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 1.5rem 0;
-  opacity: 1;
-  pointer-events: all;
 }
 
 .userProfile_container-heading,
@@ -1007,44 +997,36 @@
 
 .userProfile-name,
 .userProfile-email {
-  font-size: 2.4rem;
+  font-size: 2rem;
+}
+
+.userProfile-name span,
+.userProfile-email span {
+  font-weight: 500;
 }
 
 .logOutBtn {
-  padding: 0.8rem 1.6rem;
+  padding: 0.6rem 1.2rem;
   font-size: 1.8rem;
   background-color: var(--error-color);
   margin-top: 2rem;
 }
 
 .addNewAddressBtn {
+  display: inline-block;
   font-size: 2.4rem;
   font-weight: 600;
   margin-top: 1rem;
   cursor: pointer;
+  text-decoration: underline;
+}
+
+.addNewAddressBtn:hover {
+  color: var(--primary-color-one);
 }
 
 .userAddress_card-container {
   gap: 2rem;
-}
-
-.userAddress_card-container.selected {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.userAddress_card-container {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.userAddressList_container,
-.userAddress_card-container,
-.userAddress-details {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
 }
 
 .userAddressList_container {
@@ -1053,57 +1035,74 @@
 }
 
 .userAddress-details {
-  gap: 0.3rem;
+  gap: 0.5rem;
+  padding: 1rem 0;
 }
 
 .userAddress-details p {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .userAddress-details .name {
   font-size: 2.2rem;
+  margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
+.userAddress-details .mobileNumber svg {
+  font-size: 2rem;
+}
+
 .userAddress_cardBtn-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
   gap: 2em;
 }
 
 .userAddress_cardBtn-container .editBtn,
 .userAddress_cardBtn-container .removeBtn {
-  margin-top: 0.5rem;
-  padding: 0.4rem 1.2rem;
-  font-size: 2rem;
+  padding: 0.3rem 1.2rem;
+  font-size: 1.8rem;
   border-radius: 5px;
 }
 
 /* Address Modal container */
 
-.address_modal-container.selected {
-  opacity: 1;
-  pointer-events: all;
+.address_modal-container {
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-.address_modal-container {
-  opacity: 0;
-  pointer-events: none;
+.address_modal-container.active {
+  display: block;
 }
 
-.address_modal-container {
-  position: fixed;
+.address_modal {
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 100;
-  background-color: #fff;
-  max-width: 60rem;
+  z-index: 50;
+  background-color: var(--background-color-two);
+  max-width: 50rem;
   width: 100%;
   margin: 0 auto;
   padding: 2rem 2.5rem;
   border-radius: 1rem;
+  animation: modalOpen;
+  animation-duration: 0.5s;
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .address_modal-heading-container {
@@ -1127,7 +1126,7 @@
 }
 
 .address_modal-heading-container svg:hover {
-  border: 2px solid #aaa;
+  border: 2px solid var(--primary-color-one);
   border-radius: 50%;
   padding: 0.25rem;
   transform: scale(1.05);
@@ -1140,10 +1139,7 @@
 
 .address_form-container {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+
   gap: 1.5rem;
   padding: 1rem 0.5rem 1.5rem 0.5rem;
   margin: 0 0.5rem;
@@ -1160,12 +1156,12 @@
 
 .form_container.type-2 {
   flex-direction: row;
-  column-gap: 4rem;
+  column-gap: 2.5rem;
 }
 
 .form_container label,
 .form_container input,
-.form_container span {
+.form_container select .form_container span {
   display: block;
   width: 100%;
 }
@@ -1174,8 +1170,10 @@
   font-size: 1.6rem;
 }
 
-.form_container input {
-  padding: 0.6rem 1.2rem;
+.form_container input,
+.form_container select {
+  width: 100%;
+  padding: 0.6rem 1.4rem;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1.7rem;

@@ -1,23 +1,25 @@
-import React from "react";
+import SmartphoneIcon from "@mui/icons-material/Smartphone";
 
-const AddressCard = ({ addressListItem, modalOpen, setModalOpen }) => {
-  const { address, city, countryState, pincode, country, name, mobile } =
+const AddressCard = ({ addressListItem }) => {
+  const { address, city, state, pincode, country, name, mobile } =
     addressListItem;
 
   return (
     <>
-      <li className={`userAddress_card-container ${modalOpen && "selected"}`}>
-        <div className="userAddress-details">
+      <li className="userAddress_card-container flex-start flex-column">
+        <div className="userAddress-details  flex-start flex-column">
           <p className="name">{name}</p>
-          <p className="address">{address}</p>
+          <p className="address">#{address}</p>
           <p className="city">{city}</p>
           <p>
-            {countryState} - {pincode}
+            {state} - {pincode}
           </p>
           <p>{country}</p>
-          <p>{mobile}</p>
+          <p className="mobileNumber flex-center">
+            <SmartphoneIcon /> {"  "} {mobile}
+          </p>
         </div>
-        <div className="userAddress_cardBtn-container">
+        <div className="userAddress_cardBtn-container flex-start">
           <button className="btn editBtn">Edit</button>
           <button className="btn removeBtn">Remove</button>
         </div>
