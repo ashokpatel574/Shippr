@@ -20,6 +20,7 @@ const App = () => {
         pauseOnFocusLoss
         draggable
       />
+
       <Header />
       <Outlet />
       <Footer />

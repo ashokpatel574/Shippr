@@ -7,18 +7,20 @@ const UserProfile = () => {
 
   const navigate = useNavigate();
 
-  const logOutClickHandler = () => {
+  const logOutHandler = () => {
     removeUserCredentials();
     navigate("/");
   };
   return (
-    <div className="userProfile_container">
+    <div className="userProfile_container flex-start flex-column">
       <h3 className="userProfile_container-heading">Profile Details</h3>
       <p className="userProfile-name">
-        Name: {currentUser?.firstName} {currentUser?.lastName}
+        <span>Name:</span> {currentUser?.firstName} {currentUser?.lastName}
       </p>
-      <p className="userProfile-email">Email: {currentUser?.email}</p>
-      <button onClick={logOutClickHandler} className="btn logOutBtn">
+      <p className="userProfile-email">
+        <span>Email:</span> {currentUser?.email}
+      </p>
+      <button onClick={logOutHandler} className="btn logOutBtn">
         Log out
       </button>
     </div>

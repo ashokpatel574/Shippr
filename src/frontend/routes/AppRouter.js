@@ -68,7 +68,7 @@ export const AppRouter = createBrowserRouter([
           </RequireAuth>
         ),
         children: [
-          { index: true, path: "userInfo", element: <UserProfile /> },
+          { index: true, element: <UserProfile /> },
           { path: "userAddress", element: <UserAddress /> },
         ],
       },

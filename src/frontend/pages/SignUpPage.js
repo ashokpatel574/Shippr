@@ -37,7 +37,7 @@ const SignUpPage = () => {
       if (!validateOnlyString(value)) {
         setSignUpFormErrorDetails({
           ...signUpFormErrorDetails,
-          [name]: `Name should be in strings!`,
+          [name]: `Name should be in text!`,
         });
       }
 
