@@ -14,8 +14,6 @@ const Header = () => {
   const { token } = useAuth();
   const navigate = useNavigate();
 
-  console.log();
-
   return (
     <header className="header_container ">
       <nav className=" header_nav-container flex-space-between  ">

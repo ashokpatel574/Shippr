@@ -9,11 +9,11 @@ const CartPage = () => {
   return (
     <section className="cartpage_section">
       <div className="cartpage_main-container">
-        <div className="cartpage_productDetails">
+        <div className="cartpage_productDetails flex-column">
           <h3 className="cartpage_productDetails-title">
             Total Cart Items : {state.cartlist.length}
           </h3>
-          <ul className="cartpage_productDetails-cardList">
+          <ul className="cartpage_productDetails-cardList flex-column">
             {state?.cartlist?.map((cartItem, id) => (
               <CartCard cartItem={cartItem} key={id} />
             ))}

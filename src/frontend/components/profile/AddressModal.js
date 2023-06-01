@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import {
   validateOnlyString,
@@ -9,18 +9,10 @@ import { stateLists } from "../../constant";
 import { UpdateUserAddress } from "../../utils/apiUtils";
 import { useData } from "../../context/DataContext";
 
-const AddressModal = ({ modalState }) => {
+const AddressModal = ({ modalState, addressState }) => {
   const { modalToggle, setModalToggle } = modalState;
+  const { addressDetails, setAddressDetails } = addressState;
   const { dispatch } = useData();
-  const [addressDetails, setAddressDetails] = useState({
-    name: "",
-    address: "",
-    city: "",
-    state: "",
-    pincode: "",
-    mobile: "",
-  });
-
   const [addressErrorDetails, setAddressErrorDetails] = useState({
     name: "",
     address: "",
@@ -33,6 +25,8 @@ const AddressModal = ({ modalState }) => {
   const addressHandler = (e) => {
     const { name, value } = e.target;
     setAddressDetails((prevState) => ({ ...prevState, [name]: value }));
+
+    console.log(addressDetails);
 
     if (name === `name` || name === "city") {
       const nameLength = value.length;
@@ -51,6 +45,24 @@ const AddressModal = ({ modalState }) => {
           [name]: `${
             name[0].toUpperCase() + name.slice(1)
           } should have atleast 3 character!`,
+        });
+      }
+    }
+
+    if (name === "address") {
+      if (value !== "") {
+        setAddressErrorDetails({
+          ...addressErrorDetails,
+          [name]: "",
+        });
+      }
+    }
+
+    if (name === "state") {
+      if (stateLists.includes(value)) {
+        setAddressErrorDetails({
+          ...addressErrorDetails,
+          [name]: "",
         });
       }
     }
@@ -79,7 +91,14 @@ const AddressModal = ({ modalState }) => {
       const mobileLength = value.length;
 
       if (!validateMobileNumber(value)) {
-        if (mobileLength <= 10) {
+        if (mobileLength <= 10 || mobileLength > 10) {
+          setAddressErrorDetails({
+            ...addressErrorDetails,
+            [name]: `Mobile should be atleast 10 digits`,
+          });
+        }
+
+        if (mobileLength > 10) {
           setAddressErrorDetails({
             ...addressErrorDetails,
             [name]: `Mobile should be atleast 10 digits`,
@@ -88,7 +107,7 @@ const AddressModal = ({ modalState }) => {
 
         setAddressErrorDetails({
           ...addressErrorDetails,
-          [name]: `Mobile number should be number`,
+          [name]: `Please enter valid mobile number!`,
         });
       }
     }

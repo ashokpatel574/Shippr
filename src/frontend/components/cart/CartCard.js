@@ -67,9 +67,9 @@ const CartCard = ({ cartItem }) => {
   };
 
   return (
-    <div className="cartpage_productDetails-card">
-      <div className="product_info-container">
-        <div className="product_info-partOne">
+    <div className="cartpage_productDetails-card flex-column">
+      <div className="product_info-container flex-space-between">
+        <div className="product_info-partOne flex-column flex-start">
           <p className="product_info-partOne-title">{title}</p>
           <div className="cartProduct_priceContainer">
             <span className="discountPrice">Rs. {discountprice}</span>
