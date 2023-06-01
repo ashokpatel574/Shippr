@@ -1,4 +1,5 @@
 import { ActionType } from "../constant";
+import { v4 as uuid } from "uuid";
 
 export const initialState = {
   filters: {
@@ -17,7 +18,7 @@ export const initialState = {
   showNav: true,
   addressList: [
     {
-      id: "2364c34d-7645-49cb-8b74",
+      id: uuid(),
       name: "Ashok Patel",
       address: "101, 100Ft Road, MG Street ",
       city: "Bangalore",
@@ -111,8 +112,17 @@ const DataReducer = (state, action) => {
         ...state,
         addressList: [
           ...state.addressList,
-          { country: "India", ...action.payload.address },
+          { country: "India", id: uuid(), ...action.payload.address },
         ],
+      };
+    }
+
+    case ActionType.DeleteAddress: {
+      return {
+        ...state,
+        addressList: state.addressList.filter(
+          (item) => item.id !== action.payload.address.id
+        ),
       };
     }
 

@@ -74,24 +74,23 @@ const WishListCard = ({ wishlistItem }) => {
           <CloseIcon className="closeIcon" />
         </span>
       </div>
-      <div className="productsListing_card-textContainer">
+      <div className="wishListpage_productList_card-textContainer flex-column flex-start">
         <p>{title}</p>
-        <p className="productsListing_card-priceContainer">
+        <p className="wishListpage_productList_card-priceContainer flex-center">
           <span className="discountPrice">Rs.{discountprice}</span>
           <span className="totalPrice">Rs.{price}</span>
 
           <span className="discountPercent">
-            {`(${discountpercent * 100}OFF%)`}
+            {`(${discountpercent * 100} OFF%)`}
           </span>
         </p>
-        <div>
-          <button
-            onClick={() => addToCartBtnHandler(wishlistItem)}
-            className="btn"
-          >
-            {inCartList ? "Go to Cart" : "Add to cart"}
-          </button>
-        </div>
+
+        <button
+          onClick={() => addToCartBtnHandler(wishlistItem)}
+          className="btn addToCartBtn"
+        >
+          {inCartList ? "Go to Cart" : "Add to cart"}
+        </button>
       </div>
     </li>
   );

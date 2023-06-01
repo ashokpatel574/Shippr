@@ -1,6 +1,8 @@
 import SmartphoneIcon from "@mui/icons-material/Smartphone";
 
-const AddressCard = ({ addressListItem }) => {
+const AddressCard = ({ addressCardprops }) => {
+  const { addressListItem, editAddresshandler, removeAddresshandler } =
+    addressCardprops;
   const { address, city, state, pincode, country, name, mobile } =
     addressListItem;
 
@@ -20,8 +22,18 @@ const AddressCard = ({ addressListItem }) => {
           </p>
         </div>
         <div className="userAddress_cardBtn-container flex-start">
-          <button className="btn editBtn">Edit</button>
-          <button className="btn removeBtn">Remove</button>
+          <button
+            onClick={() => editAddresshandler(addressListItem)}
+            className="btn editBtn"
+          >
+            Edit
+          </button>
+          <button
+            onClick={() => removeAddresshandler(addressListItem)}
+            className="btn removeBtn"
+          >
+            Remove
+          </button>
         </div>
       </li>
     </>

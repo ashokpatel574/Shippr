@@ -1,11 +1,12 @@
 import React from "react";
 import { useData } from "../../context/DataContext";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const CartPriceSummary = () => {
   const { state } = useData();
-
-  console.log(state.cart);
-
+  const { token } = useAuth();
+  const navigate = useNavigate();
   const cartPriceSummary = state.cartlist.reduce(
     (acc, curr) => {
       return {
@@ -24,45 +25,50 @@ const CartPriceSummary = () => {
     }
   );
 
-  console.log(cartPriceSummary);
-
   const { totalprice, totaldiscount, discountprice } = cartPriceSummary;
-
-  const GST = 0.12;
-
-  const Total = Math.ceil(discountprice * 0.12 + discountprice);
 
   return (
     <>
-      <h3>Price Summary</h3>
-      <div className="cartpage_priceSummary-info">
+      <h3 className="cartpage_priceSummary-container-title">Price Summary</h3>
+      <div className="cartpage_priceSummary-info flex-column flex-start">
         <div className="cartTotal">
           <span>Total MRP</span>
-          <span>{totalprice}</span>
+          <span>&#8377; {totalprice}</span>
         </div>
-        <div className="cartDiscount">
-          <span>Discount on MRP</span>
-          <span>{totaldiscount}</span>
-        </div>
-
         <div className="cartDiscount">
           <span>Discount Price</span>
-          <span>{discountprice}</span>
-        </div>
-        <div className="cartTax">
-          <span>GST - 12%</span>
-          <span>{Math.ceil(discountprice * GST)}</span>
+          <span>&#8377; {discountprice}</span>
         </div>
         <div className="cartShippingCharges">
           <span>Shipping Charges</span>
           <span>0</span>
         </div>
+        <div className="cartDiscountSaved">
+          <span>You have saved!</span>
+          <span>&#8377; {totaldiscount}</span>
+        </div>
+
         <div className="cartGrandTotal">
           <span>Total Amount</span>
-          <span>{Total}</span>
+          <span>&#8377; {discountprice}</span>
         </div>
+
         <div className="cart_placeOrder">
-          <button className="btn placeOrderBtn">Place Order</button>
+          {token ? (
+            <button
+              onClick={() => navigate("/checkout")}
+              className="btn placeOrderBtn"
+            >
+              Place Order
+            </button>
+          ) : (
+            <button
+              onClick={() => navigate("/login")}
+              className="btn placeOrderBtn"
+            >
+              Log In to place Order
+            </button>
+          )}
         </div>
       </div>
     </>

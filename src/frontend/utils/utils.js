@@ -1,8 +1,13 @@
 import { toast } from "react-toastify";
 
 const validateMobileNumber = (input) => {
+  return /^[6-9]{1}[0-9]{9}$/.test(input);
+};
+
+const validateNumber = (input) => {
   return /^[0-9]+$/.test(input);
 };
+
 const validatePinCode = (input) => {
   return /^[0-9]+$/.test(input) && input.length === 6;
 };
@@ -53,6 +58,7 @@ export {
   validateEmail,
   validatePassword,
   validateMobileNumber,
+  validateNumber,
   validatePinCode,
   validateOnlyString,
   isProductInWishlist,
