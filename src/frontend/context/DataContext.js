@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useEffect, useReducer } from "react";
+import React, {
+  useState,
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+} from "react";
 import DataReducer, { initialState } from "../reducer/DataReducer";
 import { useAuth } from "./AuthContext";
 import { getServerData } from "../utils/apiService";
@@ -8,8 +14,17 @@ const DataContext = createContext();
 
 const DataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(DataReducer, initialState);
-  const { token } = useAuth();
+  const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
+  const [addressDetails, setAddressDetails] = useState({
+    name: "",
+    address: "",
+    city: "",
+    state: "",
+    pincode: "",
+    mobile: "",
+  });
 
+  const { token } = useAuth();
   const { filteredData } = useFilterData(state.products, state.filters);
 
   useEffect(() => {
@@ -17,7 +32,17 @@ const DataContextProvider = ({ children }) => {
   }, [token]);
 
   return (
-    <DataContext.Provider value={{ state, dispatch, filteredData }}>
+    <DataContext.Provider
+      value={{
+        state,
+        dispatch,
+        filteredData,
+        isAddressModalOpen,
+        setIsAddressModalOpen,
+        addressDetails,
+        setAddressDetails,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );

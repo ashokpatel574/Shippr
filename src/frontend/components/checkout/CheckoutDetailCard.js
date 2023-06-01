@@ -2,9 +2,10 @@ import React from "react";
 import { useData } from "../../context/DataContext";
 
 const CheckoutDetailCard = () => {
-  const { state } = useData();
+  const {
+    state: { cartlist, checkoutAddress },
+  } = useData();
 
-  console.log(state.addressList);
   return (
     <>
       <h3 className="order_detail-title">Order details</h3>
@@ -14,7 +15,7 @@ const CheckoutDetailCard = () => {
           <span>Qty</span>
         </div>
         <div className="order_product-container-part-two flex-column  ">
-          {state.cartlist.map((productItem) => (
+          {cartlist.map((productItem) => (
             <div className="order_productItem-container flex-column">
               <div className="order_productItem-info flex-space-between">
                 <span>{productItem.title}</span>
@@ -50,23 +51,26 @@ const CheckoutDetailCard = () => {
           <span>Price</span>
         </div>
       </div>
-      <h3 className="order_detail-title">Address details</h3>
-      {state.addressList.map((addressListItem) => (
-        <div
-          key={addressListItem.id}
-          className="order_address-container flex-column"
-        >
-          <p className="name"> {addressListItem.name}</p>
-          <p>#{addressListItem.address},</p>
-          <p>
-            {addressListItem.city}-{addressListItem.pincode},
-          </p>
-          <p>
-            {addressListItem.state}, {addressListItem.country}
-          </p>
-          <p>Mobile Number: {addressListItem.mobile}</p>
-        </div>
-      ))}
+
+      {checkoutAddress && (
+        <>
+          <h3 className="order_detail-title">Delivery address</h3>
+          <div
+            key={checkoutAddress.id}
+            className="order_address-container flex-column"
+          >
+            <p className="name"> {checkoutAddress.name}</p>
+            <p>#{checkoutAddress.address},</p>
+            <p>
+              {checkoutAddress.city}-{checkoutAddress.pincode},
+            </p>
+            <p>
+              {checkoutAddress.state}, {checkoutAddress.country}
+            </p>
+            <p>Mobile Number: {checkoutAddress.mobile}</p>
+          </div>
+        </>
+      )}
 
       <button className="btn placeOrderBtn">Place order</button>
     </>

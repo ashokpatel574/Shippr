@@ -13,6 +13,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 const Header = () => {
   const { token } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <header className="header_container ">
@@ -32,20 +33,24 @@ const Header = () => {
           </NavLink>
         </div>
         <ul className="header_container-partTwo flex-space-between flex-nowrap ">
-          <li className="searchInputPrimary_container ">
-            <label htmlFor="searchInputPrimary flex-center">
-              <input
-                id="searchInputPrimary"
-                className="searchInput_primary"
-                type="text"
-                placeholder="Search..."
-                name="searchInputPrimary"
-              />
-              <span className="flex-center">
-                <SearchIcon />
-              </span>
-            </label>
-          </li>
+          {location.pathname === "/products" ? (
+            <li className="searchInputPrimary_container ">
+              <label htmlFor="searchInputPrimary flex-center">
+                <input
+                  id="searchInputPrimary"
+                  className="searchInput_primary"
+                  type="text"
+                  placeholder="Search..."
+                  name="searchInputPrimary"
+                />
+                <span className="flex-center">
+                  <SearchIcon />
+                </span>
+              </label>
+            </li>
+          ) : (
+            ""
+          )}
           <li className="header_home-text flex-center">
             <NavLink to="/">
               <p>Home</p>

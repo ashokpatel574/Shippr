@@ -28,6 +28,16 @@ export const initialState = {
       country: "India",
     },
   ],
+  checkoutAddress: {
+    id: uuid(),
+    name: "Ashok Patel",
+    address: "101, 100Ft Road, MG Street ",
+    city: "Bangalore",
+    mobile: 1987654321,
+    pincode: 560043,
+    state: "Karnataka",
+    country: "India",
+  },
   orderList: [],
 };
 
@@ -123,6 +133,13 @@ const DataReducer = (state, action) => {
         addressList: state.addressList.filter(
           (item) => item.id !== action.payload.address.id
         ),
+      };
+    }
+
+    case ActionType.Updated_checkoutAddress: {
+      return {
+        ...state,
+        checkoutAddress: action.payload.checkoutAddress,
       };
     }
 

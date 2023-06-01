@@ -1301,12 +1301,16 @@
 
 .checkout_address-container ul {
   gap: 1.5rem;
-  border: 1px solid var(--border-color-normal);
 }
 
 .checkout_Address-card-container {
-  border-bottom: 1px solid var(--border-color-normal);
+  border: 1px solid var(--border-color-normal);
   padding: 2rem;
+}
+
+.checkout_Address-card-container.selected {
+  background-color: var(--primary-color-one);
+  color: var(--secondary-color-one);
 }
 
 .checkout_Address-card-part-one {
