@@ -19,6 +19,7 @@ export const ActionType = {
   EditAddress: "EDIT_ADDRESS",
   DeleteAddress: "DELETE_ADDRESS",
   ADD_ORDER: "ADD_ORDER",
+  Updated_checkoutAddress: "UPDATE_CHECKOUT_ADDRESS",
 };
 
 export const Filters = {

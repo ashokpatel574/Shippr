@@ -1,28 +1,21 @@
-import { useState } from "react";
-
 import { useData } from "../../context/DataContext";
 import AddressCard from "./AddressCard";
 import AddressModal from "./AddressModal";
 import { ActionType } from "../../constant";
 
 const UserAddress = () => {
-  const [modalToggle, setModalToggle] = useState(false);
-  const [addressDetails, setAddressDetails] = useState({
-    name: "",
-    address: "",
-    city: "",
-    state: "",
-    pincode: "",
-    mobile: "",
-  });
-
-  const { state, dispatch } = useData();
+  const {
+    state,
+    dispatch,
+    isAddressModalOpen,
+    setIsAddressModalOpen,
+    setAddressDetails,
+  } = useData();
 
   const editAddresshandler = (selectAddress) => {
     const { id, address, city, state, pincode, country, name, mobile } =
       selectAddress;
 
-    console.log(selectAddress);
     setAddressDetails((prevState) => {
       return {
         ...prevState,
@@ -36,7 +29,7 @@ const UserAddress = () => {
         country: country,
       };
     });
-    setModalToggle(!modalToggle);
+    setIsAddressModalOpen(!isAddressModalOpen);
   };
 
   const removeAddresshandler = (selectAddress) => {
@@ -63,17 +56,12 @@ const UserAddress = () => {
       </ul>
       <span
         className="addNewAddressBtn"
-        onClick={() => setModalToggle(!modalToggle)}
+        onClick={() => setIsAddressModalOpen(!isAddressModalOpen)}
       >
         + Add New Address
       </span>
 
-      {modalToggle && (
-        <AddressModal
-          modalState={{ modalToggle, setModalToggle }}
-          addressState={{ addressDetails, setAddressDetails }}
-        />
-      )}
+      {isAddressModalOpen && <AddressModal />}
     </div>
   );
 };

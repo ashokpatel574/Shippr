@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
   const { currentUser, removeUserCredentials } = useAuth();
-
   const navigate = useNavigate();
 
   const logOutHandler = () => {

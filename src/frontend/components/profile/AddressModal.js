@@ -9,10 +9,7 @@ import { stateLists } from "../../constant";
 import { UpdateUserAddress } from "../../utils/apiUtils";
 import { useData } from "../../context/DataContext";
 
-const AddressModal = ({ modalState, addressState }) => {
-  const { modalToggle, setModalToggle } = modalState;
-  const { addressDetails, setAddressDetails } = addressState;
-  const { dispatch } = useData();
+const AddressModal = () => {
   const [addressErrorDetails, setAddressErrorDetails] = useState({
     name: "",
     address: "",
@@ -22,11 +19,17 @@ const AddressModal = ({ modalState, addressState }) => {
     mobile: "",
   });
 
+  const {
+    dispatch,
+    isAddressModalOpen,
+    setIsAddressModalOpen,
+    addressDetails,
+    setAddressDetails,
+  } = useData();
+
   const addressHandler = (e) => {
     const { name, value } = e.target;
     setAddressDetails((prevState) => ({ ...prevState, [name]: value }));
-
-    console.log(addressDetails);
 
     if (name === `name` || name === "city") {
       const nameLength = value.length;
@@ -129,17 +132,19 @@ const AddressModal = ({ modalState, addressState }) => {
     flag
       ? setAddressErrorDetails(newErrorForm)
       : UpdateUserAddress(dispatch, addressDetails);
-    !flag && setModalToggle(!modalToggle);
+    !flag && setIsAddressModalOpen(!isAddressModalOpen);
   };
 
   return (
-    <div className={`address_modal-container ${modalToggle && "active"}`}>
+    <div
+      className={`address_modal-container ${isAddressModalOpen && "active"}`}
+    >
       <div className="address_modal">
         <div className="address_modal-heading-container">
           <h3 className="address_modal-heading">Add New Address</h3>
           <CloseIcon
             className="closeIcon-btn"
-            onClick={() => setModalToggle(!modalToggle)}
+            onClick={() => setIsAddressModalOpen(!isAddressModalOpen)}
           />
         </div>
 
@@ -210,7 +215,9 @@ const AddressModal = ({ modalState, addressState }) => {
             >
               <option disabled={true}>Select the state</option>
               {stateLists?.map((list) => (
-                <option value={list}>{list}</option>
+                <option key={list} value={list}>
+                  {list}
+                </option>
               ))}
             </select>
             <span>{addressErrorDetails.state}</span>
@@ -234,7 +241,7 @@ const AddressModal = ({ modalState, addressState }) => {
               Save
             </button>
             <button
-              onClick={() => setModalToggle(!modalToggle)}
+              onClick={() => setIsAddressModalOpen(!isAddressModalOpen)}
               className="btn cancelBtn"
             >
               cancel
