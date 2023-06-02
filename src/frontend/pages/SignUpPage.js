@@ -64,8 +64,14 @@ const SignUpPage = () => {
       if (!validatePassword(value)) {
         setSignUpFormErrorDetails({
           ...signUpFormErrorDetails,
-          [name]: `'Password should be in 8 to 15 chars and should have one digit'`,
+          [name]: `Password should be min 8 chars, should include atleast one small, captial letter & digit`,
         });
+      }
+    }
+
+    if (name === "passwordConfirm") {
+      if (value.length > 0) {
+        setSignUpFormErrorDetails({ ...signUpFormErrorDetails, [name]: `` });
       }
     }
   };
@@ -87,8 +93,7 @@ const SignUpPage = () => {
     });
 
     if (password !== passwordConfirm) {
-      newErrorForm["passwordConfirm"] =
-        "Password and confirm password didn't matched";
+      newErrorForm["passwordConfirm"] = "Password does not match";
       flag = true;
     } else {
       setSignUpFormErrorDetails({
