@@ -14,6 +14,7 @@ export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(localStorageToken?.user);
 
   const [loginCredentialError, setLoginCredentialError] = useState(null);
+  const [signUpCredentialError, setSignUpCredentialError] = useState(null);
   const [loginCredentialLoader, setLoginCredentialLoader] = useState(true);
 
   // loginpage setup
@@ -69,6 +70,7 @@ export const AuthContextProvider = ({ children }) => {
   // Sign up Setup
   const setUserCredentials = async (name, email, password) => {
     try {
+      setSignUpCredentialError(null);
       const {
         data: { createdUser, encodedToken },
         status,
@@ -82,9 +84,14 @@ export const AuthContextProvider = ({ children }) => {
         setCurrentUser(createdUser);
         setToken(encodedToken);
         ToastHandler(ToastType.Success, "Successfully logged in");
+        setSignUpCredentialError(null);
       }
     } catch (error) {
-      console.log(error);
+      setSignUpCredentialError(error);
+      ToastHandler(
+        ToastType.Error,
+        error?.response?.data?.errors?.at(0) || "Something went wrong !"
+      );
     }
   };
 

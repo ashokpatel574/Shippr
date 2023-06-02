@@ -23,7 +23,7 @@ const validateEmail = (input) => {
   );
 };
 const validatePassword = (input) => {
-  return /^(?=.{8,15}$)\D*\d/.test(input);
+  return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/gm.test(input);
 };
 
 const ToastHandler = (type, message) => {
