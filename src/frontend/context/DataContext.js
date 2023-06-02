@@ -28,7 +28,9 @@ const DataContextProvider = ({ children }) => {
   const { filteredData } = useFilterData(state.products, state.filters);
 
   useEffect(() => {
-    getServerData(token, dispatch);
+    if (token) {
+      getServerData(token, dispatch);
+    }
   }, [token]);
 
   return (
