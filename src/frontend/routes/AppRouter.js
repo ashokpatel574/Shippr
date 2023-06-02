@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 // components
 import MockAPI from "../components/mockApi/MockApi";
-import RequireAuth from "../components/requiresAuth/RequireAuth";
+import RequireAuth from "../components/RequiresAuth/RequireAuth";
 import App from "../../App";
 
 // context

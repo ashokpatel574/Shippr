@@ -12,6 +12,7 @@ export const AuthContextProvider = ({ children }) => {
   );
   const [token, setToken] = useState(localStorageToken?.token);
   const [currentUser, setCurrentUser] = useState(localStorageToken?.user);
+
   const [loginCredentialError, setLoginCredentialError] = useState(null);
   const [loginCredentialLoader, setLoginCredentialLoader] = useState(true);
 
@@ -27,12 +28,13 @@ export const AuthContextProvider = ({ children }) => {
 
       if (status === 200 || status === 201) {
         localStorage.setItem(
-          "loginCredentials",
+          `loginCredentials`,
           JSON.stringify({ token: encodedToken, user: foundUser })
         );
+        setLoginCredentialLoader(false);
         setCurrentUser(foundUser);
         setToken(encodedToken);
-        setLoginCredentialLoader(false);
+
         setLoginCredentialError(null);
         ToastHandler(ToastType.Success, "Successfully logged in");
       }
@@ -74,7 +76,7 @@ export const AuthContextProvider = ({ children }) => {
 
       if (status === 200 || status === 201) {
         localStorage.setItem(
-          "loginCredentials",
+          `loginCredentials`,
           JSON.stringify({ token: encodedToken, user: createdUser })
         );
         setCurrentUser(createdUser);
@@ -87,8 +89,10 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   //log out page setup
-  const removeUserCredentials = async () => {
+  const removeUserCredentials = () => {
     localStorage.removeItem("loginCredentials");
+    setLoginCredentialError(null);
+    setLoginCredentialLoader(true);
     setToken(null);
     setCurrentUser(null);
     ToastHandler(ToastType.Success, "Successfully logged out");
@@ -103,6 +107,8 @@ export const AuthContextProvider = ({ children }) => {
         loginCredentialError,
         getUserCredentials,
         setUserCredentials,
+        setLoginCredentialError,
+        setLoginCredentialLoader,
         removeUserCredentials,
       }}
     >

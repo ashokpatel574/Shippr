@@ -13,7 +13,7 @@ const App = () => {
       <ToastContainer
         position="bottom-right"
         autoClose={false}
-        newestOnTop={false}
+        newestOnTop={true}
         closeOnClick
         theme="colored"
         rtl={false}

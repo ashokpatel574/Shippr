@@ -7,7 +7,7 @@ const UserProfile = () => {
   const navigate = useNavigate();
 
   const logOutHandler = () => {
-    removeUserCredentials();
+    removeUserCredentials("loginCredentials");
     navigate("/");
   };
   return (

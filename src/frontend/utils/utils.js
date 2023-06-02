@@ -1,4 +1,5 @@
 import { toast } from "react-toastify";
+import { Oval } from "react-loader-spinner";
 
 const validateMobileNumber = (input) => {
   return /^[6-9]{1}[0-9]{9}$/.test(input);
@@ -45,6 +46,21 @@ const ToastHandler = (type, message) => {
   }
 };
 
+const Loader = () => (
+  <Oval
+    height={90}
+    width={90}
+    color="#3c0ac2"
+    wrapperStyle={{}}
+    wrapperClass=""
+    visible={true}
+    ariaLabel="oval-loading"
+    secondaryColor="#30089b"
+    strokeWidth={3}
+    strokeWidthSecondary={3}
+  />
+);
+
 const isProductInWishlist = (wishlist, productId) => {
   return wishlist.some((wishlistItem) => wishlistItem._id === productId);
 };
@@ -55,6 +71,7 @@ const isProductInCart = (cart, productId) => {
 
 export {
   ToastHandler,
+  Loader,
   validateEmail,
   validatePassword,
   validateMobileNumber,
