@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import { validateEmail } from "../utils/utils";
 
 const LoginPage = () => {
   const [loginInputDetails, setLoginInputDetails] = useState({
@@ -27,8 +28,8 @@ const LoginPage = () => {
 
   const guestUserLogInHandler = () => {
     const guestUserDetails = {
-      email: "ashokpatel574@gmail.com",
-      password: "ashokpatel",
+      email: "test@test.com",
+      password: "Test123",
     };
     setLoginInputDetails(guestUserDetails);
     getUserCredentials(guestUserDetails.email, guestUserDetails.password);
@@ -51,7 +52,8 @@ const LoginPage = () => {
 
   const userLoginHandler = () => {
     let flag = false;
-    const newLoginErrorDetails = {};
+    let newLoginErrorDetails = {};
+
     Object.keys(loginErrorMessage).forEach((key) => {
       newLoginErrorDetails[key] = "";
       if (loginInputDetails[key] === "") {
@@ -62,14 +64,24 @@ const LoginPage = () => {
       }
     });
 
+    if (
+      loginInputDetails.email.length > 0 &&
+      !validateEmail(loginInputDetails.email)
+    ) {
+      flag = true;
+      newLoginErrorDetails = {
+        ...newLoginErrorDetails,
+        email: "Email is Invalid!",
+      };
+    }
+
     if (!flag) {
       setLoginErrorMessage({ email: "", password: "" });
     }
 
-    const { email, password } = loginInputDetails;
     flag
       ? setLoginErrorMessage(newLoginErrorDetails)
-      : getUserCredentials(email, password);
+      : getUserCredentials(loginInputDetails.email, loginInputDetails.password);
   };
 
   useEffect(() => {
