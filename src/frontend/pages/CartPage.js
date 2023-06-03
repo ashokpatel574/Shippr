@@ -15,7 +15,7 @@ const CartPage = () => {
   return (
     <article className="cartpage_section">
       {!cartlist.length && (
-        <div className="emptyCart_Container flex-column flex-center">
+        <section className="emptyCart_Container flex-column flex-center">
           <div className="emptyCart_Img-Container">
             <img
               src={EmptyCartImg}
@@ -34,7 +34,7 @@ const CartPage = () => {
               Start Shopping
             </button>
           </div>
-        </div>
+        </section>
       )}
       {cartlist.length > 0 && (
         <section className="cartpage_main-container">

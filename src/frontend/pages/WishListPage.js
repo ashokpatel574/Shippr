@@ -16,7 +16,7 @@ const WishListPage = () => {
   return (
     <article className="wishListpage_section">
       {!wishlist.length && (
-        <div className="emptyWishlist_Container flex-column flex-center">
+        <section className="emptyWishlist_Container flex-column flex-center">
           <div className="emptyWishlist_Img-Container">
             <img
               src={EmptyWishList}
@@ -35,7 +35,7 @@ const WishListPage = () => {
               Start Shopping
             </button>
           </div>
-        </div>
+        </section>
       )}
       {wishlist.length > 0 && (
         <section className="wishList_container flex-column ">

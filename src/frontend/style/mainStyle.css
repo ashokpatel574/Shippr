@@ -1555,3 +1555,50 @@
 .checkout-productDetails-container .placeOrderBtn:hover {
   background-color: var(--success-color);
 }
+
+/* Page Not Found  Style */
+
+.errorPage_container {
+  max-width: 60rem;
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+  padding: 2rem 2rem 6rem 2rem;
+  background-color: #fff;
+}
+
+.errorPage_section {
+  width: 100%;
+}
+
+.errorPage_Img-container {
+  width: 100%;
+  height: 100%;
+}
+
+.errorPage_Img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.errorPage_text-Container {
+  gap: 0.5rem;
+  padding-bottom: 4rem;
+}
+
+.errorPage_text-Container h3 {
+  text-align: center;
+  font-size: 3.2rem;
+}
+
+.errorPage_text-Container p {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.backHomeBtn {
+  font-size: 2.2rem;
+  margin-top: 2.5rem;
+  padding: 0.7rem 1.4rem;
+}
