@@ -15,6 +15,7 @@ const FilterMain = () => {
   const filterClearHandler = () => {
     dispatch({ type: ActionType.ClearFilter });
   };
+
   return (
     <>
       <div className="productslisting_side-navbar-header flex-space-between">

@@ -13,13 +13,16 @@ import { ToastType } from "../constant";
 import { useAuth } from "../context/AuthContext";
 
 const SingleProductPage = () => {
-  const { state, dispatch } = useData();
+  const {
+    state: { wishlist, cartlist, products },
+    dispatch,
+  } = useData();
   const { token } = useAuth();
   const { productId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const singleProductDetails = state?.products?.find(
+  const singleProductDetails = products?.find(
     (productItem) => productItem._id === productId
   );
 
@@ -35,8 +38,8 @@ const SingleProductPage = () => {
       description,
     } = singleProductDetails;
 
-    const inWishList = isProductInWishlist(state.wishlist, _id);
-    const inCartList = isProductInCart(state.cartlist, _id);
+    const inWishList = isProductInWishlist(wishlist, _id);
+    const inCartList = isProductInCart(cartlist, _id);
 
     const addToWishlistBtnHandler = (productId) => {
       if (!token) {

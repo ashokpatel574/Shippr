@@ -6,7 +6,10 @@ import FilterMain from "../components/filters/FilterMain";
 import { useData } from "../context/DataContext";
 
 const ProductListingPage = () => {
-  const { filteredData } = useData();
+  const {
+    filteredData,
+    state: { products },
+  } = useData();
 
   return (
     <>
@@ -15,6 +18,9 @@ const ProductListingPage = () => {
           <FilterMain />
         </aside>
         <article className="productsListing_container ">
+          <span className="productsListing_container-title">
+            Showing products {filteredData.length} of {products.length}
+          </span>
           <ul className=" flex-space-evenly flex-wrap ">
             {filteredData?.map((productItem, id) => (
               <ProductCard productItem={productItem} key={id} />

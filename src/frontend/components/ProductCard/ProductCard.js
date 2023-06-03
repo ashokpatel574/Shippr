@@ -23,20 +23,32 @@ const ProductCard = ({ productItem }) => {
     discountpercent,
     discountprice,
     rating,
+    inStock,
+    sizes,
   } = productItem;
 
   const { token } = useAuth();
-  const { state, dispatch } = useData();
+  const {
+    state: { wishlist, cartlist },
+    dispatch,
+  } = useData();
+
   const navigate = useNavigate();
   const location = useLocation();
 
   const productCardClickHandler = () => {
     const route = `/products/${productId}`;
-    navigate(route);
+    !inStock
+      ? ToastHandler(ToastType.Warn, "Product is out of stock")
+      : navigate(route);
   };
 
-  const inWishList = isProductInWishlist(state.wishlist, productId);
-  const inCartList = isProductInCart(state.cartlist, productId);
+  const SizeAvailable = !sizes.length
+    ? "Not available"
+    : sizes.map((s) => s.toUpperCase()).join(", ");
+
+  const inWishList = isProductInWishlist(wishlist, productId);
+  const inCartList = isProductInCart(cartlist, productId);
 
   const wishlistHandler = () => {
     if (!token) {
@@ -75,26 +87,32 @@ const ProductCard = ({ productItem }) => {
   return (
     <li
       key={productId}
-      className="productsListing_container-card flex-column flex-justify-center"
+      className={` productsListing_container-card ${
+        !inStock && "InStock"
+      } flex-column flex-justify-center`}
     >
+      {!inStock && <span className="OutOfStock">Out of stock</span>}
       <div className="productsListing_card-imgContainer">
         <img src={images[0]} alt={title} onClick={productCardClickHandler} />
         <span className="product-rating">{rating}</span>
-        <span
-          onClick={wishlistHandler}
-          className={`${
-            inWishList && "selected"
-          } wishListIcon_container flex-center `}
-        >
-          {inWishList ? (
-            <FavoriteIcon className="wishListIcon selected" />
-          ) : (
-            <FavoriteBorderIcon className="wishListIcon " />
-          )}
-        </span>
+        {inStock && (
+          <span
+            onClick={wishlistHandler}
+            className={`${
+              inWishList && "selected"
+            } wishListIcon_container flex-center `}
+          >
+            {inWishList ? (
+              <FavoriteIcon className="wishListIcon selected" />
+            ) : (
+              <FavoriteBorderIcon className="wishListIcon " />
+            )}
+          </span>
+        )}
       </div>
       <div className="productsListing_card-textContainer flex-start flex-column">
-        <p>{title}</p>
+        <p className="productsListing_card-title">{title}</p>
+        <p>Sizes: {SizeAvailable}</p>
         <p className="productsListing_card-priceContainer flex-center">
           <span className="discountPrice">Rs.{discountprice}</span>
           <span className="totalPrice txt-crossed-off">Rs.{price}</span>
@@ -105,10 +123,15 @@ const ProductCard = ({ productItem }) => {
         </p>
 
         <button
+          disabled={!inStock}
           onClick={() => addToCartBtnHandler(productItem)}
           className="btn addToCartBtn"
         >
-          {inCartList ? "Go to Cart" : "Add to cart"}
+          {!inStock
+            ? "Out of stock"
+            : inCartList
+            ? "Go to Cart"
+            : "Add to cart"}
         </button>
       </div>
     </li>

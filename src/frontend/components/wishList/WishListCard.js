@@ -25,7 +25,10 @@ const WishListCard = ({ wishlistItem }) => {
   } = wishlistItem;
 
   const { token } = useAuth();
-  const { state, dispatch } = useData();
+  const {
+    state: { cartlist },
+    dispatch,
+  } = useData();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -34,7 +37,7 @@ const WishListCard = ({ wishlistItem }) => {
     navigate(route);
   };
 
-  const inCartList = isProductInCart(state.cartlist, wishlistId);
+  const inCartList = isProductInCart(cartlist, wishlistId);
 
   const addToCartBtnHandler = (wishlistItem) => {
     inCartList

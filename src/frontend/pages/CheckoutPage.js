@@ -4,7 +4,11 @@ import { useData } from "../context/DataContext";
 import AddressModal from "../components/profile/AddressModal";
 
 const CheckoutPage = () => {
-  const { state, isAddressModalOpen, setIsAddressModalOpen } = useData();
+  const {
+    state: { addressList },
+    isAddressModalOpen,
+    setIsAddressModalOpen,
+  } = useData();
 
   const checkoutAddressModalHandler = () =>
     setIsAddressModalOpen(!isAddressModalOpen);
@@ -15,9 +19,9 @@ const CheckoutPage = () => {
         <div className="checkout_address-container flex-column">
           <h3>Please select Address</h3>
 
-          {state.addressList.length > 0 ? (
+          {addressList.length > 0 ? (
             <ul className="flex-column">
-              {state.addressList?.map((addressListItem) => (
+              {addressList?.map((addressListItem) => (
                 <CheckoutAddressCard
                   key={addressListItem.id}
                   addressListItem={addressListItem}

@@ -26,12 +26,16 @@ const CartCard = ({ cartItem }) => {
     qty,
   } = cartItem;
 
-  const { state, dispatch } = useData();
+  const {
+    state: { wishlist },
+    dispatch,
+  } = useData();
+
   const { token } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
-  const inWishList = isProductInWishlist(state.wishlist, cartId);
+  const inWishList = isProductInWishlist(wishlist, cartId);
 
   const wishlistHandler = () => {
     if (!token) {
