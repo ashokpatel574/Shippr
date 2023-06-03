@@ -16,7 +16,7 @@ import SingleProductPage from "../pages/SingleProductPage";
 import CartPage from "../pages/CartPage";
 import LoginPage from "../pages/LoginPage";
 import SignUpPage from "../pages/SignUpPage";
-import ErrorPage from "../pages/ErrorPage";
+import PageNotFound from "../pages/PageNotFound";
 
 // private pages
 import WishListPage from "../pages/WishListPage";
@@ -36,7 +36,7 @@ export const AppRouter = createBrowserRouter([
         </DataContextProvider>
       </AuthContextProvider>
     ),
-    errorElement: <ErrorPage />,
+    errorElement: <PageNotFound />,
     children: [
       { index: true, element: <Home /> },
       { path: "products", element: <ProductListingPage /> },
@@ -72,6 +72,7 @@ export const AppRouter = createBrowserRouter([
           { path: "userAddress", element: <UserAddress /> },
         ],
       },
+      { path: "*", element: <PageNotFound /> },
     ],
   },
   { path: "/mock-man", element: <MockAPI /> },
