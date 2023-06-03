@@ -24,6 +24,25 @@ const DataContextProvider = ({ children }) => {
     mobile: "",
   });
 
+  const cartPriceSummary = state.cartlist.reduce(
+    (acc, curr) => {
+      return {
+        ...acc,
+        totalprice: Math.ceil(curr.price * curr.qty + acc.totalprice),
+        totaldiscount: Math.ceil(
+          Number(curr.price * curr.discountpercent * curr.qty) +
+            acc.totaldiscount
+        ),
+        discountprice: curr.discountprice * curr.qty + acc.discountprice,
+      };
+    },
+    {
+      totalprice: 0,
+      totaldiscount: 0,
+      discountprice: 0,
+    }
+  );
+
   const { token } = useAuth();
   const { filteredData } = useFilterData(state.products, state.filters);
 
@@ -43,6 +62,7 @@ const DataContextProvider = ({ children }) => {
         setIsAddressModalOpen,
         addressDetails,
         setAddressDetails,
+        cartPriceSummary,
       }}
     >
       {children}

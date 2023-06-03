@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { ActionType } from "../../constant";
 import { useData } from "../../context/DataContext";
 
 const CheckoutAddressCard = ({ addressListItem }) => {
-  const [addressSelected, setAddressSelected] = useState("");
   const { id, name, address, city, state, country, pincode, mobile } =
     addressListItem;
   const {
@@ -12,7 +10,6 @@ const CheckoutAddressCard = ({ addressListItem }) => {
   } = useData();
 
   const checkoutAddressHandler = (address) => {
-    setAddressSelected(() => address);
     dispatch({
       type: ActionType.Updated_checkoutAddress,
       payload: { checkoutAddress: address },
@@ -22,7 +19,7 @@ const CheckoutAddressCard = ({ addressListItem }) => {
   return (
     <li
       className={`checkout_Address-card-container ${
-        addressSelected.id === checkoutAddress.id && "selected"
+        addressListItem?.id === checkoutAddress?.id && "selected"
       }`}
       onClick={() => checkoutAddressHandler(addressListItem)}
     >
@@ -34,7 +31,7 @@ const CheckoutAddressCard = ({ addressListItem }) => {
             className="addressradio"
             name="addressradio"
             value={id}
-            checked={checkoutAddress.id === id}
+            checked={checkoutAddress?.id === id}
             onChange={() => checkoutAddressHandler(addressListItem)}
           />
         </label>

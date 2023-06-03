@@ -1,10 +1,35 @@
 import SmartphoneIcon from "@mui/icons-material/Smartphone";
+import { useData } from "../../context/DataContext";
+import { ActionType } from "../../constant";
 
 const AddressCard = ({ addressCardprops }) => {
-  const { addressListItem, editAddresshandler, removeAddresshandler } =
-    addressCardprops;
+  const { addressListItem } = addressCardprops;
   const { address, city, state, pincode, country, name, mobile } =
     addressListItem;
+
+  const {
+    dispatch,
+    isAddressModalOpen,
+    setIsAddressModalOpen,
+    setAddressDetails,
+  } = useData();
+
+  const editAddressHandler = (selectAddress) => {
+    setIsAddressModalOpen(!isAddressModalOpen);
+    setAddressDetails((prevState) => {
+      return {
+        ...prevState,
+        ...selectAddress,
+      };
+    });
+  };
+
+  const removeAddressHandler = (selectAddress) => {
+    dispatch({
+      type: ActionType.DeleteAddress,
+      payload: { address: selectAddress },
+    });
+  };
 
   return (
     <>
@@ -23,13 +48,13 @@ const AddressCard = ({ addressCardprops }) => {
         </div>
         <div className="userAddress_cardBtn-container flex-start">
           <button
-            onClick={() => editAddresshandler(addressListItem)}
+            onClick={() => editAddressHandler(addressListItem)}
             className="btn editBtn"
           >
             Edit
           </button>
           <button
-            onClick={() => removeAddresshandler(addressListItem)}
+            onClick={() => removeAddressHandler(addressListItem)}
             className="btn removeBtn"
           >
             Remove

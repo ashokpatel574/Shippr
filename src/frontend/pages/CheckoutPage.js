@@ -17,7 +17,7 @@ const CheckoutPage = () => {
 
           {state.addressList.length > 0 ? (
             <ul className="flex-column">
-              {state.addressList.map((addressListItem) => (
+              {state.addressList?.map((addressListItem) => (
                 <CheckoutAddressCard
                   key={addressListItem.id}
                   addressListItem={addressListItem}

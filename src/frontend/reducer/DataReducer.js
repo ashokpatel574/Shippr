@@ -22,22 +22,13 @@ export const initialState = {
       name: "Ashok Patel",
       address: "101, 100Ft Road, MG Street ",
       city: "Bangalore",
-      mobile: 1987654321,
-      pincode: 560043,
+      mobile: "+91 9876543210",
+      pincode: "560043",
       state: "Karnataka",
       country: "India",
     },
   ],
-  checkoutAddress: {
-    id: uuid(),
-    name: "Ashok Patel",
-    address: "101, 100Ft Road, MG Street ",
-    city: "Bangalore",
-    mobile: 1987654321,
-    pincode: 560043,
-    state: "Karnataka",
-    country: "India",
-  },
+  checkoutAddress: null,
   orderList: [],
 };
 
@@ -133,6 +124,10 @@ const DataReducer = (state, action) => {
         addressList: state.addressList.filter(
           (item) => item.id !== action.payload.address.id
         ),
+        checkoutAddress:
+          action.payload.address.id === state.checkoutAddress?.id
+            ? null
+            : state.checkoutAddress,
       };
     }
 
