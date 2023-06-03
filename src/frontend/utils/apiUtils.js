@@ -113,11 +113,16 @@ export const DeleteCartItem = async ({ productId, encodedToken, dispatch }) => {
   }
 };
 
-export const IncDecCartItem = async ({ productId, encodedToken, type }) => {
-  return axios.post(
+export const UpdateCartItemQty = async ({
+  productId,
+  encodedToken,
+  type,
+  dispatch,
+}) => {
+  const cartData = await axios.post(
     `/api/user/cart/${productId}`,
     {
-      action: { type },
+      action: { type: type === "Increment" ? "increment" : "decrement" },
     },
     {
       headers: {
@@ -125,6 +130,15 @@ export const IncDecCartItem = async ({ productId, encodedToken, type }) => {
       },
     }
   );
+
+  if (cartData.status === 200 || cartData.status === 201) {
+    dispatch({
+      type: ActionType.SetCartList,
+      payload: {
+        cart: cartData?.data?.cart,
+      },
+    });
+  }
 };
 
 export const UpdateUserAddress = (dispatch, addressDetails) => {

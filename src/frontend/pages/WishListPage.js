@@ -3,6 +3,8 @@ import WishListCard from "../components/wishList/WishListCard";
 import { useData } from "../context/DataContext";
 import EmptyWishList from "../../assets/wishlist/wishlistEmpty.png";
 
+//import Ep from "../../assets/wishlist/wishlist.png";
+
 import { useNavigate } from "react-router-dom";
 
 const WishListPage = () => {

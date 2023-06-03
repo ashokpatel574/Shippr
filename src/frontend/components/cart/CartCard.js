@@ -23,6 +23,7 @@ const CartCard = ({ cartItem }) => {
     discountpercent,
     discountprice,
     sizes,
+    qty,
   } = cartItem;
 
   const { state, dispatch } = useData();
@@ -54,8 +55,6 @@ const CartCard = ({ cartItem }) => {
     }
   };
 
-  console.log(state.cartlist);
-
   const removeCartItemHandler = (cartId) => {
     DeleteCartItem({
       productId: cartId,
@@ -84,7 +83,7 @@ const CartCard = ({ cartItem }) => {
           </p>
 
           <div className="cartProduct_filterContainer">
-            <CartFilter sizes={sizes} />
+            <CartFilter sizes={sizes} qty={qty} cartId={cartId} />
           </div>
         </div>
         <div className="product_info-partTwo">
