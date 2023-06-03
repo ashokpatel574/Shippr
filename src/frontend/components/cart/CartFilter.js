@@ -2,11 +2,40 @@ import React, { useState } from "react";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { useData } from "../../context/DataContext";
+import { DeleteCartItem, UpdateCartItemQty } from "../../utils/apiUtils";
+import { ToastHandler } from "../../utils/utils";
+import { ToastType } from "../../constant";
+import { useAuth } from "../../context/AuthContext";
 
-const CartFilter = ({ sizes }) => {
-  const [qty, setqty] = useState(1);
+const CartFilter = ({ sizes, qty, cartId }) => {
+  const [btnDisabled, setBtnDisabled] = useState(false);
+  const { token } = useAuth();
+  const { dispatch } = useData();
 
-  const { state } = useData();
+  const updateCartQty = (type, productId, qty) => {
+    if (qty >= 1) {
+      setBtnDisabled(false);
+    }
+
+    if (type === "Decrement") {
+      if (qty === 1) {
+        DeleteCartItem({
+          productId: productId,
+          encodedToken: token,
+          dispatch: dispatch,
+        });
+        ToastHandler(ToastType.Warn, "Removed from cart");
+        setBtnDisabled(true);
+      }
+    }
+
+    UpdateCartItemQty({
+      productId: productId,
+      encodedToken: token,
+      type: type,
+      dispatch: dispatch,
+    });
+  };
 
   return (
     <>
@@ -22,18 +51,18 @@ const CartFilter = ({ sizes }) => {
         </select>
       </div>
       <div className="cartProduct_qtyFilter">
-        <p classname="qtyFilter-title">Quantity:</p>
+        <p className="qtyFilter-title">Quantity:</p>
         <button
-          onClick={() => setqty((prev) => prev - 1)}
-          disabled={qty === 1}
-          className="qtyIncrease"
+          onClick={() => updateCartQty(`Decrement`, cartId, qty)}
+          disabled={qty === 1 && btnDisabled}
+          className="qtyDecrease"
         >
           <RemoveCircleIcon />
         </button>
         <span className="productQty">{qty}</span>
         <button
-          onClick={() => setqty((prev) => prev + 1)}
-          className="qtyDecrease"
+          onClick={() => updateCartQty(`Increment`, cartId, qty)}
+          className="qtyIncrease"
         >
           <AddCircleIcon />
         </button>

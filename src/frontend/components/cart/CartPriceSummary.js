@@ -4,18 +4,21 @@ import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const CartPriceSummary = () => {
-  const { state } = useData();
+  const {
+    state: { cartlist },
+  } = useData();
   const { token } = useAuth();
   const navigate = useNavigate();
-  const cartPriceSummary = state.cartlist.reduce(
+  const cartPriceSummary = cartlist.reduce(
     (acc, curr) => {
       return {
         ...acc,
-        totalprice: Math.ceil(curr.price + acc.totalprice),
+        totalprice: Math.ceil(curr.price * curr.qty + acc.totalprice),
         totaldiscount: Math.ceil(
-          Number(curr.price * curr.discountpercent) + acc.totaldiscount
+          Number(curr.price * curr.discountpercent * curr.qty) +
+            acc.totaldiscount
         ),
-        discountprice: curr.discountprice + acc.discountprice,
+        discountprice: curr.discountprice * curr.qty + acc.discountprice,
       };
     },
     {
@@ -37,7 +40,7 @@ const CartPriceSummary = () => {
         </div>
         <div className="cartDiscount">
           <span>Discount Price</span>
-          <span>&#8377; {discountprice}</span>
+          <span>- &#8377; {discountprice}</span>
         </div>
         <div className="cartShippingCharges">
           <span>Shipping Charges</span>
