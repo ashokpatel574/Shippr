@@ -8,6 +8,7 @@ import {
 import { stateLists } from "../../constant";
 import { UpdateUserAddress } from "../../utils/apiUtils";
 import { useData } from "../../context/DataContext";
+import { RandomAddressList } from "../../constant";
 
 const AddressModal = () => {
   const [addressErrorDetails, setAddressErrorDetails] = useState({
@@ -26,6 +27,8 @@ const AddressModal = () => {
     addressDetails,
     setAddressDetails,
   } = useData();
+
+  console.log(addressDetails);
 
   const addressHandler = (e) => {
     const { name, value } = e.target;
@@ -133,6 +136,33 @@ const AddressModal = () => {
       ? setAddressErrorDetails(newErrorForm)
       : UpdateUserAddress(dispatch, addressDetails);
     !flag && setIsAddressModalOpen(!isAddressModalOpen);
+
+    !flag &&
+      setAddressDetails({
+        name: "",
+        address: "",
+        city: "",
+        state: "",
+        pincode: "",
+        mobile: "",
+      });
+  };
+
+  const modalCloseHandler = () => {
+    setIsAddressModalOpen(!isAddressModalOpen);
+    setAddressDetails({
+      name: "",
+      address: "",
+      city: "",
+      state: "",
+      pincode: "",
+      mobile: "",
+    });
+  };
+
+  const randomAddressHandler = () => {
+    const randomOrder = Math.floor(Math.random() * RandomAddressList.length);
+    setAddressDetails(RandomAddressList[randomOrder]);
   };
 
   return (
@@ -240,13 +270,12 @@ const AddressModal = () => {
             <button onClick={userAddressHandler} className="btn saveBtn">
               Save
             </button>
-            <button
-              onClick={() => setIsAddressModalOpen(!isAddressModalOpen)}
-              className="btn cancelBtn"
-            >
+            <button onClick={modalCloseHandler} className="btn cancelBtn">
               cancel
             </button>
-            <button className="btn fillDummyBtn">Fill Dummy Address</button>
+            <button onClick={randomAddressHandler} className="btn fillDummyBtn">
+              Fill Dummy Address
+            </button>
           </div>
         </div>
       </div>

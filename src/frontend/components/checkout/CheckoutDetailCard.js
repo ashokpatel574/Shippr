@@ -1,10 +1,25 @@
 import React from "react";
 import { useData } from "../../context/DataContext";
+import { ToastHandler } from "../../utils/utils";
+import { ToastType } from "../../constant";
 
 const CheckoutDetailCard = () => {
   const {
     state: { cartlist, checkoutAddress },
+    cartPriceSummary,
   } = useData();
+
+  const { totalprice, totaldiscount, discountprice } = cartPriceSummary;
+
+  const totalQty = cartlist.reduce((acc, curr) => acc + curr.qty, 0);
+
+  const checkoutOrderHandler = () => {
+    if (!checkoutAddress) {
+      ToastHandler(ToastType.Warn, "Please add address");
+    } else {
+      ToastHandler(ToastType.Success, "Order placed");
+    }
+  };
 
   return (
     <>
@@ -16,10 +31,13 @@ const CheckoutDetailCard = () => {
         </div>
         <div className="order_product-container-part-two flex-column  ">
           {cartlist.map((productItem) => (
-            <div className="order_productItem-container flex-column">
+            <div
+              key={productItem._id}
+              className="order_productItem-container flex-column"
+            >
               <div className="order_productItem-info flex-space-between">
                 <span>{productItem.title}</span>
-                <span>Qty</span>
+                <span>{productItem.qty}</span>
               </div>
               <div className="order_productItem-size flex-space-between">
                 <span>size: M</span>
@@ -31,12 +49,12 @@ const CheckoutDetailCard = () => {
       <h3 className="order_detail-title">Price details</h3>
       <div className="order_price-container flex-column">
         <div className="orderTotal_price-container flex-space-between">
-          <span>Price (1 Qty)</span>
-          <span>Price</span>
+          <span>Price ({totalQty} Qty)</span>
+          <span>{totalprice}</span>
         </div>
         <div className="orderDiscount_price-container flex-space-between">
-          <span>Discount (1 Qty)</span>
-          <span>Price</span>
+          <span>Discount </span>
+          <span>-{discountprice}</span>
         </div>
         <div className="orderTotalShipping_price-container flex-space-between">
           <span>Shipping Charges</span>
@@ -44,11 +62,11 @@ const CheckoutDetailCard = () => {
         </div>
         <div className="orderTotalSaved_price-container flex-space-between">
           <span>You have saved!</span>
-          <span>0</span>
+          <span>{totaldiscount}</span>
         </div>
         <div className="orderTotal_amount-container flex-space-between">
           <span>Total Amount</span>
-          <span>Price</span>
+          <span>{discountprice}</span>
         </div>
       </div>
 
@@ -72,7 +90,9 @@ const CheckoutDetailCard = () => {
         </>
       )}
 
-      <button className="btn placeOrderBtn">Place order</button>
+      <button onClick={checkoutOrderHandler} className="btn placeOrderBtn">
+        Place order
+      </button>
     </>
   );
 };
