@@ -30,7 +30,8 @@ export const Filters = {
   Rating: "rating",
   Sizes: "sizes",
   PriceRange: "priceRange",
-  Search: "search",
+  Search: "searchText",
+  StockAvailabilty: "stockAvailabilty",
 };
 
 export const CartListActionType = {
@@ -51,9 +52,12 @@ export const Sizes = {
   xl: "XL",
   xxl: "XXL",
 };
+
 export const SortBy = {
   LowToHigh: "Low-to-High",
   HighToLow: "High-to-Low",
+  HighRating: "High-Rating",
+  LowRating: "Low-Rating",
 };
 
 export const stateLists = [

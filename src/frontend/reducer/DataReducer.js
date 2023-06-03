@@ -4,11 +4,12 @@ import { v4 as uuid } from "uuid";
 export const initialState = {
   filters: {
     sortBy: "",
-    categories: {},
+    categories: [],
     rating: "",
-    sizes: {},
+    sizes: [],
     searchText: "",
     priceRange: 0,
+    stockAvailabilty: [],
   },
   products: [],
   categories: [],
@@ -58,13 +59,6 @@ const DataReducer = (state, action) => {
           categories: action.payload.categories?.map((categoryItem) => ({
             ...categoryItem,
           })),
-          filters: {
-            ...state.filters,
-            categories: action.payload.categories.reduce(
-              (acc, curr) => ({ ...acc, [curr.categoryName]: false }),
-              {}
-            ),
-          },
         };
       }
 

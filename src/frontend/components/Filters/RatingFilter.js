@@ -4,7 +4,10 @@ import { ActionType, Filters } from "../../constant";
 import StarIcon from "@mui/icons-material/Star";
 
 const RatingFilter = () => {
-  const { state, dispatch } = useData();
+  const {
+    state: { filters },
+    dispatch,
+  } = useData();
 
   const ratingFilterChangeHandler = (e) => {
     dispatch({
@@ -25,7 +28,7 @@ const RatingFilter = () => {
               className="productRating"
               name="productRating"
               value={4}
-              checked={state?.filters?.rating === "4"}
+              checked={filters?.rating === "4"}
               onChange={ratingFilterChangeHandler}
             />
             <label htmlFor="productRating-4">
@@ -39,7 +42,7 @@ const RatingFilter = () => {
               className="productRating"
               name="productRating"
               value={3}
-              checked={state?.filters?.rating === "3"}
+              checked={filters?.rating === "3"}
               onChange={ratingFilterChangeHandler}
             />
             <label htmlFor="productRating-3">
@@ -53,7 +56,7 @@ const RatingFilter = () => {
               className="productRating"
               name="productRating"
               value={2}
-              checked={state?.filters?.rating === "2"}
+              checked={filters?.rating === "2"}
               onChange={ratingFilterChangeHandler}
             />
             <label htmlFor="productRating-3">

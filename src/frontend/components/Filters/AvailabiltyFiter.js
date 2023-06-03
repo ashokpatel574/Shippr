@@ -1,6 +1,27 @@
 import React from "react";
+import { useData } from "../../context/DataContext";
+import { ActionType } from "../../constant";
 
 const AvailabiltyFiter = () => {
+  const {
+    state: { filters },
+    dispatch,
+  } = useData();
+
+  const availabiltyFiterHandler = (e) => {
+    const { name, checked } = e.target;
+
+    dispatch({
+      type: ActionType.ChangeFilter,
+      payload: {
+        filterType: "stockAvailabilty",
+        filterValue: checked
+          ? [...filters.stockAvailabilty, name]
+          : [...filters.stockAvailabilty.filter((item) => item !== name)],
+      },
+    });
+  };
+
   return (
     <>
       <div className="sideNavbar_availablity-container">
@@ -11,7 +32,9 @@ const AvailabiltyFiter = () => {
               id="availablityStockExclude"
               type="checkbox"
               className="availablityStockExclude"
-              name="availablityStockExclude"
+              name="exculdeOutOfStock"
+              checked={filters.stockAvailabilty.includes("exculdeOutOfStock")}
+              onChange={availabiltyFiterHandler}
             />
             <label htmlFor="availablityStockExclude">
               Exclude Out of Stock
@@ -22,7 +45,9 @@ const AvailabiltyFiter = () => {
               id="availablityStockInclude"
               type="checkbox"
               className="availablityStockInclude"
-              name="availablityStockInclude"
+              name="inculdeOutOfStock"
+              checked={filters.stockAvailabilty.includes("inculdeOutOfStock")}
+              onChange={availabiltyFiterHandler}
             />
             <label htmlFor="availablityStockInclude">
               Include Out of Stock

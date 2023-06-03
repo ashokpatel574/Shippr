@@ -9,11 +9,26 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 // import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useData } from "../../context/DataContext";
+import { ActionType, Filters } from "../../constant";
 
 const Header = () => {
   const { token } = useAuth();
+  const {
+    state: { filters },
+    dispatch,
+  } = useData();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const searchFilterHandler = (e) => {
+    const { value } = e.target;
+
+    dispatch({
+      type: ActionType.ChangeFilter,
+      payload: { filterType: Filters.Search, filterValue: value },
+    });
+  };
 
   return (
     <header className="header_container ">
@@ -42,6 +57,8 @@ const Header = () => {
                   type="text"
                   placeholder="Search..."
                   name="searchInputPrimary"
+                  value={filters.searchText}
+                  onChange={searchFilterHandler}
                 />
                 <span className="flex-center">
                   <SearchIcon />

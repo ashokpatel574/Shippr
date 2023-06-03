@@ -4,13 +4,18 @@ import { ActionType } from "../../constant";
 import { Filters } from "../../constant";
 
 const PriceFilter = () => {
-  const { state, dispatch } = useData();
-  const maxPriceValue = state?.products.reduce(
+  const {
+    state: { filters, products },
+    dispatch,
+  } = useData();
+
+  const maxPriceValue = products.reduce(
     (acc, { discountprice }) =>
       Number(discountprice) > acc ? Number(discountprice) : acc,
     0
   );
-  const maxRangeValue = state?.filters?.priceRange;
+
+  const maxRangeValue = filters?.priceRange;
 
   const priceRangeFilterHandler = (e) => {
     dispatch({

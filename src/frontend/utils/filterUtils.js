@@ -8,9 +8,28 @@ const sortByFilter = (data, sortBy) => {
   if (sortBy === "") {
     return data;
   }
-  return sortBy === SortBy.LowToHigh
-    ? [...data].sort((a, b) => a.discountprice - b.discountprice)
-    : [...data].sort((a, b) => b.discountprice - a.discountprice);
+
+  switch (true) {
+    case sortBy === SortBy.LowToHigh: {
+      return [...data].sort((a, b) => a.discountprice - b.discountprice);
+    }
+
+    case sortBy === SortBy.HighToLow: {
+      return [...data].sort((a, b) => b.discountprice - a.discountprice);
+    }
+
+    case sortBy === SortBy.LowRating: {
+      return [...data].sort((a, b) => a.rating - b.rating);
+    }
+
+    case sortBy === SortBy.HighRating: {
+      return [...data].sort((a, b) => b.rating - a.rating);
+    }
+
+    default: {
+      return data;
+    }
+  }
 };
 
 const ratingFilter = (data, ratingValue) => {
@@ -21,26 +40,73 @@ const ratingFilter = (data, ratingValue) => {
 };
 
 const categoryFilter = (data, categories) => {
-  if (categories === "") {
+  if (!categories.length) {
     return data;
   }
-  for (let category in categories) {
-    if (categories[category]) {
-      return data.filter((item) => item.categoryName === category);
-    }
+
+  return data.filter((listItem) => {
+    return categories.some((categoryItem) => {
+      return listItem.categoryName === categoryItem;
+    });
+  });
+};
+
+const stockAvailabiltyFilter = (data, stockAvailabilty) => {
+  if (!stockAvailabilty.length) {
+    return data;
   }
-  return data;
+
+  return data.filter((listItem) => {
+    return stockAvailabilty.some((StockItem) => {
+      return StockItem === "exculdeOutOfStock" ? listItem.inStock : true;
+    });
+  });
+};
+
+const sizesFilter = (data, sizes) => {
+  if (!sizes.length) {
+    return data;
+  }
+
+  return data.filter((listItem) => {
+    return sizes.some((selectedSizeItem) => {
+      return listItem.sizes.includes(selectedSizeItem);
+    });
+  });
+};
+
+const searchFilter = (data, searchText) => {
+  if (searchText === "") {
+    return data;
+  }
+
+  return data.filter((productItem) => {
+    return productItem.title
+      .toLowerCase()
+      .includes(searchText.trim().toLowerCase());
+  });
 };
 
 const applyFilters = (products, filters) => {
   let filteredData = [...products];
-  // const {  categories,  sizes,  search } = filters;
-  const { sortBy, priceRange, rating, categories } = filters;
+  const {
+    sortBy,
+    priceRange,
+    rating,
+    categories,
+    stockAvailabilty,
+    sizes,
+    searchText,
+  } = filters;
 
+  filteredData = searchFilter(filteredData, searchText);
   filteredData = priceRangeFilter(filteredData, priceRange);
   filteredData = sortByFilter(filteredData, sortBy);
   filteredData = ratingFilter(filteredData, rating);
   filteredData = categoryFilter(filteredData, categories);
+  filteredData = stockAvailabiltyFilter(filteredData, stockAvailabilty);
+  filteredData = sizesFilter(filteredData, sizes);
+
   return filteredData;
 };
 

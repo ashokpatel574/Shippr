@@ -2,14 +2,16 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import HeroImg from "../../assets/HeroImg/HeroImgOne.webp";
-// import { useData } from "../context/DataContext";
+import { useData } from "../context/DataContext";
 import CategoriesContainer from "../components/category/CategoriesContainer";
 
+import { ActionType } from "../constant";
+
 const Home = () => {
-  // const { state, dispatch } = useData();
+  const { dispatch } = useData();
 
   useEffect(() => {
-    // dispatch({ type: ActionType.ClearFilter });
+    dispatch({ type: ActionType.ClearFilter });
   }, []);
 
   return (
