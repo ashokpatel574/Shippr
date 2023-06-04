@@ -15,10 +15,11 @@ const Home = () => {
   }, []);
 
   return (
-    <article className="hero_container ">
-      <div className="heroImg_container">
+    <article className="hero_container fillContainer ">
+      <div className="heroImg_container fillContainer padding-tp-btm-xxl">
         <Link to="products">
-          <img src={HeroImg} alt="Hero" />
+          <img src={HeroImg} alt="Hero" className="fillContainer" />
+          <span>Explore</span>
         </Link>
       </div>
 

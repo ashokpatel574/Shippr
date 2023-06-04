@@ -7,15 +7,14 @@ import { useAuth } from "../../context/AuthContext";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-// import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useData } from "../../context/DataContext";
 import { ActionType, Filters } from "../../constant";
 
 const Header = () => {
   const { token } = useAuth();
   const {
-    state: { filters },
+    state: { filters, wishlist, cartlist },
     dispatch,
   } = useData();
   const navigate = useNavigate();
@@ -31,8 +30,8 @@ const Header = () => {
   };
 
   return (
-    <header className="header_container ">
-      <nav className=" header_nav-container flex-space-between  ">
+    <header className="header_container  ">
+      <nav className=" header_nav-container flex-space-between page-containerWidth padding-tp-btm-m   ">
         <div className="header_container-partOne flex-center flex-nowrap">
           <NavLink to="/">
             <div className="flex-center">
@@ -47,13 +46,13 @@ const Header = () => {
             <h2>Shippr</h2>
           </NavLink>
         </div>
-        <ul className="header_container-partTwo flex-space-between flex-nowrap ">
+        <ul className="header_container-partTwo flex-space-between flex-nowrap gap-xxl  ">
           {location.pathname === "/products" ? (
             <li className="searchInputPrimary_container ">
-              <label htmlFor="searchInputPrimary flex-center">
+              <label htmlFor="searchInputPrimary flex-center flex-nowrap">
                 <input
                   id="searchInputPrimary"
-                  className="searchInput_primary"
+                  className="searchInput_primary "
                   type="text"
                   placeholder="Search..."
                   name="searchInputPrimary"
@@ -93,18 +92,24 @@ const Header = () => {
             )}
           </li>
 
-          <li className="flex-center">
+          <li className=" wishlistIcon-container flex-center">
             <NavLink to="wishlist">
-              <span>
-                <FavoriteIcon sx={{ "& :hover": { color: "#3c0ac2" } }} />
+              <span className="">
+                <FavoriteBorderIcon sx={{ "& :hover": { color: "#3c0ac2" } }} />
               </span>
+              {wishlist.length > 0 && (
+                <span className="wishlistCount">{wishlist.length}</span>
+              )}
             </NavLink>
           </li>
-          <li className="flex-center">
+          <li className="cartlistIcon-container flex-center">
             <NavLink to="cart">
-              <span>
+              <span className="">
                 <ShoppingCartIcon sx={{ "& :hover": { color: "#3c0ac2" } }} />
               </span>
+              {cartlist.length > 0 && (
+                <span className="cartCount">{cartlist.length}</span>
+              )}
             </NavLink>
           </li>
         </ul>

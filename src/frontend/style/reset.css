@@ -3,8 +3,8 @@
 :root {
   --dark-color-one: #333;
   --dark-color-two: #5a5a5a;
-  --primary-color-one: #3c0ac2;
-  /* --primary-color-two: #30089b; */
+  --primary-color-one: rgb(60, 10, 194);
+  --primary-color-two: #30089b;
   --secondary-color-one: #fff;
   --secondary-color-two: #f9fafb;
   --secondary-color-three: #f6f7fb;
@@ -42,4 +42,8 @@ body {
   overflow-x: hidden;
   overflow-x: clip;
   /* min-height: 100vh; */
+}
+
+#root {
+  width: 100%;
 }

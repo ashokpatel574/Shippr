@@ -25,10 +25,10 @@ const CategoriesContainer = () => {
   };
 
   return (
-    <section className="categories_container">
-      <h2>Categories</h2>
+    <section className="categories_container  flex-column padding-tp-btm-xxl gap-l ">
+      <h2 className=" categories_container-title text-center">Categories</h2>
 
-      <div className="categories_wrapper ">
+      <div className="categories_wrapper padding-tp-btm-xxl ">
         <div className="categories_wrap">
           <div
             onClick={() => categoryFilterHandler("tshirt")}

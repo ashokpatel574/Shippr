@@ -8,13 +8,13 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className=" footer_container flex-space-between">
+      <div className=" footer_container flex-space-between page-containerWidth padding-tp-btm-xl">
         <p className="footer-logo-text">Shippr</p>
         <p className="footer_copyright-text">
           &copy; No Copyright, Feel free to replicate. by Ashok
         </p>
 
-        <ul className="footer_socials flex-center">
+        <ul className="footer_socials flex-center gap-xl">
           <li>
             <TwitterIcon />
           </li>
