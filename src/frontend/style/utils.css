@@ -91,6 +91,10 @@
   color: var(--error-color);
 }
 
+.text-center {
+  text-align: center;
+}
+
 ul {
   list-style-type: none;
   margin-block-start: 0;
@@ -187,6 +191,7 @@ a {
 .gap-xs {
   gap: 0.5rem;
 }
+
 .gap-s {
   gap: 1rem;
 }
@@ -203,6 +208,10 @@ a {
   gap: 3rem;
 }
 
+.gap-xxl {
+  gap: 4rem;
+}
+
 .padding-xs {
   padding: 0.5rem;
 }
@@ -215,16 +224,16 @@ a {
   padding: 1.5rem;
 }
 
-.padding-m {
-  padding: 1.5rem;
-}
-
 .padding-l {
   padding: 2rem;
 }
 
 .padding-xl {
   padding: 3rem;
+}
+
+.padding-xxl {
+  padding: 4rem;
 }
 
 .padding-tp-btm-xs {
@@ -242,12 +251,13 @@ a {
 .padding-tp-btm-l {
   padding: 2rem 0rem;
 }
+
 .padding-tp-btm-xl {
   padding: 3rem 0rem;
 }
 
-.margin-tp-btm-s {
-  margin: 1rem 0rem;
+.padding-tp-btm-xxl {
+  padding: 4rem 0rem;
 }
 
 .margin-right-large {
@@ -283,4 +293,16 @@ a {
 
 .pointer {
   cursor: pointer;
+}
+
+/* Container and section utils */
+
+.page-containerWidth {
+  max-width: 140rem;
+  margin: 0 auto;
+}
+
+.fillContainer {
+  width: 100%;
+  height: 100%;
 }
