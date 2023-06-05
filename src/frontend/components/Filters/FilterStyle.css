@@ -1,17 +1,28 @@
 .productslisting_side-navbar-header {
   align-items: center;
   border-bottom: 1px solid var(--boder-color-light);
-  padding: 2rem 2.5rem;
+  padding: 2rem;
   font-weight: 600;
+  background-color: var(--background-color-two);
 }
 
-.productslisting_side-navbar-header span {
-  font-size: 2rem;
+.productslisting_side-navbar-header span:first-child {
+  font-size: 2.4rem;
   letter-spacing: 0.7px;
 }
 
 .clearFilter {
+  font-size: 1.8rem;
   cursor: pointer;
+  border: 2px solid var(--primary-color-one);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+
+.clearFilter:hover {
+  color: var(--secondary-color-one);
+  background-color: var(--primary-color-one);
 }
 
 .sideNavbar_category-container,
@@ -31,7 +42,7 @@
 .sideNavbar_sort-container p,
 .sideNavbar_availablity-container p {
   margin-bottom: 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--primary-color-one);
 }
 
@@ -40,23 +51,7 @@
 .sideNavbar_customerRating-container ul,
 .sideNavbar_sort-container ul,
 .sideNavbar_availablity-container ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 1.5rem;
   margin-left: 0.5rem;
-}
-
-.sideNavbar_category-container ul li,
-.sideNavbar_size-container ul li,
-.sideNavbar_customerRating-container ul li,
-.sideNavbar_sort-container ul li,
-.sideNavbar_availablity-container ul li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
 }
 
 .sideNavbar_category-container ul li label,
@@ -67,7 +62,7 @@
   font-size: 1.7rem;
 }
 
-.sideNavbar_category-container .categoryTshirt,
+.sideNavbar_category-container input,
 .sideNavbar_size-container input,
 .sideNavbar_customerRating-container input,
 .sideNavbar_sort-container input,
@@ -77,7 +72,6 @@
 }
 
 /* price Range */
-
 .sideNavbar_priceRange-container label,
 .sideNavbar_size-container label {
   display: flex;
@@ -87,5 +81,6 @@
 }
 
 .sideNavbar_priceRange-container input {
-  width: 20rem;
+  max-width: 20rem;
+  width: 100%;
 }

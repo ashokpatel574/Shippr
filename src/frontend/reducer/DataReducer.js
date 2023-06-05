@@ -23,7 +23,7 @@ export const initialState = {
       name: "Ashok Patel",
       address: "101, 100Ft Road, MG Street ",
       city: "Bangalore",
-      mobile: "+91 9876543210",
+      mobile: "9876543210",
       pincode: "560043",
       state: "Karnataka",
       country: "India",

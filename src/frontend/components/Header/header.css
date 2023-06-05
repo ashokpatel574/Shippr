@@ -91,12 +91,17 @@
 .cartCount {
   position: absolute;
   display: inline-block;
+  text-align: center;
   top: 5%;
-  right: -65%;
+  right: -72.5%;
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 0.3rem;
+  line-height: 1.4;
   transform: translate(-50%, -50%);
   background-color: var(--success-color);
   color: var(--secondary-color-one);
-  padding: 0.5rem 0.6rem;
-  border-radius: 45%;
+
+  border-radius: 50%;
   font-size: 1.6rem;
 }

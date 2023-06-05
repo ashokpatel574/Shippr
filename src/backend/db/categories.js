@@ -9,19 +9,22 @@ export const categories = [
   {
     _id: uuid(),
     categoryName: "tshirt",
+    title: "T-shirt",
     image:
       "https://res.cloudinary.com/dz0snqho8/image/upload/v1684437295/shippr/Shippr%20Images/categories/categoryTshirtImg_ncged2.webp",
   },
   {
     _id: uuid(),
-    categoryName: "shirt",
-    iamge:
-      "https://res.cloudinary.com/dz0snqho8/image/upload/v1684437295/shippr/Shippr%20Images/categories/categoryShirtImg_gvjnnn.webp",
+    categoryName: "looseTshirt",
+    title: "Loose T-shirt",
+    image:
+      "https://res.cloudinary.com/dz0snqho8/image/upload/v1684437297/shippr/Shippr%20Images/categories/categoryLooseTshirtImg_zovvbc.webp",
   },
   {
     _id: uuid(),
-    categoryName: "looseTshirt",
-    image:
-      "https://res.cloudinary.com/dz0snqho8/image/upload/v1684437297/shippr/Shippr%20Images/categories/categoryLooseTshirtImg_zovvbc.webp",
+    categoryName: "shirt",
+    title: "Shirt",
+    iamge:
+      "https://res.cloudinary.com/dz0snqho8/image/upload/v1684437295/shippr/Shippr%20Images/categories/categoryShirtImg_gvjnnn.webp",
   },
 ];

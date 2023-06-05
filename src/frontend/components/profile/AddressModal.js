@@ -201,6 +201,7 @@ const AddressModal = () => {
               name="address"
               type="text"
               placeholder="Enter address here"
+              value={addressDetails.address}
               onChange={addressHandler}
             />
             <span>{addressErrorDetails.address}</span>
@@ -215,6 +216,7 @@ const AddressModal = () => {
                 name="city"
                 type="text"
                 placeholder="Enter city here"
+                value={addressDetails.city}
                 onChange={addressHandler}
               />
               <span>{addressErrorDetails.city}</span>
@@ -229,6 +231,7 @@ const AddressModal = () => {
                 type="text"
                 min="0"
                 placeholder="Enter pincode here"
+                value={addressDetails.pincode}
                 onChange={addressHandler}
               />
               <span>{addressErrorDetails.pincode}</span>
@@ -241,6 +244,7 @@ const AddressModal = () => {
               id="state"
               className="state"
               name="state"
+              value={addressDetails.state}
               onChange={addressHandler}
             >
               <option disabled={true}>Select the state</option>
@@ -260,6 +264,7 @@ const AddressModal = () => {
               className="mobile"
               name="mobile"
               type="tel"
+              value={addressDetails.mobile}
               placeholder="Enter mobile number here"
               onChange={addressHandler}
             />

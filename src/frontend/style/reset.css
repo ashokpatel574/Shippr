@@ -3,7 +3,7 @@
 :root {
   --dark-color-one: #333;
   --dark-color-two: #5a5a5a;
-  --primary-color-one: rgb(60, 10, 194);
+  --primary-color-one: #3c0ac2;
   --primary-color-two: #30089b;
   --secondary-color-one: #fff;
   --secondary-color-two: #f9fafb;
@@ -46,4 +46,8 @@ body {
 
 #root {
   width: 100%;
+}
+
+.Toastify__toast-body div:last-child {
+  font-size: 1.8rem;
 }

@@ -9,22 +9,25 @@ import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
-    <main className="shipprApp_container flex-column ">
-      <ToastContainer
-        position="bottom-right"
-        autoClose={false}
-        newestOnTop={true}
-        closeOnClick
-        theme="colored"
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-      />
-
+    <>
       <Header />
-      <Outlet />
+      <main className="shipprApp_container flex-column ">
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={true}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable={false}
+          pauseOnHover
+        />
+
+        <Outlet />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 };
 

@@ -178,11 +178,8 @@ a {
 
 .grid-productsListlayout-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas:
-    "sidebar  main main main"
-    "sidebar  main main main"
-    "sidebar  main main main";
+  grid-template-columns: 25% 1fr;
+  grid-template-areas: "sidebar  main";
   scroll-behavior: smooth;
 }
 
@@ -305,4 +302,11 @@ a {
 .fillContainer {
   width: 100%;
   height: 100%;
+}
+
+.text-ellipsis {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
