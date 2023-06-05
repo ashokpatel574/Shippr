@@ -1,5 +1,3 @@
-import React from "react";
-
 import { useData } from "../context/DataContext";
 import { useParams, useNavigate, useLocation } from "react-router";
 import { isProductInCart, isProductInWishlist } from "../utils/utils";
@@ -76,10 +74,10 @@ const SingleProductPage = () => {
     };
 
     return (
-      <section className="singleProductpage_section">
-        <div className="singleProductpage_main-container">
+      <section className="singleProductpage_section section-padding">
+        <article className="singleProductpage_main-container page-containerWidth gap-l section-padding">
           <div className="singleProduct_imgContainer">
-            <ul className="flex-start flex-wrap">
+            <ul className="flex-start flex-wrap gap-xl">
               {images?.map((imageItem, id) => (
                 <li key={id}>
                   <img src={imageItem} alt={"Tshirt"} />
@@ -90,18 +88,23 @@ const SingleProductPage = () => {
           <div className="singleProduct_detailsContainer">
             <h3 className="singleProduct_title">{title}</h3>
 
-            <div className="singleProduct_priceContainer flex-justify-start">
-              <span className="discountPrice">Rs. {discountprice}</span>
-              <span className="totalPrice">Rs. {price}</span>
-
-              <span className="discountPercent">
-                {`(${discountpercent * 100} OFF%)`}
-              </span>
+            <div className="singleProduct_priceContainer flex-justify-start gap-m padding-tp-btm-l">
+              <span className="discountPrice">₹ {discountprice}</span>
+              {discountpercent > 0 ? (
+                <>
+                  <span className="totalPrice txt-crossed-off">₹ {price}</span>
+                  <span className="discountPercent">
+                    {`(${discountpercent * 100} OFF%)`}
+                  </span>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
 
             <div className="singleProduct_sizesContainer">
               <h3>Sizes</h3>
-              <ul className="flex-justify-start">
+              <ul className="flex-justify-start gap-m">
                 {sizes?.map((sizeListItem, id) => (
                   <li key={id} className="singleProduct_sizes">
                     <label htmlFor="sizefilter">
@@ -114,10 +117,10 @@ const SingleProductPage = () => {
               <span className="size-error">Size is required!</span>
             </div>
 
-            <div className="singleProduct_btnContainer flex-justify-start flex-wrap">
+            <div className="singleProduct_btnContainer flex-justify-start flex-wrap gap-l">
               <button
                 onClick={() => addToCartBtnHandler(singleProductDetails)}
-                className="btn addToCartBtn"
+                className={`btn addToCartBtn ${inCartList && "toCartAction"}`}
               >
                 {inCartList ? "Go to Cart" : "Add to cart"}
               </button>
@@ -134,9 +137,11 @@ const SingleProductPage = () => {
               <p>{description}</p>
             </div>
           </div>
-        </div>
+        </article>
       </section>
     );
+  } else {
+    <></>;
   }
 };
 

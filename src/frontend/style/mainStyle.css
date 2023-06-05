@@ -85,40 +85,29 @@
 .singleProductpage_section {
   width: 100%;
   background-color: var(--background-color-one);
-  padding: 4rem 2rem;
 }
 
 .singleProductpage_main-container {
-  max-width: 145rem;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  padding: 4rem 2.5rem;
   background-color: var(--background-color-two);
 }
 
-.singleProduct_imgContainer {
-  width: 100%;
-}
-
-.singleProduct_imgContainer ul {
-  gap: 2rem;
+.singleProduct_imgContainer,
+.singleProduct_imgContainer ul,
+.singleProduct_detailsContainer {
   width: 100%;
 }
 
 .singleProduct_imgContainer ul li {
   max-width: 32rem;
+  width: 100%;
 }
 
 .singleProduct_imgContainer img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.singleProduct_detailsContainer {
-  width: 100%;
 }
 
 .singleProduct_title {
@@ -129,8 +118,6 @@
 
 .singleProduct_priceContainer {
   align-items: center;
-  gap: 2rem;
-  padding: 2rem 0;
 }
 
 .singleProduct_priceContainer .discountPrice {
@@ -140,7 +127,7 @@
 
 .singleProduct_priceContainer .discountPercent,
 .singleProduct_priceContainer .totalPrice {
-  font-size: 2.2rem;
+  font-size: 2rem;
 }
 
 .singleProduct_sizesContainer {
@@ -155,7 +142,6 @@
 
 .singleProduct_sizesContainer ul {
   align-items: center;
-  gap: 2.5rem;
   padding-bottom: 0.5rem;
 }
 
@@ -186,10 +172,8 @@
 
 .singleProduct_btnContainer {
   align-items: center;
-  gap: 3rem;
   width: 100%;
-  padding-top: 1rem;
-  padding-bottom: 3rem;
+  padding: 1rem 0 2.5rem 0;
 }
 
 .singleProduct_btnContainer .addToCartBtn,
@@ -199,10 +183,28 @@
   font-weight: 500;
 }
 
+.singleProduct_btnContainer .addToCartBtn.toCartAction {
+  background-color: var(--success-color);
+}
+
+.singleProduct_btnContainer .addToCartBtn:hover {
+  background-color: var(--primary-color-two);
+}
+
+.singleProduct_btnContainer .addToCartBtn.toCartAction:hover {
+  background-color: var(--success-color);
+}
+
 .singleProduct_btnContainer .addToWishListBtn {
   background-color: var(--background-color-two);
   color: var(--primary-color-one);
   border: 1px solid var(--primary-color-one);
+  transition: all 0.3s;
+}
+
+.singleProduct_btnContainer .addToWishListBtn:hover {
+  color: var(--secondary-color-one);
+  background-color: var(--primary-color-one);
 }
 
 .singleProduct_details {
