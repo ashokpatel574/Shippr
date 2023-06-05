@@ -295,8 +295,12 @@ a {
 /* Container and section utils */
 
 .page-containerWidth {
-  max-width: 140rem;
+  max-width: 145rem;
   margin: 0 auto;
+}
+
+.section-padding {
+  padding: 4rem 2rem;
 }
 
 .fillContainer {
