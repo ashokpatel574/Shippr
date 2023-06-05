@@ -33,8 +33,8 @@ const AddressCard = ({ addressCardprops }) => {
 
   return (
     <>
-      <li className="userAddress_card-container flex-start flex-column">
-        <div className="userAddress-details  flex-start flex-column">
+      <li className="userAddress_card-container flex-start flex-column gap-l ">
+        <div className="userAddress-details flex-start flex-column gap-xs ">
           <p className="name">{name}</p>
           <p className="address">#{address}</p>
           <p className="city">{city}</p>
@@ -46,7 +46,7 @@ const AddressCard = ({ addressCardprops }) => {
             <SmartphoneIcon /> {"  "} {mobile}
           </p>
         </div>
-        <div className="userAddress_cardBtn-container flex-start">
+        <div className="userAddress_cardBtn-container flex-start gap-l">
           <button
             onClick={() => editAddressHandler(addressListItem)}
             className="btn editBtn"
