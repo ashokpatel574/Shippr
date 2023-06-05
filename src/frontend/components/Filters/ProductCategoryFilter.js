@@ -4,7 +4,7 @@ import { Filters } from "../../constant";
 
 const ProductCategoryFilter = () => {
   const {
-    state: { filters },
+    state: { filters, categories },
     dispatch,
   } = useData();
 
@@ -26,40 +26,22 @@ const ProductCategoryFilter = () => {
     <>
       <div className="sideNavbar_category-container">
         <p>Category</p>
-        <ul>
-          <li>
-            <input
-              id="categoryTshirt"
-              type="checkbox"
-              className="categoryTshirt"
-              name="tshirt"
-              checked={filters?.categories?.includes("tshirt")}
-              onChange={categoryUpdateHandler}
-            />
-            <label htmlFor="categoryTshirt">T-Shirt</label>
-          </li>
-          <li>
-            <input
-              id="categoryTshirt"
-              type="checkbox"
-              className="categoryTshirt"
-              name="looseTshirt"
-              checked={filters?.categories?.includes("looseTshirt")}
-              onChange={categoryUpdateHandler}
-            />
-            <label htmlFor="categoryTshirt">Loose T-Shirt</label>
-          </li>
-          <li>
-            <input
-              id="categoryTshirt"
-              type="checkbox"
-              className="categoryTshirt"
-              name="shirt"
-              checked={filters?.categories?.includes("shirt")}
-              onChange={categoryUpdateHandler}
-            />
-            <label htmlFor="categoryTshirt">Shirt</label>
-          </li>
+        <ul className="flex-column flex-start gap-m">
+          {categories?.map((categoryItem) => (
+            <li key={categoryItem._id} className="flex-center gap-s">
+              <input
+                id="categoryTshirt"
+                type="checkbox"
+                className="categoryTshirt"
+                name={categoryItem.categoryName}
+                checked={filters?.categories?.includes(
+                  categoryItem.categoryName
+                )}
+                onChange={categoryUpdateHandler}
+              />
+              <label htmlFor="categoryTshirt">{categoryItem.title}</label>
+            </li>
+          ))}
         </ul>
       </div>
     </>

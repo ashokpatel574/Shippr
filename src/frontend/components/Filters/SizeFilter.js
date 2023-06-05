@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useData } from "../../context/DataContext";
 import { ActionType, Filters } from "../../constant";
 
 const SizeFilter = () => {
+  const [sizeslist] = useState(["s", "m", "l", "xl"]);
+
   const {
     state: { filters },
     dispatch,
@@ -26,51 +28,21 @@ const SizeFilter = () => {
     <>
       <div className="sideNavbar_size-container">
         <p>Size</p>
-        <ul>
-          <li>
-            <input
-              id="productSize-s"
-              type="checkbox"
-              className="productSize-s"
-              name="s"
-              checked={filters.sizes?.includes("s")}
-              onChange={SizeFilterHandler}
-            />
-            <label htmlFor="productSize-s"> S</label>
-          </li>
-          <li>
-            <input
-              id="productSize-m"
-              type="checkbox"
-              className="productSize-m"
-              name="m"
-              checked={filters.sizes?.includes("m")}
-              onChange={SizeFilterHandler}
-            />
-            <label htmlFor="productSize-m"> M</label>
-          </li>
-          <li>
-            <input
-              id="productSize-l"
-              type="checkbox"
-              className="productSize-l"
-              name="l"
-              checked={filters.sizes?.includes("l")}
-              onChange={SizeFilterHandler}
-            />
-            <label htmlFor="productSize-l"> L</label>
-          </li>
-          <li>
-            <input
-              id="productSize-xl"
-              type="checkbox"
-              className="productSize-xl"
-              name="xl"
-              checked={filters.sizes?.includes("xl")}
-              onChange={SizeFilterHandler}
-            />
-            <label htmlFor="productSize-xl"> XL</label>
-          </li>
+        <ul className="flex-column flex-start gap-m">
+          {sizeslist.map((sizeListItem, id) => (
+            <li key={id} className="flex-center gap-s">
+              <input
+                id={`productSize-${sizeListItem}`}
+                type="checkbox"
+                name={sizeListItem}
+                checked={filters.sizes?.includes(sizeListItem)}
+                onChange={SizeFilterHandler}
+              />
+              <label htmlFor={`productSize-${sizeListItem}`}>
+                {sizeListItem.toUpperCase()}
+              </label>
+            </li>
+          ))}
         </ul>
       </div>
     </>

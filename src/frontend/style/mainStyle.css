@@ -1,14 +1,15 @@
 @import url(../components//header/header.css);
 @import url(../components/footer/footer.css);
 @import url(../components/category/category.css);
-@import url(../components/filters/ProductListStyle.css);
+@import url(../components/filters/filterStyle.css);
+@import url(../components/productCard/productCard.css);
 
 /* Shippr App Container */
 
 .shipprApp_container {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 /* Hero Container */
@@ -47,10 +48,10 @@
   width: 100%;
   padding: 4rem 2.5rem;
   background-color: var(--background-color-one);
-  gap: 2rem;
 }
 
 .productslisting_side-navbar {
+  width: 100%;
   grid-area: sidebar;
   height: fit-content;
   background-color: var(--background-color-two);
@@ -58,7 +59,6 @@
 
 .productsListing_container {
   grid-area: main;
-  padding: 2rem;
   background-color: var(--background-color-two);
   justify-content: center;
   align-items: center;
@@ -66,144 +66,18 @@
 
 .productsListing_container-title {
   display: inline-block;
-  margin-bottom: 2.5rem;
   font-size: 2.4rem;
   font-weight: 500;
+  margin-bottom: 2.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1.5px solid var(--border-color-normal);
+  color: var(--primary-color-one);
+  border-bottom: 2px solid var(--boder-color-light);
 }
 
 .productsListing_container ul {
   flex-grow: 0;
-  align-items: center;
-  gap: 2rem;
-}
-
-/* Product card style */
-
-.productsListing_container-card.InStock {
-  background-color: #666;
-  color: var(--secondary-color-one);
-  opacity: 0.55;
-  position: relative;
-}
-
-.OutOfStock {
-  position: absolute;
-  text-align: center;
-  display: inline-block;
-  width: 80%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2.2rem;
-  font-weight: 700;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
-  background-color: var(--error-color);
-  color: var(--secondary-color-one);
-  opacity: 1;
-  z-index: 5;
-}
-
-.productsListing_container-card {
-  max-width: 32rem;
-  width: 100%;
-  padding: 1rem;
-  border: 2px solid var(--border-color-normal);
-  gap: 1.5rem;
-  transition: all 0.1s;
-}
-
-.productsListing_container-card:hover {
-  border: 2px solid var(--border-color-highlight);
-}
-
-.productsListing_card-imgContainer {
-  position: relative;
-  width: 100%;
-}
-
-.productsListing_card-imgContainer img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.productsListing_card-imgContainer .product-rating {
-  position: absolute;
-  bottom: -4%;
-  right: 0;
-  transform: translateY(-50%);
-  padding: 0.4rem 1.4rem;
-  background-color: var(--success-color);
-  color: var(--secondary-color-one);
-  font-size: 2rem;
-}
-
-.productsListing_card-imgContainer .wishListIcon_container {
-  position: absolute;
-  top: 8%;
-  right: -4%;
-  transform: translate(-50%, -50%);
-  padding: 0.5rem 0.5rem;
-  background-color: var(--dark-color-two);
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.productsListing_card-imgContainer .wishListIcon {
-  height: 3.25rem;
-  width: 3.25rem;
-  color: var(--secondary-color-one);
-}
-
-.productsListing_card-imgContainer .wishListIcon_container.selected {
-  background-color: var(--background-color-two);
-}
-
-.productsListing_card-imgContainer .wishListIcon.selected {
-  color: var(--success-color);
-}
-
-.productsListing_card-textContainer {
-  gap: 1rem;
-  font-size: 1.8rem;
-  font-weight: 500;
-}
-
-.productsListing_card-title {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.productsListing_card-priceContainer {
-  gap: 1rem;
-}
-
-.discountPrice {
-  font-size: 2rem;
-  color: var(--success-color);
-}
-
-.totalPrice {
-  font-size: 1.6rem;
-  color: var(--dark-color-two);
-}
-
-.discountPercent {
-  color: var(--error-color);
-}
-
-.productsListing_container-card .addToCartBtn {
-  width: 100%;
-  text-align: center;
-  padding: 0.6rem 1.2rem;
-  font-size: 1.8rem;
-  border-radius: 0.5rem;
-  margin-top: 0.5rem;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 /* Single Product page style */

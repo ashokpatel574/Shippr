@@ -26,8 +26,8 @@ const AvailabiltyFiter = () => {
     <>
       <div className="sideNavbar_availablity-container">
         <p>Availablity</p>
-        <ul>
-          <li>
+        <ul className="flex-column flex-start gap-m">
+          <li className="flex-center gap-s">
             <input
               id="availablityStockExclude"
               type="checkbox"
@@ -40,7 +40,7 @@ const AvailabiltyFiter = () => {
               Exclude Out of Stock
             </label>
           </li>
-          <li>
+          <li className="flex-center gap-s">
             <input
               id="availablityStockInclude"
               type="checkbox"

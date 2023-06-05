@@ -19,8 +19,8 @@ const ProductSortFilter = () => {
     <>
       <div className="sideNavbar_sort-container">
         <p>Sort</p>
-        <ul>
-          <li>
+        <ul className="flex-column flex-start gap-m">
+          <li className="flex-center gap-s">
             <input
               id="LowToHigh"
               type="radio"
@@ -32,7 +32,7 @@ const ProductSortFilter = () => {
             />
             <label htmlFor="LowToHigh"> Price: Low to High</label>
           </li>
-          <li>
+          <li className="flex-center gap-s">
             <input
               id="HighToLow"
               type="radio"
@@ -44,7 +44,7 @@ const ProductSortFilter = () => {
             />
             <label htmlFor="HighToLow">Price: High to Low</label>
           </li>
-          <li>
+          <li className="flex-center gap-s">
             <input
               id="LowRating"
               type="radio"
@@ -56,7 +56,7 @@ const ProductSortFilter = () => {
             />
             <label htmlFor="LowToHigh"> Rating: Low to High</label>
           </li>
-          <li>
+          <li className="flex-center gap-s">
             <input
               id="HighRating"
               type="radio"

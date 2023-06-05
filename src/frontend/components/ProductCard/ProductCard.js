@@ -3,6 +3,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useNavigate, useLocation } from "react-router";
 import { useAuth } from "../../context/AuthContext";
+import StarIcon from "@mui/icons-material/Star";
 
 import { useData } from "../../context/DataContext";
 import { isProductInWishlist, isProductInCart } from "../../utils/utils";
@@ -89,12 +90,15 @@ const ProductCard = ({ productItem }) => {
       key={productId}
       className={` productsListing_container-card ${
         !inStock && "InStock"
-      } flex-column flex-justify-center`}
+      } flex-column flex-justify-center gap-s padding-s`}
     >
       {!inStock && <span className="OutOfStock">Out of stock</span>}
-      <div className="productsListing_card-imgContainer">
+      <div className="productsListing_card-imgContainer fillContainer">
         <img src={images[0]} alt={title} onClick={productCardClickHandler} />
-        <span className="product-rating">{rating}</span>
+        <div className="product-rating flex-center">
+          <span> {rating}</span>
+          <StarIcon />
+        </div>
         {inStock && (
           <span
             onClick={wishlistHandler}
@@ -110,22 +114,28 @@ const ProductCard = ({ productItem }) => {
           </span>
         )}
       </div>
-      <div className="productsListing_card-textContainer flex-start flex-column">
-        <p className="productsListing_card-title">{title}</p>
-        <p>Sizes: {SizeAvailable}</p>
-        <p className="productsListing_card-priceContainer flex-center">
-          <span className="discountPrice">Rs.{discountprice}</span>
-          <span className="totalPrice txt-crossed-off">Rs.{price}</span>
+      <div className="productsListing_card-textContainer flex-start flex-column gap-s ">
+        <p className="productsListing_card-title text-ellipsis">{title}</p>
+        <p className="productsListing_card-sizes">Sizes: {SizeAvailable}</p>
 
-          <span className="discountPercent">
-            {`(${discountpercent * 100} OFF%)`}
-          </span>
+        <p className="productsListing_card-priceContainer flex-center gap-s">
+          <span className="discountPrice">₹ {discountprice}</span>
+          {discountpercent > 0 ? (
+            <>
+              <span className="totalPrice txt-crossed-off">₹ {price}</span>
+              <span className="discountPercent">
+                {`(${discountpercent * 100} OFF%)`}
+              </span>
+            </>
+          ) : (
+            <></>
+          )}
         </p>
 
         <button
           disabled={!inStock}
           onClick={() => addToCartBtnHandler(productItem)}
-          className="btn addToCartBtn"
+          className={`btn addToCartBtn ${inCartList && "toCartAction"}`}
         >
           {!inStock
             ? "Out of stock"
