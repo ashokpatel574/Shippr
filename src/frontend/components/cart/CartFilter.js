@@ -43,26 +43,26 @@ const CartFilter = ({ sizes, qty, cartId }) => {
         <label htmlFor="selectSize"></label>
         <select id="selectSize">
           <option disabled={true}>Select Size</option>
-          {sizes.map((sizeItem, id) => (
+          {sizes?.map((sizeItem, id) => (
             <option key={id} value={sizeItem}>
               Size: {"  "} {sizeItem.toUpperCase()}
             </option>
           ))}
         </select>
       </div>
-      <div className="cartProduct_qtyFilter">
+      <div className="cartProduct_qtyFilter flex-align-center gap-s">
         <p className="qtyFilter-title">Quantity:</p>
         <button
           onClick={() => updateCartQty(`Decrement`, cartId, qty)}
           disabled={qty === 1 && btnDisabled}
-          className="qtyDecrease"
+          className="qtyDecrease flex-center"
         >
           <RemoveCircleIcon />
         </button>
         <span className="productQty">{qty}</span>
         <button
           onClick={() => updateCartQty(`Increment`, cartId, qty)}
-          className="qtyIncrease"
+          className="qtyIncrease flex-center"
         >
           <AddCircleIcon />
         </button>

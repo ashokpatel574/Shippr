@@ -70,23 +70,29 @@ const CartCard = ({ cartItem }) => {
   };
 
   return (
-    <div className="cartpage_productDetails-card flex-column">
-      <div className="product_info-container flex-space-between">
-        <div className="product_info-partOne flex-column flex-start">
+    <div className="cartpage_productDetails-card flex-column ">
+      <div className="product_info-container flex-space-between gap-m padding-m">
+        <div className="product_info-partOne flex-column flex-start gap-s">
           <p className="product_info-partOne-title">{title}</p>
-          <div className="cartProduct_priceContainer">
-            <span className="discountPrice">Rs. {discountprice}</span>
-            <span className="totalPrice">Rs. {price}</span>
+          <div className="cartProduct_priceContainer flex-justify-start">
+            <span className="discountPrice">₹ {discountprice}</span>
 
-            <span className="discountPercent">
-              {`(${discountpercent * 100} OFF%)`}
-            </span>
+            {discountpercent > 0 ? (
+              <>
+                <span className="totalPrice txt-crossed-off">₹ {price}</span>
+                <span className="discountPercent">
+                  {`(${discountpercent * 100} OFF%)`}
+                </span>
+              </>
+            ) : (
+              <></>
+            )}
           </div>
           <p className="savedPrice">
-            You saved Rs. {Math.ceil(discountpercent * price)} !
+            You saved ₹ {Math.ceil(discountpercent * price)}/-
           </p>
 
-          <div className="cartProduct_filterContainer">
+          <div className="cartProduct_filterContainer flex-justify-start gap-xl">
             <CartFilter sizes={sizes} qty={qty} cartId={cartId} />
           </div>
         </div>
@@ -94,7 +100,7 @@ const CartCard = ({ cartItem }) => {
           <img src={images[0]} alt={title} />
         </div>
       </div>
-      <div className="cartProduct_btnContainer">
+      <div className="cartProduct_btnContainer flex-space-evenly padding-tp-btm-s gap-m flex-wrap">
         <span>
           <button
             onClick={() => removeCartItemHandler(cartId)}

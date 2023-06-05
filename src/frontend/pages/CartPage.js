@@ -13,10 +13,10 @@ const CartPage = () => {
   const navigate = useNavigate();
 
   return (
-    <article className="cartpage_section">
+    <section className="cartpage_section padding-xxl">
       {!cartlist.length && (
-        <section className="emptyCart_Container flex-column flex-center">
-          <div className="emptyCart_Img-Container">
+        <article className="emptyCart_Container  padding-xl">
+          <div className="emptyCart_Img-Container fillContainer">
             <img
               src={EmptyCartImg}
               alt="empty cartlist"
@@ -24,8 +24,8 @@ const CartPage = () => {
               height="400px"
             />
           </div>
-          <div className="emptyCart_text-Container flex-column flex-center">
-            <h3>Your cart is rmpty!</h3>
+          <div className="emptyCart_text-Container flex-column flex-center gap-s">
+            <h3>Your cart is empty!</h3>
             <p>Go ahead and explore top categories.</p>
             <button
               onClick={() => navigate("/products")}
@@ -34,15 +34,15 @@ const CartPage = () => {
               Start Shopping
             </button>
           </div>
-        </section>
+        </article>
       )}
       {cartlist.length > 0 && (
-        <section className="cartpage_main-container">
+        <section className="cartpage_main-container page-containerWidth gap-xxl">
           <div className="cartpage_productDetails flex-column">
             <h3 className="cartpage_productDetails-title">
-              Total Cart Items : {cartlist.length}
+              Total Cart Items : 0{cartlist.length}
             </h3>
-            <ul className="cartpage_productDetails-cardList flex-column">
+            <ul className="cartpage_productDetails-cardList flex-column gap-l">
               {cartlist?.map((cartItem, id) => (
                 <CartCard cartItem={cartItem} key={id} />
               ))}
@@ -54,7 +54,7 @@ const CartPage = () => {
           </div>
         </section>
       )}
-    </article>
+    </section>
   );
 };
 
