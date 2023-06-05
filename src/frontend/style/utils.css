@@ -314,3 +314,7 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.shoppingExploreBtn:hover {
+  background-color: var(--primary-color-two);
+}
