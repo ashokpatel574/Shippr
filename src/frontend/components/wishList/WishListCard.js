@@ -10,6 +10,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { PostCartItem } from "../../utils/apiUtils";
 import { ToastHandler } from "../../utils/utils";
 import { ToastType } from "../../constant";
+import StarIcon from "@mui/icons-material/Star";
 
 import { DeleteWishListItem } from "../../utils/apiUtils";
 
@@ -66,10 +67,16 @@ const WishListCard = ({ wishlistItem }) => {
   };
 
   return (
-    <li key={title} className="wishList_card-container flex-column">
-      <div className="wishlist_card-imgContainer">
+    <li
+      key={title}
+      className="wishList_card-container flex-column padding-s gap-m"
+    >
+      <div className="wishlist_card-imgContainer fillContainer">
         <img src={images[0]} alt={title} onClick={wishlistCardClickHandler} />
-        <span className="product-rating">{rating}</span>
+        <span className="product-rating flex-center">
+          <span> {rating}</span>
+          <StarIcon />
+        </span>
         <span
           onClick={() => removeWishlistHandler(wishlistId)}
           className="wishListIcon_container remove-card  flex-center"
@@ -77,20 +84,25 @@ const WishListCard = ({ wishlistItem }) => {
           <CloseIcon className="closeIcon" />
         </span>
       </div>
-      <div className="wishListpage_productList_card-textContainer flex-column flex-start">
-        <p>{title}</p>
-        <p className="wishListpage_productList_card-priceContainer flex-center">
-          <span className="discountPrice">Rs.{discountprice}</span>
-          <span className="totalPrice">Rs.{price}</span>
-
-          <span className="discountPercent">
-            {`(${discountpercent * 100} OFF%)`}
-          </span>
+      <div className="wishListpage_productList_card-textContainer flex-column flex-start gap-s">
+        <p className="text-ellipsis">{title}</p>
+        <p className="wishListpage_productList_card-priceContainer flex-center gap-s">
+          <span className="discountPrice">₹ {discountprice}</span>
+          {discountpercent > 0 ? (
+            <>
+              <span className="totalPrice txt-crossed-off">₹ {price}</span>
+              <span className="discountPercent">
+                {`(${discountpercent * 100} OFF%)`}
+              </span>
+            </>
+          ) : (
+            <></>
+          )}
         </p>
 
         <button
           onClick={() => addToCartBtnHandler(wishlistItem)}
-          className="btn addToCartBtn"
+          className={`btn addToCartBtn ${inCartList && "toCartAction"}`}
         >
           {inCartList ? "Go to Cart" : "Add to cart"}
         </button>

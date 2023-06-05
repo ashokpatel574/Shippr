@@ -1,0 +1,102 @@
+.wishList_card-container {
+  max-width: 30rem;
+  width: 100%;
+  border: 2px solid var(--border-color-normal);
+  justify-content: center;
+  transition: all 0.1s;
+}
+
+.wishlist_card-imgContainer {
+  position: relative;
+}
+
+.wishlist_card-imgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wishlist_card-imgContainer .product-rating {
+  position: absolute;
+  bottom: -3.25%;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 0.3rem 0.6rem;
+  background-color: var(--success-color);
+  color: var(--secondary-color-one);
+  font-size: 2rem;
+}
+
+.wishlist_card-imgContainer .product-rating svg {
+  margin-left: 0.3rem;
+  font-size: 2rem;
+}
+
+.wishlist_card-imgContainer .remove-card {
+  position: absolute;
+  top: 7%;
+  right: -3%;
+  transform: translate(-50%, -50%);
+  padding: 0.6rem;
+  background-color: var(--secondary-color-three);
+  color: var(--dark-color-one);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.wishListIcon_container .closeIcon {
+  font-size: 2.4rem;
+}
+
+.wishlist_card-imgContainer .remove-card:hover .closeIcon {
+  color: var(--error-color);
+  transform: rotate(-15deg);
+}
+
+.wishListpage_productList_card-textContainer {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+.wishListpage_productList_card-textContainer-title {
+  border-bottom: 1px solid var(--border-color-normal);
+  width: 100%;
+  font-size: 1.6rem;
+}
+
+.wishListpage_productList_card-textContainer .discountPrice {
+  font-size: 2rem;
+  color: var(--success-color);
+}
+
+.wishListpage_productList_card-textContainer .totalPrice {
+  font-size: 1.6rem;
+  text-decoration: line-through;
+  color: #777;
+}
+
+.wishListpage_productList_card-textContainer .discountPercent {
+  color: var(--error-color);
+}
+
+.wishListpage_productList_card-textContainer .addToCartBtn {
+  width: 100%;
+  text-align: center;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.8rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  transition: all 0.1s;
+}
+
+.wishListpage_productList_card-textContainer .addToCartBtn.toCartAction {
+  background-color: var(--success-color);
+}
+
+.wishListpage_productList_card-textContainer .addToCartBtn:hover {
+  background-color: var(--primary-color-two);
+}
+
+.wishListpage_productList_card-textContainer .addToCartBtn.toCartAction:hover {
+  background-color: var(--success-color);
+}
