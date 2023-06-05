@@ -114,8 +114,8 @@ const SignUpPage = () => {
   }, [token]);
 
   return (
-    <article className="signUpPage_container flex-center">
-      <section className="signUp_container flex-center">
+    <section className="signUpPage_container flex-column padding-xxl">
+      <article className="signUp_container flex- flex-column flex-center gap-l">
         <h3>Sign Up</h3>
 
         <div className="signUp_name-container">
@@ -184,8 +184,8 @@ const SignUpPage = () => {
             <Link to="/login">Log In</Link>
           </span>
         </p>
-      </section>
-    </article>
+      </article>
+    </section>
   );
 };
 

@@ -10,17 +10,21 @@ const UserAddress = () => {
   } = useData();
 
   return (
-    <div className="userAddress_container">
+    <div className="userAddress_container gap-m padding-tp-btm-m">
       <p className="userAddress_container-heading">Address Details</p>
-      <ul className="userAddressList_container flex-start flex-column">
-        {addressList?.map((addressListItem, id) => (
-          <AddressCard
-            key={id}
-            addressCardprops={{
-              addressListItem,
-            }}
-          />
-        ))}
+      <ul className="userAddressList_container flex-start flex-column gap-s padding-tp-btm-m">
+        {addressList.length > 0 ? (
+          addressList?.map((addressListItem, id) => (
+            <AddressCard
+              key={id}
+              addressCardprops={{
+                addressListItem,
+              }}
+            />
+          ))
+        ) : (
+          <p>No Address added!</p>
+        )}
       </ul>
       <span
         className="addNewAddressBtn"

@@ -178,7 +178,7 @@ const AddressModal = () => {
           />
         </div>
 
-        <div className="address_form-container flex-column flex-start">
+        <div className="address_form-container flex-column flex-start gap-m">
           <div className="form_container">
             <label htmlFor="name">Name</label>
             <input
@@ -271,7 +271,7 @@ const AddressModal = () => {
             <span>{addressErrorDetails.mobile}</span>
           </div>
 
-          <div className="form_btn-container">
+          <div className="form_btn-container flex-start  gap-m">
             <button onClick={userAddressHandler} className="btn saveBtn">
               Save
             </button>

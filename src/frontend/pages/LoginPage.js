@@ -92,8 +92,8 @@ const LoginPage = () => {
   }, [token]);
 
   return (
-    <article className="loginpage_container flex-center">
-      <section className="login_container flex-center">
+    <section className="loginpage_container flex-column padding-xxl">
+      <article className="login_container flex- flex-column flex-center gap-l">
         {loginCredentialError && (
           <p className="loginApiError">{loginCredentialError?.data}</p>
         )}
@@ -160,8 +160,8 @@ const LoginPage = () => {
             <Link to="/signUp">Sign Up</Link>
           </span>
         </p>
-      </section>
-    </article>
+      </article>
+    </section>
   );
 };
 

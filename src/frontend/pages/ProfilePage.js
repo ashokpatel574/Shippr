@@ -2,9 +2,9 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const ProfilePage = () => {
   return (
-    <article className="userInfo_container flex-center">
+    <section className="userInfo_container flex-center flex-column">
       <h3 className="userInfo_container-title">Account Information</h3>
-      <section className="userInfo_wrapper flex-center">
+      <article className="userInfo_wrapper flex-center flex-column padding-xl gap-l">
         <div className="userInfo_NavLink-container">
           <NavLink
             to="/profile"
@@ -29,8 +29,8 @@ const ProfilePage = () => {
           </NavLink>
         </div>
         <Outlet />
-      </section>
-    </article>
+      </article>
+    </section>
   );
 };
 
