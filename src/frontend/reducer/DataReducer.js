@@ -139,6 +139,15 @@ const DataReducer = (state, action) => {
       };
     }
 
+    case ActionType.EditAddress: {
+      return {
+        ...state,
+        addressList: state.addressList.map((item) =>
+          item.id === action.payload.address.id ? action.payload.address : item
+        ),
+      };
+    }
+
     case ActionType.Updated_checkoutAddress: {
       return {
         ...state,

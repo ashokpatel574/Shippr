@@ -178,7 +178,7 @@ a {
 
 .grid-productsListlayout-container {
   display: grid;
-  grid-template-columns: 25% 1fr;
+  grid-template-columns: 22% 1fr;
   grid-template-areas: "sidebar  main";
   scroll-behavior: smooth;
 }
@@ -317,4 +317,12 @@ a {
 
 .shoppingExploreBtn:hover {
   background-color: var(--primary-color-two);
+}
+
+.Toastify__toast-container--top-right {
+  top: 10em;
+}
+
+.Toastify__toast-body div:last-child {
+  font-size: 1.6rem;
 }

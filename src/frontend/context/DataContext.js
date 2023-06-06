@@ -24,6 +24,8 @@ const DataContextProvider = ({ children }) => {
     pincode: "",
     mobile: "",
   });
+  const [filterDrawer, setFilterDrawer] = useState(false);
+  const [editAddressTask, setEditAddressTask] = useState(false);
   const { token } = useAuth();
 
   const cartPriceSummary = state.cartlist.reduce(
@@ -48,9 +50,7 @@ const DataContextProvider = ({ children }) => {
   const { filteredData } = useFilterData(state.products, state.filters);
 
   useEffect(() => {
-    if (token) {
-      getServerData(token, dispatch, setIsLoading);
-    }
+    getServerData(token, dispatch, setIsLoading);
   }, [token]);
 
   return (
@@ -66,6 +66,10 @@ const DataContextProvider = ({ children }) => {
         addressDetails,
         setAddressDetails,
         cartPriceSummary,
+        editAddressTask,
+        setEditAddressTask,
+        filterDrawer,
+        setFilterDrawer,
       }}
     >
       {children}

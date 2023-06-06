@@ -31,8 +31,8 @@ const Header = () => {
 
   return (
     <header className="header_container  ">
-      <nav className=" header_nav-container flex-space-between page-containerWidth padding-tp-btm-m   ">
-        <div className="header_container-partOne flex-center flex-nowrap">
+      <nav className=" header_nav-container page-containerWidth padding-tp-btm-m   ">
+        <div className="header_container-partOne flex-nowrap">
           <NavLink to="/">
             <div className="flex-center">
               <img
@@ -47,10 +47,10 @@ const Header = () => {
             <h2>Shippr</h2>
           </NavLink>
         </div>
-        <ul className="header_container-partTwo flex-space-between flex-nowrap gap-xxl  ">
+        <>
           {location.pathname === "/products" ? (
-            <li className="searchInputPrimary_container ">
-              <label htmlFor="searchInputPrimary flex-center flex-nowrap">
+            <div className="searchInputPrimary_container flex-center  ">
+              <label htmlFor="searchInputPrimary ">
                 <input
                   id="searchInputPrimary"
                   className="searchInput_primary "
@@ -64,10 +64,12 @@ const Header = () => {
                   <SearchIcon />
                 </span>
               </label>
-            </li>
+            </div>
           ) : (
             ""
           )}
+        </>
+        <ul className="header_container-partTwo  flex-nowrap gap-xxl  ">
           <li className="header_home-text flex-center">
             <NavLink to="/">
               <p>Home</p>
@@ -88,7 +90,7 @@ const Header = () => {
                 onClick={() => navigate("login")}
                 className="btn logInBtn"
               >
-                Log In
+                LogIn
               </button>
             )}
           </li>

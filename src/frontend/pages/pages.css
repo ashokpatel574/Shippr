@@ -87,8 +87,9 @@
 
 /* products List page Style */
 .productsListing_main-container {
+  position: relative;
   width: 100%;
-  padding: 4rem 2.5rem;
+  padding: 4rem 2rem;
   background-color: var(--background-color-one);
 }
 
@@ -106,19 +107,157 @@
   align-items: center;
 }
 
-.productsListing_container-title {
-  display: inline-block;
-  font-size: 2.4rem;
-  font-weight: 500;
-  margin-bottom: 2.5rem;
+.productsListing_container ul {
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+.productList-NavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding-bottom: 1.5rem;
-  color: var(--primary-color-one);
   border-bottom: 2px solid var(--boder-color-light);
 }
 
-.productsListing_container ul {
-  justify-content: center;
-  align-items: flex-start;
+.productsListing_container-title {
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: var(--primary-color-one);
+}
+
+.productList-NavBar-title {
+  display: none;
+}
+
+/* 80em === 1280px */
+@media (max-width: 80em) {
+  .productsListing_main-container {
+    gap: 1rem;
+  }
+
+  .productsListing_container ul {
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+}
+
+/* 70em === 1120px */
+@media (max-width: 70em) {
+  .productsListing_main-container {
+    padding: 3rem 1.5rem;
+  }
+}
+
+/* 64em === 1028px */
+@media (max-width: 64em) {
+  .productsListing_container {
+    padding: 1rem;
+  }
+
+  .productsListing_container ul {
+    gap: 1rem;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+    row-gap: 2.5rem;
+  }
+
+  .productList-NavBar {
+    align-items: flex-start;
+    padding: 0.5rem 2.5rem;
+  }
+
+  .productsListing_container-title {
+    font-size: 2.2rem;
+  }
+
+  .productList-NavBar-title {
+    display: flex;
+  }
+
+  .productList-NavBar-title svg {
+    font-size: 3.2rem;
+    color: var(--primary-color-one);
+  }
+
+  .productList-NavBar-title span {
+    margin-top: 0.2rem;
+    font-size: 2.2rem;
+    font-weight: 600;
+  }
+
+  .grid-productsListlayout-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: " main";
+    scroll-behavior: smooth;
+  }
+
+  .productslisting_side-navbar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 10rem;
+    animation: filterClose;
+    animation-duration: 0.5s;
+  }
+
+  @keyframes filterClose {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .productslisting_side-navbar.open {
+    width: 28rem;
+    animation: filterOpen;
+    animation-duration: 0.5s;
+  }
+
+  @keyframes filterOpen {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 38em) {
+  .productList-NavBar {
+    padding: 0.5rem 0.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .productsListing_container-title {
+    font-size: 1.8rem;
+  }
+
+  .productList-NavBar-title svg {
+    font-size: 2.8rem;
+  }
+
+  .productList-NavBar-title span {
+    font-size: 2rem;
+  }
+
+  .productslisting_side-navbar {
+    padding-top: 8rem;
+  }
+
+  .productslisting_side-navbar.open {
+    width: 25rem;
+  }
 }
 
 /* Single Product page style */
@@ -453,6 +592,7 @@
 .cartpage_section {
   background-color: var(--background-color-one);
   width: 100%;
+  min-height: 100vh;
 }
 
 .emptyCart_Container {
@@ -755,6 +895,7 @@
 
 .wishListpage_section {
   background-color: var(--background-color-one);
+  min-height: 100vh;
 }
 
 .wishList_container {
@@ -908,15 +1049,19 @@
 /* Profile page style */
 
 .userInfo_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
   background-color: var(--background-color-one);
   width: 100%;
-  padding: 5rem 0 8rem 0;
+  padding: 4rem 0 8rem 0;
   min-height: 100vh;
 }
 
 .userInfo_container-title {
   font-size: 3.6rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
 }
 
 .userInfo_wrapper {
@@ -1057,7 +1202,7 @@
   width: 100%;
   background-color: var(--background-color-one);
   padding: 4rem;
-  height: 100%;
+  min-height: 100vh;
 }
 
 .checkout_section {

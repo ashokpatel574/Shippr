@@ -47,11 +47,3 @@ body {
 #root {
   width: 100%;
 }
-
-.Toastify__toast-container--top-right {
-  top: 12rem;
-}
-
-.Toastify__toast-body div:last-child {
-  font-size: 1.7rem;
-}
