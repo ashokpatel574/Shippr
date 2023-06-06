@@ -29,6 +29,7 @@ const CartCard = ({ cartItem }) => {
   const {
     state: { wishlist },
     dispatch,
+    setIsLoading,
   } = useData();
 
   const { token } = useAuth();
@@ -42,16 +43,22 @@ const CartCard = ({ cartItem }) => {
       navigate("/login", { state: { from: location } });
     } else {
       inWishList
-        ? DeleteWishListItem({
-            productId: cartId,
-            encodedToken: token,
-            dispatch: dispatch,
-          })
-        : PostWishListItem({
-            product: cartItem,
-            encodedToken: token,
-            dispatch: dispatch,
-          });
+        ? DeleteWishListItem(
+            {
+              productId: cartId,
+              encodedToken: token,
+              dispatch: dispatch,
+            },
+            setIsLoading
+          )
+        : PostWishListItem(
+            {
+              product: cartItem,
+              encodedToken: token,
+              dispatch: dispatch,
+            },
+            setIsLoading
+          );
 
       inWishList
         ? ToastHandler(ToastType.Warn, "Removed from wishlist")
@@ -60,11 +67,14 @@ const CartCard = ({ cartItem }) => {
   };
 
   const removeCartItemHandler = (cartId) => {
-    DeleteCartItem({
-      productId: cartId,
-      encodedToken: token,
-      dispatch: dispatch,
-    });
+    DeleteCartItem(
+      {
+        productId: cartId,
+        encodedToken: token,
+        dispatch: dispatch,
+      },
+      setIsLoading
+    );
 
     ToastHandler(ToastType.Warn, "Removed from cart");
   };

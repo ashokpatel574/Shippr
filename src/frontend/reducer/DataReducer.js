@@ -30,7 +30,7 @@ export const initialState = {
     },
   ],
   checkoutAddress: null,
-  orderList: [],
+  orderlist: [],
 };
 
 const DataReducer = (state, action) => {
@@ -76,6 +76,20 @@ const DataReducer = (state, action) => {
       return {
         ...state,
         cartlist: [...action.payload.cart],
+      };
+    }
+
+    case ActionType.ClearCart: {
+      return {
+        ...state,
+        cartlist: [],
+      };
+    }
+
+    case ActionType.SetOrderList: {
+      return {
+        ...state,
+        orderlist: [...action.payload.order],
       };
     }
 

@@ -10,7 +10,7 @@ import { useAuth } from "../../context/AuthContext";
 const CartFilter = ({ sizes, qty, cartId }) => {
   const [btnDisabled, setBtnDisabled] = useState(false);
   const { token } = useAuth();
-  const { dispatch } = useData();
+  const { dispatch, setIsLoading } = useData();
 
   const updateCartQty = (type, productId, qty) => {
     if (qty >= 1) {
@@ -19,27 +19,33 @@ const CartFilter = ({ sizes, qty, cartId }) => {
 
     if (type === "Decrement") {
       if (qty === 1) {
-        DeleteCartItem({
-          productId: productId,
-          encodedToken: token,
-          dispatch: dispatch,
-        });
+        DeleteCartItem(
+          {
+            productId: productId,
+            encodedToken: token,
+            dispatch: dispatch,
+          },
+          setIsLoading
+        );
         ToastHandler(ToastType.Warn, "Removed from cart");
         setBtnDisabled(true);
       }
     }
 
-    UpdateCartItemQty({
-      productId: productId,
-      encodedToken: token,
-      type: type,
-      dispatch: dispatch,
-    });
+    UpdateCartItemQty(
+      {
+        productId: productId,
+        encodedToken: token,
+        type: type,
+        dispatch: dispatch,
+      },
+      setIsLoading
+    );
   };
 
   return (
     <>
-      <div className="cartProduct_sizeFilter">
+      {/* <div className="cartProduct_sizeFilter">
         <label htmlFor="selectSize"></label>
         <select id="selectSize">
           <option disabled={true}>Select Size</option>
@@ -49,7 +55,7 @@ const CartFilter = ({ sizes, qty, cartId }) => {
             </option>
           ))}
         </select>
-      </div>
+      </div> */}
       <div className="cartProduct_qtyFilter flex-align-center gap-s">
         <p className="qtyFilter-title">Quantity:</p>
         <button

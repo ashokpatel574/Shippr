@@ -1,5 +1,4 @@
 import { toast } from "react-toastify";
-import { Oval } from "react-loader-spinner";
 
 const validateMobileNumber = (input) => {
   return /^[6-9]{1}[0-9]{9}$/.test(input);
@@ -27,6 +26,23 @@ const validatePassword = (input) => {
   return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/gm.test(input);
 };
 
+const getDeliveryDate = () => {
+  const currentDate = new Date();
+  currentDate.setDate(currentDate.getDate() + 5);
+  const options = {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  };
+  const formattedDate = currentDate.toLocaleDateString("en-US", options);
+  return formattedDate;
+};
+
+const getCurrentDate = () => {
+  return new Date().toJSON().slice(0, 10).split("-").reverse().join("/");
+};
+
 const ToastHandler = (type, message) => {
   const toastConfigObj = {
     position: "top-right",
@@ -47,21 +63,6 @@ const ToastHandler = (type, message) => {
   }
 };
 
-const Loader = () => (
-  <Oval
-    height={90}
-    width={90}
-    color="#3c0ac2"
-    wrapperStyle={{}}
-    wrapperClass=""
-    visible={true}
-    ariaLabel="oval-loading"
-    secondaryColor="#30089b"
-    strokeWidth={3}
-    strokeWidthSecondary={3}
-  />
-);
-
 const isProductInWishlist = (wishlist, productId) => {
   return wishlist.some((wishlistItem) => wishlistItem._id === productId);
 };
@@ -72,13 +73,14 @@ const isProductInCart = (cart, productId) => {
 
 export {
   ToastHandler,
-  Loader,
   validateEmail,
   validatePassword,
   validateMobileNumber,
   validateNumber,
   validatePinCode,
   validateOnlyString,
+  getCurrentDate,
+  getDeliveryDate,
   isProductInWishlist,
   isProductInCart,
 };

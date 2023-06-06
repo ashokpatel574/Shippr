@@ -26,7 +26,7 @@ const FilterMain = () => {
       </div>
       <ProductCategoryFilter />
       <PriceFilter />
-      <SizeFilter />
+      {/* <SizeFilter /> */}
       <RatingFilter />
       <ProductSortFilter />
       <AvailabiltyFiter />

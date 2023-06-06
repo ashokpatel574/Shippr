@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+
+import { useAuth } from "../context/AuthContext";
+import { useData } from "../context/DataContext";
 import { validateEmail } from "../utils/utils";
+import { getUserCredentials } from "../utils/authService";
 
 const LoginPage = () => {
   const [loginInputDetails, setLoginInputDetails] = useState({
@@ -18,10 +21,12 @@ const LoginPage = () => {
 
   const {
     token,
+    setToken,
+    setCurrentUser,
     loginCredentialError,
     setLoginCredentialError,
-    getUserCredentials,
   } = useAuth();
+  const { setIsLoading } = useData();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -32,7 +37,14 @@ const LoginPage = () => {
       password: "Test123",
     };
     setLoginInputDetails(guestUserDetails);
-    getUserCredentials(guestUserDetails.email, guestUserDetails.password);
+    getUserCredentials(
+      guestUserDetails.email,
+      guestUserDetails.password,
+      setToken,
+      setCurrentUser,
+      setIsLoading,
+      setLoginCredentialError
+    );
   };
 
   const loginInputDetailsHandler = (e) => {
@@ -81,7 +93,14 @@ const LoginPage = () => {
 
     flag
       ? setLoginErrorMessage(newLoginErrorDetails)
-      : getUserCredentials(loginInputDetails.email, loginInputDetails.password);
+      : getUserCredentials(
+          loginInputDetails.email,
+          loginInputDetails.password,
+          setToken,
+          setCurrentUser,
+          setIsLoading,
+          setLoginCredentialError
+        );
   };
 
   useEffect(() => {

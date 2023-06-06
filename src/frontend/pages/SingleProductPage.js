@@ -9,11 +9,13 @@ import {
 import { ToastHandler } from "../utils/utils";
 import { ToastType } from "../constant";
 import { useAuth } from "../context/AuthContext";
+import Loader from "../components/loader/Loader";
 
 const SingleProductPage = () => {
   const {
     state: { wishlist, cartlist, products },
     dispatch,
+    setIsLoading,
   } = useData();
   const { token } = useAuth();
   const { productId } = useParams();
@@ -32,7 +34,6 @@ const SingleProductPage = () => {
       price,
       discountpercent,
       discountprice,
-      sizes,
       description,
     } = singleProductDetails;
 
@@ -44,16 +45,22 @@ const SingleProductPage = () => {
         navigate("/login", { state: { from: location } });
       } else {
         inWishList
-          ? DeleteWishListItem({
-              productId: productId,
-              encodedToken: token,
-              dispatch: dispatch,
-            })
-          : PostWishListItem({
-              product: singleProductDetails,
-              encodedToken: token,
-              dispatch: dispatch,
-            });
+          ? DeleteWishListItem(
+              {
+                productId: productId,
+                encodedToken: token,
+                dispatch: dispatch,
+              },
+              setIsLoading
+            )
+          : PostWishListItem(
+              {
+                product: singleProductDetails,
+                encodedToken: token,
+                dispatch: dispatch,
+              },
+              setIsLoading
+            );
 
         inWishList
           ? ToastHandler(ToastType.Warn, "Removed from wishlist")
@@ -64,11 +71,14 @@ const SingleProductPage = () => {
     const addToCartBtnHandler = (product) => {
       inCartList
         ? navigate(`/cart`)
-        : PostCartItem({
-            product: product,
-            encodedToken: token,
-            dispatch: dispatch,
-          });
+        : PostCartItem(
+            {
+              product: product,
+              encodedToken: token,
+              dispatch: dispatch,
+            },
+            setIsLoading
+          );
 
       !inCartList && ToastHandler(ToastType.Success, "Added to cart");
     };
@@ -102,20 +112,20 @@ const SingleProductPage = () => {
               )}
             </div>
 
-            <div className="singleProduct_sizesContainer">
-              <h3>Sizes</h3>
-              <ul className="flex-justify-start gap-m">
-                {sizes?.map((sizeListItem, id) => (
-                  <li key={id} className="singleProduct_sizes">
-                    <label htmlFor="sizefilter">
-                      <input id="sizefilter" type="radio" name="sizefilter" />
-                      <span className="size_text"> {sizeListItem}</span>
-                    </label>
-                  </li>
-                ))}
-              </ul>
-              <span className="size-error">Size is required!</span>
-            </div>
+            {/* <div className="singleProduct_sizesContainer">
+            <h3>Sizes</h3>
+            <ul className="flex-justify-start gap-m">
+              {sizes?.map((sizeListItem, id) => (
+                <li key={id} className="singleProduct_sizes">
+                  <label htmlFor="sizefilter">
+                    <input id="sizefilter" type="radio" name="sizefilter" />
+                    <span className="size_text"> {sizeListItem}</span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+            <span className="size-error">Size is required!</span>
+          </div> */}
 
             <div className="singleProduct_btnContainer flex-justify-start flex-wrap gap-l">
               <button
@@ -131,7 +141,6 @@ const SingleProductPage = () => {
                 {inWishList ? `Remove from Wishlist` : `Add to Wishlist`}
               </button>
             </div>
-
             <div className="singleProduct_details">
               <h3 className="singleProduct_details-title">Product Detail</h3>
               <p>{description}</p>

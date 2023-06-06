@@ -14,6 +14,7 @@ const DataContext = createContext();
 
 const DataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(DataReducer, initialState);
+  const [isLoading, setIsLoading] = useState(true);
   const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
   const [addressDetails, setAddressDetails] = useState({
     name: "",
@@ -23,6 +24,7 @@ const DataContextProvider = ({ children }) => {
     pincode: "",
     mobile: "",
   });
+  const { token } = useAuth();
 
   const cartPriceSummary = state.cartlist.reduce(
     (acc, curr) => {
@@ -43,12 +45,11 @@ const DataContextProvider = ({ children }) => {
     }
   );
 
-  const { token } = useAuth();
   const { filteredData } = useFilterData(state.products, state.filters);
 
   useEffect(() => {
     if (token) {
-      getServerData(token, dispatch);
+      getServerData(token, dispatch, setIsLoading);
     }
   }, [token]);
 
@@ -57,6 +58,8 @@ const DataContextProvider = ({ children }) => {
       value={{
         state,
         dispatch,
+        isLoading,
+        setIsLoading,
         filteredData,
         isAddressModalOpen,
         setIsAddressModalOpen,

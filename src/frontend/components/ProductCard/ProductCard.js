@@ -25,13 +25,13 @@ const ProductCard = ({ productItem }) => {
     discountprice,
     rating,
     inStock,
-    sizes,
   } = productItem;
 
   const { token } = useAuth();
   const {
     state: { wishlist, cartlist },
     dispatch,
+    setIsLoading,
   } = useData();
 
   const navigate = useNavigate();
@@ -44,9 +44,9 @@ const ProductCard = ({ productItem }) => {
       : navigate(route);
   };
 
-  const SizeAvailable = !sizes.length
-    ? "Not available"
-    : sizes.map((s) => s.toUpperCase()).join(", ");
+  // const SizeAvailable = !sizes.length
+  //   ? "Not available"
+  //   : sizes.map((s) => s.toUpperCase()).join(", ");
 
   const inWishList = isProductInWishlist(wishlist, productId);
   const inCartList = isProductInCart(cartlist, productId);
@@ -56,16 +56,22 @@ const ProductCard = ({ productItem }) => {
       navigate("/login", { state: { from: location } });
     } else {
       inWishList
-        ? DeleteWishListItem({
-            productId: productId,
-            encodedToken: token,
-            dispatch: dispatch,
-          })
-        : PostWishListItem({
-            product: productItem,
-            encodedToken: token,
-            dispatch: dispatch,
-          });
+        ? DeleteWishListItem(
+            {
+              productId: productId,
+              encodedToken: token,
+              dispatch: dispatch,
+            },
+            setIsLoading
+          )
+        : PostWishListItem(
+            {
+              product: productItem,
+              encodedToken: token,
+              dispatch: dispatch,
+            },
+            setIsLoading
+          );
 
       inWishList
         ? ToastHandler(ToastType.Warn, "Removed from wishlist")
@@ -76,11 +82,14 @@ const ProductCard = ({ productItem }) => {
   const addToCartBtnHandler = (productItem) => {
     inCartList
       ? navigate(`/cart`)
-      : PostCartItem({
-          product: productItem,
-          encodedToken: token,
-          dispatch: dispatch,
-        });
+      : PostCartItem(
+          {
+            product: productItem,
+            encodedToken: token,
+            dispatch: dispatch,
+          },
+          setIsLoading
+        );
 
     !inCartList && ToastHandler(ToastType.Success, "Added to cart");
   };
@@ -116,7 +125,7 @@ const ProductCard = ({ productItem }) => {
       </div>
       <div className="productsListing_card-textContainer flex-start flex-column gap-s ">
         <p className="productsListing_card-title text-ellipsis">{title}</p>
-        <p className="productsListing_card-sizes">Sizes: {SizeAvailable}</p>
+        {/* <p className="productsListing_card-sizes">Sizes: {SizeAvailable}</p> */}
 
         <p className="productsListing_card-priceContainer flex-center gap-s">
           <span className="discountPrice">₹ {discountprice}</span>

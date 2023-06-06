@@ -5,7 +5,7 @@ const ProfilePage = () => {
     <section className="userInfo_container flex-center flex-column">
       <h3 className="userInfo_container-title">Account Information</h3>
       <article className="userInfo_wrapper flex-center flex-column padding-xl gap-l">
-        <div className="userInfo_NavLink-container">
+        <div className="userInfo_NavLink-container ">
           <NavLink
             to="/profile"
             className={({ isActive }) => {
@@ -26,6 +26,16 @@ const ProfilePage = () => {
             }}
           >
             <span className="userAddress_title">Address</span>
+          </NavLink>
+          <NavLink
+            to="userOrder"
+            className={({ isActive }) => {
+              return isActive
+                ? "userOrderNavLink active "
+                : " userOrderNavLink";
+            }}
+          >
+            <span className="userOrder_title">Order</span>
           </NavLink>
         </div>
         <Outlet />

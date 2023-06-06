@@ -4,17 +4,18 @@ import {
   GetCartList,
   GetWishList,
 } from "./apiUtils";
-
 import { ActionType } from "../constant";
 
-export const getServerData = async (token, dispatch) => {
+export const getServerData = async (token, dispatch, setIsLoading) => {
   try {
+    setIsLoading(true);
     const productsData = await GetAllProducts();
     if (productsData.status === 200 || productsData.status === 201) {
       dispatch({
         type: ActionType.InitialDataFetch,
         payload: { products: productsData.data.products },
       });
+      setIsLoading(false);
     }
 
     const categoriesData = await GetAllCategories();
@@ -23,6 +24,7 @@ export const getServerData = async (token, dispatch) => {
         type: ActionType.InitialDataFetch,
         payload: { categories: categoriesData.data.categories },
       });
+      setIsLoading(false);
     }
 
     const cartData = await GetCartList({ encodedToken: token });
@@ -31,6 +33,7 @@ export const getServerData = async (token, dispatch) => {
         type: ActionType.SetCartList,
         payload: { cart: cartData.data.cart },
       });
+      setIsLoading(false);
     }
 
     if (token) {
@@ -41,8 +44,12 @@ export const getServerData = async (token, dispatch) => {
           payload: { wishlist: wishListData.data.wishlist },
         });
       }
+      setIsLoading(false);
     }
+
+    setIsLoading(false);
   } catch (error) {
+    setIsLoading(false);
     console.error(error);
   }
 };

@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-
 import "react-toastify/dist/ReactToastify.css";
 
 // components
@@ -14,7 +13,7 @@ const App = () => {
       <main className="shipprApp_container flex-column ">
         <ToastContainer
           position="top-right"
-          autoClose={5000}
+          autoClose={1000}
           hideProgressBar={false}
           newestOnTop={true}
           closeOnClick

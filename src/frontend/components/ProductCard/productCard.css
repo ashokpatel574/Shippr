@@ -1,6 +1,6 @@
 /* Product card style */
 .productsListing_container-card {
-  max-width: 32rem;
+  max-width: 30rem;
   width: 100%;
   border: 2px solid var(--border-color-normal);
   transition: all 0.1s;

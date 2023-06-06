@@ -1,13 +1,22 @@
 import React from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { removeUserCredentials } from "../../utils/authService";
+import { useData } from "../../context/DataContext";
 
 const UserProfile = () => {
-  const { currentUser, removeUserCredentials } = useAuth();
+  const { currentUser, setToken, setCurrentUser, setLoginCredentialError } =
+    useAuth();
+  const { setIsLoading } = useData();
   const navigate = useNavigate();
 
   const logOutHandler = () => {
-    removeUserCredentials("loginCredentials");
+    removeUserCredentials(
+      setToken,
+      setCurrentUser,
+      setIsLoading,
+      setLoginCredentialError
+    );
     navigate("/");
   };
   return (
