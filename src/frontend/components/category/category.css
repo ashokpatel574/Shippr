@@ -2,6 +2,7 @@
   max-width: 130rem;
   width: 100%;
   margin: 0 auto;
+  padding: 0 3.5rem;
 }
 
 .categories_container-title {
@@ -52,4 +53,76 @@
 
 .categories_card:hover .categories_image-box img {
   transform: translate(-50%, -50%) scale(1.05);
+}
+
+/*  944px = 59rem */
+@media (max-width: 59em) {
+  .categories_container {
+    padding: 0 2rem;
+  }
+
+  .categories_container-title {
+    font-size: 3.6rem;
+  }
+  .categories_wrapper {
+    gap: 2rem;
+  }
+  .categories_image-box {
+    height: 42rem;
+  }
+}
+
+/* 48em === 768px */
+@media (max-width: 48em) {
+  .categories_container {
+    gap: 0;
+    padding: 0 1.5rem;
+  }
+
+  .categories_container-title {
+    font-size: 3.2rem;
+  }
+  .categories_wrapper {
+    gap: 1.5rem;
+  }
+  .categories_image-box {
+    height: 38rem;
+  }
+}
+
+/*  544px = 34rem */
+@media (max-width: 34em) {
+  .categories_wrapper,
+  .categories_wrap,
+  .categories_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .categories_wrap,
+  .categories_image-box {
+    max-width: 34rem;
+  }
+}
+
+/*  432px = 27rem */
+
+@media (max-width: 27em) {
+  .categories_wrapper,
+  .categories_wrap,
+  .categories_card {
+    gap: 2rem;
+  }
+
+  .categories_wrap,
+  .categories_image-box {
+    max-width: 30rem;
+  }
+
+  .categories_image-box {
+    height: 30rem;
+  }
 }

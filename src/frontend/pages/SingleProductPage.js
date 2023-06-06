@@ -85,9 +85,9 @@ const SingleProductPage = () => {
 
     return (
       <section className="singleProductpage_section section-padding">
-        <article className="singleProductpage_main-container page-containerWidth gap-l section-padding">
+        <article className="singleProductpage_main-container page-containerWidth gap-s section-padding">
           <div className="singleProduct_imgContainer">
-            <ul className="flex-start flex-wrap gap-xl">
+            <ul className=" flex-wrap gap-s">
               {images?.map((imageItem, id) => (
                 <li key={id}>
                   <img src={imageItem} alt={"Tshirt"} />

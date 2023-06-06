@@ -29,6 +29,7 @@ const WishListCard = ({ wishlistItem }) => {
   const {
     state: { cartlist },
     dispatch,
+    setIsLoading,
   } = useData();
   const navigate = useNavigate();
   const location = useLocation();
@@ -39,15 +40,17 @@ const WishListCard = ({ wishlistItem }) => {
   };
 
   const inCartList = isProductInCart(cartlist, wishlistId);
-
   const addToCartBtnHandler = (wishlistItem) => {
     inCartList
       ? navigate(`/cart`)
-      : PostCartItem({
-          product: wishlistItem,
-          encodedToken: token,
-          dispatch: dispatch,
-        });
+      : PostCartItem(
+          {
+            product: wishlistItem,
+            encodedToken: token,
+            dispatch: dispatch,
+          },
+          setIsLoading
+        );
 
     !inCartList && ToastHandler(ToastType.Success, "Added to cart");
   };
@@ -56,11 +59,14 @@ const WishListCard = ({ wishlistItem }) => {
     if (!token) {
       navigate("/login", { state: { from: location } });
     } else {
-      DeleteWishListItem({
-        productId: wishlistId,
-        encodedToken: token,
-        dispatch: dispatch,
-      });
+      DeleteWishListItem(
+        {
+          productId: wishlistId,
+          encodedToken: token,
+          dispatch: dispatch,
+        },
+        setIsLoading
+      );
 
       ToastHandler(ToastType.Warn, "Removed from wishlist");
     }

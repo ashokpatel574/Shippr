@@ -82,7 +82,7 @@ const CartCard = ({ cartItem }) => {
   return (
     <div className="cartpage_productDetails-card flex-column ">
       <div className="product_info-container flex-space-between gap-m padding-m">
-        <div className="product_info-partOne flex-column flex-start gap-s">
+        <div className="product_info-partOne flex-column flex-start gap-m">
           <p className="product_info-partOne-title">{title}</p>
           <div className="cartProduct_priceContainer flex-justify-start">
             <span className="discountPrice">₹ {discountprice}</span>
