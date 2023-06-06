@@ -14,13 +14,13 @@ const CheckoutPage = () => {
     setIsAddressModalOpen(!isAddressModalOpen);
 
   return (
-    <article className="checkoutpage">
-      <section className="checkout_section flex-space-between">
-        <div className="checkout_address-container flex-column">
+    <section className="checkoutpage fillContainer padding-xxl">
+      <article className="checkout_section flex-space-between padding-xxl">
+        <div className="checkout_address-container flex-column padding-tp-btm-s gap-l">
           <h3>Please select Address</h3>
 
           {addressList.length > 0 ? (
-            <ul className="flex-column">
+            <ul className="flex-column gap-m">
               {addressList?.map((addressListItem) => (
                 <CheckoutAddressCard
                   key={addressListItem.id}
@@ -43,11 +43,11 @@ const CheckoutPage = () => {
 
           {isAddressModalOpen && <AddressModal />}
         </div>
-        <div className="checkout-productDetails-container flex-column">
+        <div className="checkout-productDetails-container flex-column gap-m">
           <CheckoutDetailCard />
         </div>
-      </section>
-    </article>
+      </article>
+    </section>
   );
 };
 

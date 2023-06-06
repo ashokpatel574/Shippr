@@ -1,60 +1,108 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useData } from "../../context/DataContext";
-import { ToastHandler } from "../../utils/utils";
+import { ToastHandler, getCurrentDate } from "../../utils/utils";
 import { ToastType } from "../../constant";
+import { useAuth } from "../../context/AuthContext";
+import { getDeliveryDate } from "../../utils/utils";
+import { ActionType } from "../../constant";
+import { useNavigate } from "react-router-dom";
+import Logo from "../../../assets/logo/shipprLogoBird.png";
 
 const CheckoutDetailCard = () => {
   const {
     state: { cartlist, checkoutAddress },
     cartPriceSummary,
+    dispatch,
+    setIsLoading,
   } = useData();
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
 
   const { totalprice, totaldiscount, discountprice } = cartPriceSummary;
-
   const totalQty = cartlist.reduce((acc, curr) => acc + curr.qty, 0);
+
+  const handlePaymentSuccess = (response) => {
+    const orderDetail = [
+      {
+        id: response.razorpay_payment_id,
+        productList: [...cartlist],
+        address: checkoutAddress,
+        amount: discountprice,
+        date: getCurrentDate(),
+        deliveryDate: getDeliveryDate(),
+      },
+    ];
+
+    setIsLoading(true);
+    dispatch({
+      type: ActionType.SetOrderList,
+      payload: { order: orderDetail },
+    });
+    dispatch({ type: ActionType.ClearCart });
+    navigate("/profile/userOrder");
+  };
+
+  const razorpayOptions = {
+    key: "rzp_test_L0LgYrf2F2K6E9",
+    amount: discountprice * 100,
+    name: "Shippr",
+    description: "Thank You For Ordering",
+    image: { Logo },
+    handler: (response) => handlePaymentSuccess(response),
+    prefill: {
+      name: currentUser?.firstName,
+      email: currentUser?.email,
+      contact: checkoutAddress?.mobile,
+    },
+    notes: {
+      address: checkoutAddress,
+    },
+    theme: {
+      color: "#3c0ac2",
+    },
+  };
 
   const checkoutOrderHandler = () => {
     if (!checkoutAddress) {
       ToastHandler(ToastType.Warn, "Please add address");
     } else {
+      const razorpayInstance = new window.Razorpay(razorpayOptions);
+      razorpayInstance.open();
       ToastHandler(ToastType.Success, "Order placed");
     }
   };
 
   return (
     <>
-      <h3 className="order_detail-title">Order details</h3>
-      <div className="order_product-container">
-        <div className="order_product-container-part-one flex-space-between">
+      <h3 className="order_detail-title padding-tp-btm-xs">Order details</h3>
+      <div className="order_detail-container">
+        <div className="order_detail-container-part-one flex-space-between">
           <span>Item List</span>
           <span>Qty</span>
         </div>
-        <div className="order_product-container-part-two flex-column  ">
-          {cartlist.map((productItem) => (
-            <div
+        <ul className="order_detail-container-part-two flex-column gap-s  padding-tp-btm-s  ">
+          {cartlist?.map((productItem) => (
+            <li
               key={productItem._id}
-              className="order_productItem-container flex-column"
+              className="order_details-list flex-column"
             >
-              <div className="order_productItem-info flex-space-between">
+              <div className="order_details-info flex-space-between">
                 <span>{productItem.title}</span>
-                <span>{productItem.qty}</span>
+                <span>0{productItem.qty}</span>
               </div>
-              <div className="order_productItem-size flex-space-between">
-                <span>size: M</span>
-              </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
-      <h3 className="order_detail-title">Price details</h3>
-      <div className="order_price-container flex-column">
+      <h3 className="order_detail-title padding-tp-btm-xs">Price details</h3>
+      <div className="order_price-container flex-column gap-s">
         <div className="orderTotal_price-container flex-space-between">
           <span>Price ({totalQty} Qty)</span>
-          <span>{totalprice}</span>
+          <span>₹ {totalprice}</span>
         </div>
         <div className="orderDiscount_price-container flex-space-between">
           <span>Discount </span>
-          <span>-{discountprice}</span>
+          <span>- ₹ {discountprice}</span>
         </div>
         <div className="orderTotalShipping_price-container flex-space-between">
           <span>Shipping Charges</span>
@@ -62,17 +110,19 @@ const CheckoutDetailCard = () => {
         </div>
         <div className="orderTotalSaved_price-container flex-space-between">
           <span>You have saved!</span>
-          <span>{totaldiscount}</span>
+          <span>₹ {totaldiscount}</span>
         </div>
         <div className="orderTotal_amount-container flex-space-between">
           <span>Total Amount</span>
-          <span>{discountprice}</span>
+          <span>₹ {discountprice}</span>
         </div>
       </div>
 
       {checkoutAddress && (
         <>
-          <h3 className="order_detail-title">Delivery address</h3>
+          <h3 className="order_detail-title padding-tp-btm-xs">
+            Delivery address
+          </h3>
           <div
             key={checkoutAddress.id}
             className="order_address-container flex-column"
@@ -89,7 +139,6 @@ const CheckoutDetailCard = () => {
           </div>
         </>
       )}
-
       <button onClick={checkoutOrderHandler} className="btn placeOrderBtn">
         Place order
       </button>

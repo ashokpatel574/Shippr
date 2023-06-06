@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { useData } from "../context/DataContext";
+import { setUserCredentials } from "../utils/authService";
 import {
   validateOnlyString,
   validateEmail,
   validatePassword,
 } from "../utils/utils";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
 
 const SignUpPage = () => {
   const [signUpDetails, setSignUpDetails] = useState({
@@ -24,9 +26,11 @@ const SignUpPage = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { setUserCredentials, token } = useAuth();
+  const { token, setToken, setCurrentUser, setSignUpCredentialError } =
+    useAuth();
+  const { setIsLoading } = useData();
 
-  const signUpDetailsChangeHandler = (e) => {
+  const signUpDetailsHandler = (e) => {
     const { name, value } = e.target;
     setSignUpDetails((prevState) => ({ ...prevState, [name]: value }));
 
@@ -76,7 +80,7 @@ const SignUpPage = () => {
     }
   };
 
-  const userSignUpClickHandler = () => {
+  const userSignUpHandler = () => {
     const { name, email, password, passwordConfirm } = signUpDetails;
 
     let flag = false;
@@ -104,7 +108,15 @@ const SignUpPage = () => {
 
     flag
       ? setSignUpFormErrorDetails(newErrorForm)
-      : setUserCredentials(name, email, password);
+      : setUserCredentials(
+          name,
+          email,
+          password,
+          setToken,
+          setCurrentUser,
+          setIsLoading,
+          setSignUpCredentialError
+        );
   };
 
   useEffect(() => {
@@ -127,7 +139,7 @@ const SignUpPage = () => {
             name="name"
             placeholder="Enter name here"
             value={signUpDetails.name}
-            onChange={signUpDetailsChangeHandler}
+            onChange={signUpDetailsHandler}
           />
           <span className="name-error">{signUpFormErrorDetails.name}</span>
         </div>
@@ -140,7 +152,7 @@ const SignUpPage = () => {
             name="email"
             placeholder="Enter email here"
             value={signUpDetails.email}
-            onChange={signUpDetailsChangeHandler}
+            onChange={signUpDetailsHandler}
           />
           <span className="email-error">{signUpFormErrorDetails.email}</span>
         </div>
@@ -153,7 +165,7 @@ const SignUpPage = () => {
             placeholder="Enter password here"
             name="password"
             value={signUpDetails.password}
-            onChange={signUpDetailsChangeHandler}
+            onChange={signUpDetailsHandler}
           />
           <span className="password-error">
             {signUpFormErrorDetails.password}
@@ -168,13 +180,13 @@ const SignUpPage = () => {
             placeholder="Confirm password"
             name="passwordConfirm"
             value={signUpDetails.passwordConfirm}
-            onChange={signUpDetailsChangeHandler}
+            onChange={signUpDetailsHandler}
           />
           <span className="passwordConfirm-error">
             {signUpFormErrorDetails.passwordConfirm}
           </span>
         </div>
-        <button onClick={userSignUpClickHandler} className="btn signUpUserBtn">
+        <button onClick={userSignUpHandler} className="btn signUpUserBtn">
           Create an account
         </button>
 

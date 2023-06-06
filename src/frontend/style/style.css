@@ -1,0 +1,9 @@
+@import url(../components/componentStyle.css/componentStyle.css);
+@import url(../pages/pages.css);
+
+/* Shippr App Container */
+.shipprApp_container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}

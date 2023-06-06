@@ -18,13 +18,13 @@ const CheckoutAddressCard = ({ addressListItem }) => {
 
   return (
     <li
-      className={`checkout_Address-card-container ${
+      className={`checkout_Address-card-container gap-l padding-l ${
         addressListItem?.id === checkoutAddress?.id && "selected"
       }`}
       onClick={() => checkoutAddressHandler(addressListItem)}
     >
-      <div className="checkout_Address-card-part-one flex-start ">
-        <label htmlFor="addresradio">
+      <div className="checkout_Address-card-part-one flex-start gap-m ">
+        <label htmlFor="addresradio" className="padding-tp-btm-s">
           <input
             type="radio"
             id={id}

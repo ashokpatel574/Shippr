@@ -20,7 +20,7 @@ export const ActionType = {
   AddAddress: "ADD_ADDRESS",
   EditAddress: "EDIT_ADDRESS",
   DeleteAddress: "DELETE_ADDRESS",
-  ADD_ORDER: "ADD_ORDER",
+  SetOrderList: "SET_ORDER_LIST",
   Updated_checkoutAddress: "UPDATE_CHECKOUT_ADDRESS",
 };
 

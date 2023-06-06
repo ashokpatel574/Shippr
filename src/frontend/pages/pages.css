@@ -1,20 +1,3 @@
-@import url(../components//header/header.css);
-@import url(../components/footer/footer.css);
-@import url(../components/category/category.css);
-@import url(../components/filters/filterStyle.css);
-@import url(../components/productCard/productCard.css);
-@import url(../components/wishList/wishListCard.css);
-@import url(../components/cart/cart.css);
-@import url(../components/profile/profile.css);
-
-/* Shippr App Container */
-
-.shipprApp_container {
-  position: relative;
-  width: 100%;
-  /* min-height: 100vh; */
-}
-
 /* Hero Container */
 
 .heroImg_container {
@@ -502,7 +485,7 @@
 }
 
 .userInfo_wrapper {
-  max-width: 50rem;
+  max-width: 60rem;
   width: 100%;
   margin: 0 auto;
   background-color: var(--background-color-two);
@@ -510,21 +493,31 @@
 }
 
 .userInfo_NavLink-container {
+  display: flex;
   width: 100%;
   border: 2px solid var(--primary-color-one);
   border-radius: 4px;
+  animation: profileNavLink;
+  animation-duration: 1s;
 }
 
 .userProfile_title,
-.userAddress_title {
+.userAddress_title,
+.userOrder_title {
   display: inline-block;
   text-align: center;
   font-size: 2.4rem;
   font-weight: 500;
-  width: 50%;
+  width: 100%;
   padding: 1rem 2rem;
   border: none;
   cursor: pointer;
+}
+
+.userProfileNavLink,
+.userAddressNavLink,
+.userOrderNavLink {
+  flex-grow: 1;
 }
 
 .userProfileNavLink.active .userProfile_title {
@@ -533,6 +526,11 @@
 }
 
 .userAddressNavLink.active .userAddress_title {
+  background-color: var(--primary-color-one);
+  color: var(--secondary-color-one);
+}
+
+.userOrderNavLink.active .userOrder_title {
   background-color: var(--primary-color-one);
   color: var(--secondary-color-one);
 }

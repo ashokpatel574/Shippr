@@ -24,6 +24,7 @@ import CheckoutPage from "../pages/CheckoutPage";
 import ProfilePage from "../pages/ProfilePage";
 import UserProfile from "../components/profile/UserProfile";
 import UserAddress from "../components/profile/UserAddress";
+import UserOrder from "../components/profile/UserOrder";
 
 // React Router version > 6.4
 export const AppRouter = createBrowserRouter([
@@ -70,6 +71,7 @@ export const AppRouter = createBrowserRouter([
         children: [
           { index: true, element: <UserProfile /> },
           { path: "userAddress", element: <UserAddress /> },
+          { path: "userOrder", element: <UserOrder /> },
         ],
       },
       { path: "*", element: <PageNotFound /> },

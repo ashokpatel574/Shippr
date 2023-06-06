@@ -1,5 +1,4 @@
 @import url(./frontend/style/reset.css);
 @import url(./frontend//style/typography.css);
 @import url(./frontend/style/utils.css);
-@import url(./frontend/style/mainStyle.css);
-@import url(./frontend/style/mediaQuery.css);
+@import url(./frontend/style/style.css);
