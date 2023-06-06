@@ -84,3 +84,38 @@
   max-width: 20rem;
   width: 100%;
 }
+
+.filter_side-navbar {
+  display: inline-block;
+}
+
+.filterMenu-close-icon {
+  display: none;
+}
+
+.filterMenu-close-icon svg {
+  font-size: 2.8rem;
+  border: 1px solid var(--dark-color-two);
+  border-radius: 50%;
+  padding: 0.25rem;
+}
+
+.filterMenu-close-icon svg:hover {
+  color: var(--error-color);
+  transform: scale(1.05);
+}
+
+/* 64em === 1028px */
+@media (max-width: 64em) {
+  .filter_side-navbar.close {
+    display: none;
+  }
+
+  .filterMenu-close-icon {
+    display: none;
+  }
+
+  .filterMenu-close-icon.open {
+    display: inline-block;
+  }
+}

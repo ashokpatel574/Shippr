@@ -183,9 +183,19 @@ export const UpdateCartItemQty = async (
   }
 };
 
-export const UpdateUserAddress = (dispatch, addressDetails, setIsLoading) => {
+export const AddUserAddress = (dispatch, addressDetails, setIsLoading) => {
   dispatch({
     type: ActionType.AddAddress,
+    payload: {
+      address: addressDetails,
+    },
+  });
+  setIsLoading(false);
+};
+
+export const UpdateUserAddress = (dispatch, addressDetails, setIsLoading) => {
+  dispatch({
+    type: ActionType.EditAddress,
     payload: {
       address: addressDetails,
     },

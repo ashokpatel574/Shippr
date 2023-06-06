@@ -123,7 +123,7 @@ const ProductCard = ({ productItem }) => {
           </span>
         )}
       </div>
-      <div className="productsListing_card-textContainer flex-start flex-column gap-s ">
+      <div className="productsListing_card-textContainer flex-start flex-column gap-xs ">
         <p className="productsListing_card-title text-ellipsis">{title}</p>
         {/* <p className="productsListing_card-sizes">Sizes: {SizeAvailable}</p> */}
 
@@ -133,7 +133,7 @@ const ProductCard = ({ productItem }) => {
             <>
               <span className="totalPrice txt-crossed-off">₹ {price}</span>
               <span className="discountPercent">
-                {`(${discountpercent * 100} OFF%)`}
+                {`(${discountpercent * 100} off%)`}
               </span>
             </>
           ) : (

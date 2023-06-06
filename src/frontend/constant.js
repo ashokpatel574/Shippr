@@ -9,7 +9,6 @@ export const ToastType = {
 
 export const ActionType = {
   InitialDataFetch: "INITIAL_DATA_FETCH",
-  ToggleNav: "TOGGLE_NAV",
   ChangeFilter: "CHANGE_FILTER",
   ClearFilter: "CLEAR_FILTER",
   SetWishList: "SET_WISHLIST",

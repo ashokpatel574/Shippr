@@ -12,9 +12,11 @@ const AddressCard = ({ addressCardprops }) => {
     isAddressModalOpen,
     setIsAddressModalOpen,
     setAddressDetails,
+    setEditAddressTask,
   } = useData();
 
   const editAddressHandler = (selectAddress) => {
+    setEditAddressTask(true);
     setIsAddressModalOpen(!isAddressModalOpen);
     setAddressDetails((prevState) => {
       return {

@@ -6,7 +6,7 @@ import {
   validatePinCode,
 } from "../../utils/utils";
 import { stateLists } from "../../constant";
-import { UpdateUserAddress } from "../../utils/apiUtils";
+import { AddUserAddress, UpdateUserAddress } from "../../utils/apiUtils";
 import { useData } from "../../context/DataContext";
 import { RandomAddressList } from "../../constant";
 
@@ -27,6 +27,8 @@ const AddressModal = () => {
     addressDetails,
     setAddressDetails,
     setIsLoading,
+    editAddressTask,
+    setEditAddressTask,
   } = useData();
 
   const addressHandler = (e) => {
@@ -133,8 +135,11 @@ const AddressModal = () => {
 
     flag
       ? setAddressErrorDetails(newErrorForm)
-      : UpdateUserAddress(dispatch, addressDetails, setIsLoading);
-    !flag && setIsAddressModalOpen(!isAddressModalOpen);
+      : editAddressTask
+      ? UpdateUserAddress(dispatch, addressDetails, setIsLoading)
+      : AddUserAddress(dispatch, addressDetails, setIsLoading);
+
+    setEditAddressTask(false);
 
     !flag &&
       setAddressDetails({
@@ -145,10 +150,11 @@ const AddressModal = () => {
         pincode: "",
         mobile: "",
       });
+
+    !flag && setIsAddressModalOpen(!isAddressModalOpen);
   };
 
   const modalCloseHandler = () => {
-    setIsAddressModalOpen(!isAddressModalOpen);
     setAddressDetails({
       name: "",
       address: "",
@@ -157,6 +163,7 @@ const AddressModal = () => {
       pincode: "",
       mobile: "",
     });
+    setIsAddressModalOpen(!isAddressModalOpen);
   };
 
   const randomAddressHandler = () => {
@@ -171,10 +178,7 @@ const AddressModal = () => {
       <div className="address_modal">
         <div className="address_modal-heading-container">
           <h3 className="address_modal-heading">Add New Address</h3>
-          <CloseIcon
-            className="closeIcon-btn"
-            onClick={() => setIsAddressModalOpen(!isAddressModalOpen)}
-          />
+          <CloseIcon className="closeIcon-btn" onClick={modalCloseHandler} />
         </div>
 
         <div className="address_form-container flex-column flex-start gap-m">
