@@ -39,6 +39,7 @@ const Header = () => {
                 src={CompanyLogoBird}
                 alt="shippr company logo"
                 width="75px"
+                className="logo"
               />
             </div>
           </NavLink>

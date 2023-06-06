@@ -100,3 +100,55 @@
 .wishListpage_productList_card-textContainer .addToCartBtn.toCartAction:hover {
   background-color: var(--success-color);
 }
+
+/* 48em === 768px */
+@media (max-width: 48em) {
+  .wishList_card-container {
+    max-width: 28rem;
+    gap: 1rem;
+  }
+
+  .wishlist_card-imgContainer .product-rating {
+    bottom: -3.25%;
+    right: 0;
+    padding: 0.3rem 0.6rem;
+    font-size: 1.8rem;
+  }
+
+  .wishlist_card-imgContainer .product-rating svg {
+    margin-left: 0.3rem;
+    font-size: 1.8rem;
+  }
+
+  .wishlist_card-imgContainer .remove-card {
+    top: 7%;
+    right: -3%;
+    padding: 0.5rem;
+  }
+
+  .wishListIcon_container .closeIcon {
+    font-size: 2rem;
+  }
+
+  .wishListpage_productList_card-textContainer {
+    gap: 0.5rem;
+  }
+
+  .wishListpage_productList_card-textContainer .discountPrice {
+    font-size: 1.8rem;
+  }
+
+  .wishListpage_productList_card-textContainer .addToCartBtn {
+    padding: 0.5rem 0.8rem;
+    font-size: 1.8rem;
+    margin-top: 0;
+  }
+}
+
+/*  544px = 34rem */
+
+@media (max-width: 34em) {
+  .wishList_card-container {
+    max-width: 30rem;
+  }
+}

@@ -10,8 +10,9 @@ const Footer = () => {
     <footer className="footer">
       <div className=" footer_container flex-space-between page-containerWidth padding-tp-btm-xl">
         <p className="footer-logo-text">Shippr</p>
-        <p className="footer_copyright-text">
-          &copy; No Copyright, Feel free to replicate. by Ashok
+        <p className="footer_copyright-text flex-column gap-xs flex-center">
+          <span> &copy; No Copyright,</span>
+          <span>By Ashok Patel</span>
         </p>
 
         <ul className="footer_socials flex-center gap-xl">

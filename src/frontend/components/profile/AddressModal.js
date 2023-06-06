@@ -26,9 +26,8 @@ const AddressModal = () => {
     setIsAddressModalOpen,
     addressDetails,
     setAddressDetails,
+    setIsLoading,
   } = useData();
-
-  console.log(addressDetails);
 
   const addressHandler = (e) => {
     const { name, value } = e.target;
@@ -134,7 +133,7 @@ const AddressModal = () => {
 
     flag
       ? setAddressErrorDetails(newErrorForm)
-      : UpdateUserAddress(dispatch, addressDetails);
+      : UpdateUserAddress(dispatch, addressDetails, setIsLoading);
     !flag && setIsAddressModalOpen(!isAddressModalOpen);
 
     !flag &&

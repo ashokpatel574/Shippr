@@ -37,20 +37,23 @@ const CartPage = () => {
         </article>
       )}
       {cartlist.length > 0 && (
-        <section className="cartpage_main-container page-containerWidth gap-xxl">
-          <div className="cartpage_productDetails flex-column">
+        <section className="cartpage_main-container page-containerWidth ">
+          <div>
             <h3 className="cartpage_productDetails-title">
               Total Cart Items : 0{cartlist.length}
             </h3>
-            <ul className="cartpage_productDetails-cardList flex-column gap-l">
-              {cartlist?.map((cartItem, id) => (
-                <CartCard cartItem={cartItem} key={id} />
-              ))}
-            </ul>
-          </div>
-
-          <div className="cartpage_priceSummary-container">
-            <CartPriceSummary />
+            <div className="cartpage_main-container-part-one">
+              <div className="cartpage_productDetails flex-column">
+                <ul className="cartpage_productDetails-cardList flex-column gap-l">
+                  {cartlist?.map((cartItem, id) => (
+                    <CartCard cartItem={cartItem} key={id} />
+                  ))}
+                </ul>
+              </div>
+              <div className="cartpage_priceSummary-container">
+                <CartPriceSummary />
+              </div>
+            </div>
           </div>
         </section>
       )}
