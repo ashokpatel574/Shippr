@@ -233,6 +233,7 @@
   }
 }
 
+/* 38em === 608px */
 @media (max-width: 38em) {
   .productList-NavBar {
     padding: 0.5rem 0.5rem;
@@ -252,7 +253,7 @@
   }
 
   .productslisting_side-navbar {
-    padding-top: 8rem;
+    padding-top: 13rem;
   }
 
   .productslisting_side-navbar.open {
