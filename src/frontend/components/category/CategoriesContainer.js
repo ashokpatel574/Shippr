@@ -14,6 +14,7 @@ const CategoriesContainer = () => {
   const { dispatch } = useData();
 
   const categoryFilterHandler = (category) => {
+    dispatch({ type: ActionType.ClearFilter });
     dispatch({
       type: ActionType.ChangeFilter,
       payload: {

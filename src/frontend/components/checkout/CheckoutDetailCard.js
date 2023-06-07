@@ -7,6 +7,7 @@ import { getDeliveryDate } from "../../utils/utils";
 import { ActionType } from "../../constant";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../../assets/logo/shipprLogoBird.png";
+import { DeleteCartItem } from "../../utils/apiUtils";
 
 const CheckoutDetailCard = () => {
   const {
@@ -15,7 +16,7 @@ const CheckoutDetailCard = () => {
     dispatch,
     setIsLoading,
   } = useData();
-  const { currentUser } = useAuth();
+  const { currentUser, token } = useAuth();
   const navigate = useNavigate();
 
   const { totalprice, totaldiscount, discountprice } = cartPriceSummary;
@@ -40,6 +41,16 @@ const CheckoutDetailCard = () => {
     });
     ToastHandler(ToastType.Success, "Order placed");
     dispatch({ type: ActionType.ClearCart });
+    dispatch({ type: ActionType.ClearFilter });
+
+    cartlist?.forEach((element) => {
+      DeleteCartItem(
+        { productId: element._id, encodedToken: token, dispatch: dispatch },
+        setIsLoading
+      );
+    });
+
+    console.log(cartlist);
     navigate("/profile/userOrder");
   };
 

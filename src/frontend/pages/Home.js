@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 import HeroImg from "../../assets/HeroImg/HeroImgOne.webp";
 import { useData } from "../context/DataContext";

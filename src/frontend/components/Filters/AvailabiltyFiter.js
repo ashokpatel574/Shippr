@@ -40,19 +40,6 @@ const AvailabiltyFiter = () => {
               Exclude Out of Stock
             </label>
           </li>
-          <li className="flex-center gap-s">
-            <input
-              id="availablityStockInclude"
-              type="checkbox"
-              className="availablityStockInclude"
-              name="inculdeOutOfStock"
-              checked={filters.stockAvailabilty.includes("inculdeOutOfStock")}
-              onChange={availabiltyFiterHandler}
-            />
-            <label htmlFor="availablityStockInclude">
-              Include Out of Stock
-            </label>
-          </li>
         </ul>
       </div>
     </>

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PageNotFoundImg from "../../assets/Mics/PageNotFound.png";
 import { useNavigate } from "react-router-dom";
 
 const ErrorPage = () => {
   const navigate = useNavigate();
+
   return (
     <article className="errorPage_container flex-center">
       <section

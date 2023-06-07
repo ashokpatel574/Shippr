@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+import { useEffect } from "react";
 import ProductCard from "../components/ProductCard/ProductCard";
 import FilterMain from "../components/Filters/FilterMain";
 import { useData } from "../context/DataContext";
@@ -10,11 +9,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 const ProductListingPage = () => {
   const {
     filteredData,
-    state: { products },
+    state: { products, cartlist },
     isLoading,
     filterDrawer,
     setFilterDrawer,
   } = useData();
+
+  console.log(cartlist);
 
   return (
     <>

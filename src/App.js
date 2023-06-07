@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 // components
 import Header from "./frontend/components/Header/Header";
 import Footer from "./frontend/components/Footer/Footer";
+import ScrollToTop from "./frontend/components/ScrollTop/ScrollTop";
 import { ToastContainer } from "react-toastify";
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
           draggable={false}
           pauseOnHover
         />
+        <ScrollToTop />
 
         <Outlet />
       </main>

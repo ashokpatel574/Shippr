@@ -30,7 +30,7 @@ const ProductCategoryFilter = () => {
           {categories?.map((categoryItem) => (
             <li key={categoryItem._id} className="flex-center gap-s">
               <input
-                id="categoryTshirt"
+                id={categoryItem.categoryName}
                 type="checkbox"
                 className="categoryTshirt"
                 name={categoryItem.categoryName}

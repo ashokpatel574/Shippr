@@ -1,3 +1,5 @@
+import React, { useEffect } from "react";
+
 import { useData } from "../context/DataContext";
 import { useParams, useNavigate, useLocation } from "react-router";
 import { isProductInCart, isProductInWishlist } from "../utils/utils";

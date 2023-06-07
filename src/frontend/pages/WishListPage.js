@@ -1,4 +1,3 @@
-import React from "react";
 import WishListCard from "../components/wishList/WishListCard";
 import { useData } from "../context/DataContext";
 import EmptyWishList from "../../assets/wishlist/wishlistEmpty.png";
