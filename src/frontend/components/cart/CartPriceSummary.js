@@ -19,7 +19,7 @@ const CartPriceSummary = () => {
         </div>
         <div className="cartDiscount">
           <span>Discount Price</span>
-          <span>- &#8377; {discountprice}</span>
+          <span> &#8377; {discountprice}</span>
         </div>
         <div className="cartShippingCharges">
           <span>Shipping Charges</span>

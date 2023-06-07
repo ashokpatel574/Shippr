@@ -116,7 +116,7 @@ const CheckoutDetailCard = () => {
         </div>
         <div className="orderDiscount_price-container flex-space-between">
           <span>Discount </span>
-          <span>- ₹ {discountprice}</span>
+          <span> ₹ {discountprice}</span>
         </div>
         <div className="orderTotalShipping_price-container flex-space-between">
           <span>Shipping Charges</span>
