@@ -34,7 +34,7 @@ const LoginPage = () => {
   const guestUserLogInHandler = () => {
     const guestUserDetails = {
       email: "test@test.com",
-      password: "Test123",
+      password: "Test1234",
     };
     setLoginInputDetails(guestUserDetails);
     getUserCredentials(
