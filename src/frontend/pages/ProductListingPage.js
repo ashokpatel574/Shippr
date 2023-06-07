@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import ProductCard from "../components/productCard/ProductCard";
-import FilterMain from "../components/filters/FilterMain";
+import ProductCard from "../components/ProductCard/ProductCard";
+import FilterMain from "../components/Filters/FilterMain";
 import { useData } from "../context/DataContext";
 import NoProductData from "../../assets/wishlist/wishlistEmpty.png";
 import Loader from "../components/loader/Loader";

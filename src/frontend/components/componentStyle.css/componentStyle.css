@@ -1,8 +1,8 @@
-@import url(../header/header.css);
-@import url(../footer/footer.css);
+@import url(../Header/header.css);
+@import url(../Footer/footer.css);
 @import url(../category/category.css);
-@import url(../filters/filterStyle.css);
-@import url(../productCard/productCard.css);
+@import url(../Filters/FilterStyle.css);
+@import url(../ProductCard/productCard.css);
 @import url(../wishList/wishListCard.css);
 @import url(../cart/cart.css);
 @import url(../profile/profile.css);
