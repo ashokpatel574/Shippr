@@ -39,7 +39,9 @@ const ProductCategoryFilter = () => {
                 )}
                 onChange={categoryUpdateHandler}
               />
-              <label htmlFor="categoryTshirt">{categoryItem.title}</label>
+              <label htmlFor={categoryItem.categoryName}>
+                {categoryItem.title}
+              </label>
             </li>
           ))}
         </ul>

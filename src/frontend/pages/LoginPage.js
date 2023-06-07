@@ -47,8 +47,6 @@ const LoginPage = () => {
     );
   };
 
-  console.log(state);
-
   const loginInputDetailsHandler = (e) => {
     const { name, value } = e.target;
     setLoginInputDetails({ ...loginInputDetails, [name]: value.trim() });
