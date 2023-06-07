@@ -69,18 +69,22 @@ const SingleProductPage = () => {
     };
 
     const addToCartBtnHandler = (product) => {
-      inCartList
-        ? navigate(`/cart`)
-        : PostCartItem(
-            {
-              product: product,
-              encodedToken: token,
-              dispatch: dispatch,
-            },
-            setIsLoading
-          );
+      if (!token) {
+        navigate("/login", { state: { from: location } });
+      } else {
+        inCartList
+          ? navigate(`/cart`)
+          : PostCartItem(
+              {
+                product: product,
+                encodedToken: token,
+                dispatch: dispatch,
+              },
+              setIsLoading
+            );
 
-      !inCartList && ToastHandler(ToastType.Success, "Added to cart");
+        !inCartList && ToastHandler(ToastType.Success, "Added to cart");
+      }
     };
 
     return (
@@ -132,7 +136,7 @@ const SingleProductPage = () => {
                 onClick={() => addToCartBtnHandler(singleProductDetails)}
                 className={`btn addToCartBtn ${inCartList && "toCartAction"}`}
               >
-                {inCartList ? "Go to Cart" : "Add to cart"}
+                {inCartList && token ? "Go to Cart" : "Add to cart"}
               </button>
               <button
                 onClick={() => addToWishlistBtnHandler(_id)}

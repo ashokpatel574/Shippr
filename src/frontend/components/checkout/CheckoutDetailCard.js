@@ -38,6 +38,7 @@ const CheckoutDetailCard = () => {
       type: ActionType.SetOrderList,
       payload: { order: orderDetail },
     });
+    ToastHandler(ToastType.Success, "Order placed");
     dispatch({ type: ActionType.ClearCart });
     navigate("/profile/userOrder");
   };
@@ -68,7 +69,6 @@ const CheckoutDetailCard = () => {
     } else {
       const razorpayInstance = new window.Razorpay(razorpayOptions);
       razorpayInstance.open();
-      ToastHandler(ToastType.Success, "Order placed");
     }
   };
 

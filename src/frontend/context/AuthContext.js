@@ -10,6 +10,12 @@ export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(localStorageToken?.user);
   const [loginCredentialError, setLoginCredentialError] = useState(null);
   const [signUpCredentialError, setSignUpCredentialError] = useState(null);
+  const [signUpDetails, setSignUpDetails] = useState({
+    name: "",
+    email: "",
+    password: "",
+    passwordConfirm: "",
+  });
 
   return (
     <AuthContext.Provider
@@ -22,6 +28,8 @@ export const AuthContextProvider = ({ children }) => {
         signUpCredentialError,
         setLoginCredentialError,
         setSignUpCredentialError,
+        signUpDetails,
+        setSignUpDetails,
       }}
     >
       {children}

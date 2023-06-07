@@ -100,7 +100,7 @@ const Header = () => {
               <span className="">
                 <FavoriteBorderIcon sx={{ "& :hover": { color: "#3c0ac2" } }} />
               </span>
-              {wishlist.length > 0 && (
+              {wishlist.length > 0 && token && (
                 <span className="wishlistCount">{wishlist.length}</span>
               )}
             </NavLink>
@@ -110,7 +110,7 @@ const Header = () => {
               <span className="">
                 <ShoppingCartIcon sx={{ "& :hover": { color: "#3c0ac2" } }} />
               </span>
-              {cartlist.length > 0 && (
+              {cartlist.length > 0 && token && (
                 <span className="cartCount">{cartlist.length}</span>
               )}
             </NavLink>

@@ -10,13 +10,6 @@ import {
 } from "../utils/utils";
 
 const SignUpPage = () => {
-  const [signUpDetails, setSignUpDetails] = useState({
-    name: "",
-    email: "",
-    password: "",
-    passwordConfirm: "",
-  });
-
   const [signUpFormErrorDetails, setSignUpFormErrorDetails] = useState({
     name: "",
     email: "",
@@ -26,13 +19,19 @@ const SignUpPage = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { token, setToken, setCurrentUser, setSignUpCredentialError } =
-    useAuth();
+  const {
+    token,
+    setToken,
+    setCurrentUser,
+    setSignUpCredentialError,
+    signUpDetails,
+    setSignUpDetails,
+  } = useAuth();
   const { setIsLoading } = useData();
 
   const signUpDetailsHandler = (e) => {
     const { name, value } = e.target;
-    setSignUpDetails((prevState) => ({ ...prevState, [name]: value }));
+    setSignUpDetails((prevState) => ({ ...prevState, [name]: value.trim() }));
 
     if (name === `name`) {
       const nameLength = value.length;
@@ -115,8 +114,16 @@ const SignUpPage = () => {
           setToken,
           setCurrentUser,
           setIsLoading,
-          setSignUpCredentialError
+          setSignUpCredentialError,
+          setSignUpDetails
         );
+
+    // setSignUpDetails({
+    //   name: "",
+    //   email: "",
+    //   password: "",
+    //   passwordConfirm: "",
+    // });
   };
 
   useEffect(() => {

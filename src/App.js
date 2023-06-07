@@ -13,7 +13,7 @@ const App = () => {
       <main className="shipprApp_container flex-column ">
         <ToastContainer
           position="top-right"
-          autoClose={1000}
+          autoClose={2000}
           hideProgressBar={false}
           newestOnTop={true}
           closeOnClick

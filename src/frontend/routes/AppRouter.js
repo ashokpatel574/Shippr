@@ -13,12 +13,13 @@ import { AuthContextProvider } from "../context/AuthContext";
 import Home from "../pages/Home";
 import ProductListingPage from "../pages/ProductListingPage";
 import SingleProductPage from "../pages/SingleProductPage";
-import CartPage from "../pages/CartPage";
+
 import LoginPage from "../pages/LoginPage";
 import SignUpPage from "../pages/SignUpPage";
 import PageNotFound from "../pages/PageNotFound";
 
 // private pages
+import CartPage from "../pages/CartPage";
 import WishListPage from "../pages/WishListPage";
 import CheckoutPage from "../pages/CheckoutPage";
 import ProfilePage from "../pages/ProfilePage";
@@ -42,9 +43,16 @@ export const AppRouter = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "products", element: <ProductListingPage /> },
       { path: "products/:productId", element: <SingleProductPage /> },
-      { path: "cart", element: <CartPage /> },
       { path: "login", element: <LoginPage /> },
       { path: "signUp", element: <SignUpPage /> },
+      {
+        path: "cart",
+        element: (
+          <RequireAuth>
+            <CartPage />
+          </RequireAuth>
+        ),
+      },
       {
         path: "wishlist",
         element: (

@@ -54,7 +54,7 @@ const ProductSortFilter = () => {
               checked={SortBy.LowRating === filters?.sortBy}
               onChange={sortChangeHandler}
             />
-            <label htmlFor="LowToHigh"> Rating: Low to High</label>
+            <label htmlFor="LowRating"> Rating: Low to High</label>
           </li>
           <li className="flex-center gap-s">
             <input
@@ -66,7 +66,7 @@ const ProductSortFilter = () => {
               checked={SortBy.HighRating === filters?.sortBy}
               onChange={sortChangeHandler}
             />
-            <label htmlFor="HighToLow">Rating: High to Low</label>
+            <label htmlFor="HighRating">Rating: High to Low</label>
           </li>
         </ul>
       </div>

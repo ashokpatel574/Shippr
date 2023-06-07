@@ -80,18 +80,22 @@ const ProductCard = ({ productItem }) => {
   };
 
   const addToCartBtnHandler = (productItem) => {
-    inCartList
-      ? navigate(`/cart`)
-      : PostCartItem(
-          {
-            product: productItem,
-            encodedToken: token,
-            dispatch: dispatch,
-          },
-          setIsLoading
-        );
+    if (!token) {
+      navigate("/login", { state: { from: location } });
+    } else {
+      inCartList
+        ? navigate(`/cart`)
+        : PostCartItem(
+            {
+              product: productItem,
+              encodedToken: token,
+              dispatch: dispatch,
+            },
+            setIsLoading
+          );
 
-    !inCartList && ToastHandler(ToastType.Success, "Added to cart");
+      !inCartList && ToastHandler(ToastType.Success, "Added to cart");
+    }
   };
 
   return (
@@ -144,11 +148,13 @@ const ProductCard = ({ productItem }) => {
         <button
           disabled={!inStock}
           onClick={() => addToCartBtnHandler(productItem)}
-          className={`btn addToCartBtn ${inCartList && "toCartAction"}`}
+          className={`btn addToCartBtn ${
+            inCartList && token && "toCartAction"
+          }`}
         >
           {!inStock
             ? "Out of stock"
-            : inCartList
+            : inCartList && token
             ? "Go to Cart"
             : "Add to cart"}
         </button>

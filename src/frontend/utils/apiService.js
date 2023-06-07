@@ -27,13 +27,15 @@ export const getServerData = async (token, dispatch, setIsLoading) => {
       setIsLoading(false);
     }
 
-    const cartData = await GetCartList({ encodedToken: token });
-    if (cartData.status === 200 || cartData.status === 201) {
-      dispatch({
-        type: ActionType.SetCartList,
-        payload: { cart: cartData.data.cart },
-      });
-      setIsLoading(false);
+    if (token) {
+      const cartData = await GetCartList({ encodedToken: token });
+      if (cartData.status === 200 || cartData.status === 201) {
+        dispatch({
+          type: ActionType.SetCartList,
+          payload: { cart: cartData.data.cart },
+        });
+        setIsLoading(false);
+      }
     }
 
     if (token) {

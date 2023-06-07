@@ -19,11 +19,12 @@ const UserProfile = () => {
     );
     navigate("/");
   };
+
   return (
     <div className="userProfile_container flex-start flex-column gap-s padding-tp-btm-m">
       <h3 className="userProfile_container-heading">Profile Details</h3>
       <p className="userProfile-name">
-        <span>Name:</span> {currentUser?.firstName} {currentUser?.lastName}
+        <span>Name:</span> {currentUser?.name}
       </p>
       <p className="userProfile-email">
         <span>Email:</span> {currentUser?.email}

@@ -26,7 +26,7 @@ const LoginPage = () => {
     loginCredentialError,
     setLoginCredentialError,
   } = useAuth();
-  const { setIsLoading } = useData();
+  const { state, setIsLoading } = useData();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -47,9 +47,11 @@ const LoginPage = () => {
     );
   };
 
+  console.log(state);
+
   const loginInputDetailsHandler = (e) => {
     const { name, value } = e.target;
-    setLoginInputDetails({ ...loginInputDetails, [name]: value });
+    setLoginInputDetails({ ...loginInputDetails, [name]: value.trim() });
   };
 
   const passwordViewHandler = (e) => {

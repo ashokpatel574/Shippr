@@ -68,7 +68,8 @@ export const setUserCredentials = async (
   setToken,
   setCurrentUser,
   setIsLoading,
-  setSignUpCredentialError
+  setSignUpCredentialError,
+  setSignUpDetails
 ) => {
   try {
     setSignUpCredentialError(null);
@@ -89,6 +90,12 @@ export const setUserCredentials = async (
       setCurrentUser(createdUser);
       setToken(encodedToken);
       setIsLoading(false);
+      setSignUpDetails({
+        name: "",
+        email: "",
+        password: "",
+        passwordConfirm: "",
+      });
     }
   } catch (error) {
     setIsLoading(false);
