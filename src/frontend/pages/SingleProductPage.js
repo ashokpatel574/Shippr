@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-
-import { useData } from "../context/DataContext";
 import { useParams, useNavigate, useLocation } from "react-router";
-import { isProductInCart, isProductInWishlist } from "../utils/utils";
+import { useData } from "../context/DataContext";
+import { useAuth } from "../context/AuthContext";
+import {
+  isProductInCart,
+  isProductInWishlist,
+  ToastHandler,
+} from "../utils/utils";
 import {
   DeleteWishListItem,
   PostWishListItem,
   PostCartItem,
 } from "../utils/apiUtils";
-import { ToastHandler } from "../utils/utils";
 import { ToastType } from "../constant";
-import { useAuth } from "../context/AuthContext";
-import Loader from "../components/loader/Loader";
 
 const SingleProductPage = () => {
   const {

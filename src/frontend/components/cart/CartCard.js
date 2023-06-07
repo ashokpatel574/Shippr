@@ -1,17 +1,16 @@
-import React from "react";
+import { useNavigate, useLocation } from "react-router";
+// Components
 import CartFilter from "./CartFilter";
-
-import { isProductInWishlist } from "../../utils/utils";
+// Context
 import { useData } from "../../context/DataContext";
 import { useAuth } from "../../context/AuthContext";
-import { useNavigate, useLocation } from "react-router";
+// Utils
 import {
   PostWishListItem,
   DeleteWishListItem,
   DeleteCartItem,
 } from "../../utils/apiUtils";
-
-import { ToastHandler } from "../../utils/utils";
+import { ToastHandler, isProductInWishlist } from "../../utils/utils";
 import { ToastType } from "../../constant";
 
 const CartCard = ({ cartItem }) => {

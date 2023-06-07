@@ -1,18 +1,13 @@
-import React from "react";
-
 import { useNavigate, useLocation } from "react-router";
+import CloseIcon from "@mui/icons-material/Close";
+import StarIcon from "@mui/icons-material/Star";
+// Context
 import { useAuth } from "../../context/AuthContext";
 import { useData } from "../../context/DataContext";
 
-import { isProductInCart } from "../../utils/utils";
-import CloseIcon from "@mui/icons-material/Close";
-
-import { PostCartItem } from "../../utils/apiUtils";
-import { ToastHandler } from "../../utils/utils";
+import { isProductInCart, ToastHandler } from "../../utils/utils";
+import { PostCartItem, DeleteWishListItem } from "../../utils/apiUtils";
 import { ToastType } from "../../constant";
-import StarIcon from "@mui/icons-material/Star";
-
-import { DeleteWishListItem } from "../../utils/apiUtils";
 
 const WishListCard = ({ wishlistItem }) => {
   const {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import StarIcon from "@mui/icons-material/Star";
 import { useData } from "../../context/DataContext";
 import { ActionType, Filters } from "../../constant";
-import StarIcon from "@mui/icons-material/Star";
 
 const RatingFilter = () => {
   const [customerRating] = useState([4, 3, 2]);

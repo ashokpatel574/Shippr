@@ -1,7 +1,7 @@
-import WishListCard from "../components/wishList/WishListCard";
-import { useData } from "../context/DataContext";
-import EmptyWishList from "../../assets/wishlist/wishlistEmpty.png";
 import { useNavigate } from "react-router-dom";
+import { useData } from "../context/DataContext";
+import WishListCard from "../components/wishList/WishListCard";
+import EmptyWishList from "../../assets/wishlist/wishlistEmpty.png";
 
 const WishListPage = () => {
   const {

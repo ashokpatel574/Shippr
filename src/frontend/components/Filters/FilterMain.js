@@ -1,14 +1,13 @@
-import React, { useEffect } from "react";
-
+import CloseIcon from "@mui/icons-material/Close";
+// Components
 import ProductCategoryFilter from "./ProductCategoryFilter";
 import PriceFilter from "./PriceFilter";
-// import SizeFilter from "./SizeFilter";
 import RatingFilter from "./RatingFilter";
 import ProductSortFilter from "./ProductSortFilter";
 import AvailabiltyFiter from "./AvailabiltyFiter";
+// context
 import { useData } from "../../context/DataContext";
 import { ActionType } from "../../constant";
-import CloseIcon from "@mui/icons-material/Close";
 
 const FilterMain = () => {
   const { dispatch, filterDrawer, setFilterDrawer } = useData();

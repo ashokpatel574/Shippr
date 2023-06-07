@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+// Context
 import { useData } from "../../context/DataContext";
+import { useAuth } from "../../context/AuthContext";
+// Utils
 import { DeleteCartItem, UpdateCartItemQty } from "../../utils/apiUtils";
 import { ToastHandler } from "../../utils/utils";
 import { ToastType } from "../../constant";
-import { useAuth } from "../../context/AuthContext";
 
 const CartFilter = ({ sizes, qty, cartId }) => {
   const [btnDisabled, setBtnDisabled] = useState(false);

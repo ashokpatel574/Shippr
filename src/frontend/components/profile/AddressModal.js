@@ -5,10 +5,9 @@ import {
   validateMobileNumber,
   validatePinCode,
 } from "../../utils/utils";
-import { stateLists } from "../../constant";
 import { AddUserAddress, UpdateUserAddress } from "../../utils/apiUtils";
+import { RandomAddressList, stateLists } from "../../constant";
 import { useData } from "../../context/DataContext";
-import { RandomAddressList } from "../../constant";
 
 const AddressModal = () => {
   const [addressErrorDetails, setAddressErrorDetails] = useState({

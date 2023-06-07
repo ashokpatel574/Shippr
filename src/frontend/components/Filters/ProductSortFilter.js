@@ -1,4 +1,3 @@
-import React from "react";
 import { ActionType, Filters, SortBy } from "../../constant";
 import { useData } from "../../context/DataContext";
 

@@ -1,15 +1,16 @@
-import { useEffect } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useData } from "../context/DataContext";
+
 import ProductCard from "../components/ProductCard/ProductCard";
 import FilterMain from "../components/Filters/FilterMain";
-import { useData } from "../context/DataContext";
+
 import NoProductData from "../../assets/wishlist/wishlistEmpty.png";
 import Loader from "../components/loader/Loader";
-import MenuIcon from "@mui/icons-material/Menu";
 
 const ProductListingPage = () => {
   const {
     filteredData,
-    state: { products, cartlist },
+    state: { products },
     isLoading,
     filterDrawer,
     setFilterDrawer,

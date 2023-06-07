@@ -1,13 +1,12 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
+// Context
 import { useData } from "../../context/DataContext";
 import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 const CartPriceSummary = () => {
   const { cartPriceSummary } = useData();
   const { token } = useAuth();
   const navigate = useNavigate();
-
   const { totalprice, totaldiscount, discountprice } = cartPriceSummary;
 
   return (

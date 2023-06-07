@@ -1,15 +1,14 @@
-import React from "react";
-import CompanyLogoBird from "../../../assets/logo/shipprLogoBird.png";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
-
 // Icons from material icon library
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+// Context
 import { useData } from "../../context/DataContext";
+import { useAuth } from "../../context/AuthContext";
 import { ActionType, Filters } from "../../constant";
+import CompanyLogoBird from "../../../assets/logo/shipprLogoBird.png";
 
 const Header = () => {
   const { token } = useAuth();
@@ -71,8 +70,8 @@ const Header = () => {
         </>
         <ul className="header_container-partTwo  flex-nowrap gap-xxl  ">
           <li className="header_home-text flex-center">
-            <NavLink to="/">
-              <p>Home</p>
+            <NavLink to="products">
+              <p>Explore</p>
             </NavLink>
           </li>
 

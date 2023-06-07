@@ -26,7 +26,7 @@ const LoginPage = () => {
     loginCredentialError,
     setLoginCredentialError,
   } = useAuth();
-  const { state, setIsLoading } = useData();
+  const { setIsLoading } = useData();
 
   const navigate = useNavigate();
   const location = useLocation();

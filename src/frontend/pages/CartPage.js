@@ -1,10 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { useData } from "../context/DataContext";
 import CartCard from "../components/cart/CartCard";
 import CartPriceSummary from "../components/cart/CartPriceSummary";
 import EmptyCartImg from "../../assets/cart/emptycart.png";
-
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 const CartPage = () => {
   const {

@@ -1,18 +1,21 @@
-import React from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { useNavigate, useLocation } from "react-router";
-import { useAuth } from "../../context/AuthContext";
 import StarIcon from "@mui/icons-material/Star";
-
+import { useNavigate, useLocation } from "react-router";
+// Context
+import { useAuth } from "../../context/AuthContext";
 import { useData } from "../../context/DataContext";
-import { isProductInWishlist, isProductInCart } from "../../utils/utils";
+// utils
+import {
+  isProductInWishlist,
+  isProductInCart,
+  ToastHandler,
+} from "../../utils/utils";
 import {
   DeleteWishListItem,
   PostWishListItem,
   PostCartItem,
 } from "../../utils/apiUtils";
-import { ToastHandler } from "../../utils/utils";
 import { ToastType } from "../../constant";
 
 const ProductCard = ({ productItem }) => {

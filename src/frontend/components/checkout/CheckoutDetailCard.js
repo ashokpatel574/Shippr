@@ -1,13 +1,16 @@
-import React, { useEffect } from "react";
-import { useData } from "../../context/DataContext";
-import { ToastHandler, getCurrentDate } from "../../utils/utils";
-import { ToastType } from "../../constant";
-import { useAuth } from "../../context/AuthContext";
-import { getDeliveryDate } from "../../utils/utils";
-import { ActionType } from "../../constant";
 import { useNavigate } from "react-router-dom";
-import Logo from "../../../assets/logo/shipprLogoBird.png";
+// Context
+import { useData } from "../../context/DataContext";
+import { useAuth } from "../../context/AuthContext";
+// Utils
+import {
+  ToastHandler,
+  getCurrentDate,
+  getDeliveryDate,
+} from "../../utils/utils";
+import { ToastType, ActionType } from "../../constant";
 import { DeleteCartItem } from "../../utils/apiUtils";
+import Logo from "../../../assets/logo/shipprLogoBird.png";
 
 const CheckoutDetailCard = () => {
   const {

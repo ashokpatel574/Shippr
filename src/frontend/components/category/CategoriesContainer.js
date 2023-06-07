@@ -1,13 +1,12 @@
-import React from "react";
-
-import { useData } from "../../context/DataContext";
 import { useNavigate } from "react-router-dom";
-import { ActionType } from "../../constant";
-import { Filters } from "../../constant";
-
+// Context
+import { useData } from "../../context/DataContext";
+// Images
 import categoriesShirt from "../../../assets/categoryImg/categoryShirtImg.webp";
 import categoriesTshirt from "../../../assets/categoryImg/categoryTshirtImg.webp";
 import categoriesLooseTshirt from "../../../assets/categoryImg/categoryLooseTshirtImg.webp";
+// Constant
+import { ActionType, Filters } from "../../constant";
 
 const CategoriesContainer = () => {
   const navigate = useNavigate();

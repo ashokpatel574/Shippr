@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import PageNotFoundImg from "../../assets/Mics/PageNotFound.png";
 import { useNavigate } from "react-router-dom";
 

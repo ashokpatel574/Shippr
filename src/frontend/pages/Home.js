@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import HeroImg from "../../assets/HeroImg/HeroImgOne.webp";
 import { useData } from "../context/DataContext";
 import CategoriesContainer from "../components/category/CategoriesContainer";
 import Loader from "../components/loader/Loader";
+import HeroImg from "../../assets/HeroImg/HeroImgOne.webp";
 
 const Home = () => {
   const { isLoading } = useData();

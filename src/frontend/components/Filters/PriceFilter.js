@@ -1,7 +1,5 @@
-import React from "react";
 import { useData } from "../../context/DataContext";
-import { ActionType } from "../../constant";
-import { Filters } from "../../constant";
+import { Filters, ActionType } from "../../constant";
 
 const PriceFilter = () => {
   const {

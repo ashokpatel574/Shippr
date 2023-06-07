@@ -1,5 +1,7 @@
-import { ActionType } from "../../constant";
+// Context
 import { useData } from "../../context/DataContext";
+// constant
+import { ActionType } from "../../constant";
 
 const CheckoutAddressCard = ({ addressListItem }) => {
   const { id, name, address, city, state, country, pincode, mobile } =
