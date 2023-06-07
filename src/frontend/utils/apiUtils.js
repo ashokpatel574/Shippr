@@ -96,7 +96,6 @@ export const PostCartItem = async (
   setIsLoading
 ) => {
   try {
-    console.log(setIsLoading);
     setIsLoading(true);
     const cartData = await axios.post(
       "/api/user/cart",

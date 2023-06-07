@@ -43,7 +43,7 @@ const CheckoutDetailCard = () => {
   };
 
   const razorpayOptions = {
-    key: "rzp_test_L0LgYrf2F2K6E9",
+    key: process.env.REACT_APP_PAYMENT_TEST_KEY_SECRET,
     amount: discountprice * 100,
     name: "Shippr",
     description: "Thank You For Ordering",
