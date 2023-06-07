@@ -15,8 +15,6 @@ const ProductListingPage = () => {
     setFilterDrawer,
   } = useData();
 
-  console.log(cartlist);
-
   return (
     <>
       {isLoading ? (

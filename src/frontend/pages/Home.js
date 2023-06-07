@@ -1,19 +1,11 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-
 import HeroImg from "../../assets/HeroImg/HeroImgOne.webp";
 import { useData } from "../context/DataContext";
 import CategoriesContainer from "../components/category/CategoriesContainer";
 import Loader from "../components/loader/Loader";
 
-import { ActionType } from "../constant";
-
 const Home = () => {
-  const { dispatch, isLoading } = useData();
-
-  useEffect(() => {
-    dispatch({ type: ActionType.ClearFilter });
-  }, []);
+  const { isLoading } = useData();
 
   return (
     <>
