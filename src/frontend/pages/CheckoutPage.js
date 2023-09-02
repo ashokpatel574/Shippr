@@ -15,7 +15,7 @@ const CheckoutPage = () => {
 
   return (
     <section className="checkoutpage fillContainer padding-xxl">
-      <article className="checkout_section flex-column  padding-xxl">
+      <article className="checkout_section flex-column  padding-xl">
         <h3 className="checkout_section-title">Please select Address</h3>
         <div className="checkout_section-container flex-space-between  padding-xs  gap-xxl">
           <div className="checkout_address-container flex-column  gap-l">

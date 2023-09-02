@@ -93,7 +93,7 @@ const WishListCard = ({ wishlistItem }) => {
             <>
               <span className="totalPrice txt-crossed-off">₹ {price}</span>
               <span className="discountPercent">
-                {`(${discountpercent * 100} OFF%)`}
+                {`(${discountpercent * 100} off%)`}
               </span>
             </>
           ) : (

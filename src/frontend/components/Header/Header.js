@@ -37,7 +37,7 @@ const Header = () => {
               <img
                 src={CompanyLogoBird}
                 alt="shippr company logo"
-                width="75px"
+                width="70px"
                 className="logo"
               />
             </div>
@@ -52,9 +52,9 @@ const Header = () => {
               <label htmlFor="searchInputPrimary ">
                 <input
                   id="searchInputPrimary"
-                  className="searchInput_primary "
+                  className="searchInput_primary"
                   type="text"
-                  placeholder="Search..."
+                  placeholder="Search products here"
                   name="searchInputPrimary"
                   value={filters.searchText}
                   onChange={searchFilterHandler}

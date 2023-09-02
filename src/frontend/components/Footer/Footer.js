@@ -15,7 +15,7 @@ const Footer = () => {
         <p className="footer-logo-text">Shippr</p>
         <p className="footer_copyright-text flex-column gap-xs flex-center">
           <span> &copy; No Copyright,</span>
-          <span>By Ashok Patel</span>
+          <span>Ashok Patel</span>
         </p>
 
         <ul className="footer_socials flex-center gap-xl">

@@ -7,7 +7,7 @@
 .userProfile_container-heading,
 .userAddress_container-heading,
 .userOrder_container-heading {
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 600;
   text-decoration: underline;
   color: var(--primary-color-one);
@@ -15,7 +15,7 @@
 
 .userProfile-name,
 .userProfile-email {
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 .userProfile-name span,
@@ -24,15 +24,15 @@
 }
 
 .logOutBtn {
-  padding: 0.6rem 1.2rem;
-  font-size: 1.8rem;
+  padding: 4px 8px;
+  font-size: 1.6rem;
   background-color: var(--error-color);
   margin-top: 2rem;
 }
 
 .addNewAddressBtn {
   display: inline-block;
-  font-size: 2.4rem;
+  font-size: 1.7rem;
   font-weight: 600;
   margin-top: 1rem;
   cursor: pointer;
@@ -54,22 +54,22 @@
 }
 
 .userAddress-details p {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .userAddress-details .name {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 
 .userAddress-details .mobileNumber svg {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
 }
 
 .userAddress_cardBtn-container .editBtn,
 .userAddress_cardBtn-container .removeBtn {
-  padding: 0.25rem 1rem;
-  font-size: 1.8rem;
+  padding: 2.5px 8px;
+  font-size: 1.6rem;
   border-radius: 5px;
 }
 
@@ -147,7 +147,7 @@
 }
 
 .address_modal-heading {
-  font-size: 3.2rem;
+  font-size: 2.4rem;
   justify-content: center;
 }
 
@@ -176,19 +176,20 @@
 .form_container select .form_container span {
   display: block;
   width: 100%;
+  font-family: inherit;
 }
 
 .form_container label {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 .form_container input,
 .form_container select {
   width: 100%;
-  padding: 0.6rem 1.4rem;
+  padding: 0.5rem 1.2rem;
   border: 1px solid var(--border-color-normal);
   border-radius: 5px;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
 }
 
 .form_container span {
@@ -203,13 +204,16 @@
 .saveBtn,
 .cancelBtn,
 .fillDummyBtn {
-  padding: 0.5rem 1rem;
-  font-size: 1.65rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.6rem;
+  border-radius: 6px;
 }
 
 .cancelBtn {
   background-color: var(--error-color);
 }
+
+/* User Order Container style */
 
 .userOrder_container {
   width: 100%;
@@ -217,7 +221,7 @@
 }
 
 .userOrder_container-heading {
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 600;
   text-decoration: underline;
   color: var(--primary-color-one);
@@ -241,7 +245,7 @@
 
 .userOrder_order-summary p,
 .userOrder_address-summary p {
-  font-size: 1.75rem;
+  font-size: 1.6rem;
 }
 
 .userOrder_order-summary p span,
@@ -278,12 +282,12 @@
 
 .userOrder_order-productList .product_info-partTwo h3 {
   width: 100%;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .userOrder_order-productList .product_info-partTwo p {
   width: 100%;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   color: var(--dark-color-one);
 }
 
@@ -292,7 +296,7 @@
 }
 
 /* 48em === 768px */
-@media (max-width: 48em) {
+@media (max-width: 768px) {
   .userProfile_container,
   .userAddress_container,
   .userOrder_container {
@@ -302,13 +306,13 @@
   .userProfile_container-heading,
   .userAddress_container-heading,
   .userOrder_container-heading {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 500;
   }
 
   .userProfile-name,
   .userProfile-email {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .userProfile-name span,
@@ -317,14 +321,12 @@
   }
 
   .logOutBtn {
-    padding: 0.4rem 0.8rem;
-    font-size: 1.8rem;
-
+    font-size: 1.5rem;
     margin-top: 1rem;
   }
 
   .addNewAddressBtn {
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     font-weight: 500;
   }
 
@@ -333,23 +335,21 @@
   }
 
   .userAddress-details p {
-    font-size: 1.8rem;
+    font-size: 1.55rem;
   }
 
   .userAddress-details .name {
-    font-size: 2.2rem;
+    font-size: 1.7rem;
     font-weight: 500;
   }
 
   .userAddress-details .mobileNumber svg {
-    font-size: 2.1rem;
+    font-size: 1.7rem;
   }
 
   .userAddress_cardBtn-container .editBtn,
   .userAddress_cardBtn-container .removeBtn {
-    padding: 0.25rem 1rem;
-    font-size: 1.8rem;
-    border-radius: 5px;
+    font-size: 1.55rem;
   }
 
   /* Address Modal container */
@@ -359,7 +359,7 @@
   }
 
   .address_modal-heading {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
   }
 
   .form_container.type-2 {
@@ -370,12 +370,20 @@
     margin-top: 1rem;
   }
 
+  .form_container label {
+    font-size: 1.4rem;
+  }
+
+  .form_container input,
+  .form_container select {
+    padding: 0.4rem 1rem;
+    font-size: 1.5rem;
+  }
+
   .saveBtn,
   .cancelBtn,
   .fillDummyBtn {
-    padding: 0.4rem 0.8rem;
-    font-size: 1.6rem;
-    border-radius: 5px;
+    font-size: 1.45rem;
   }
 
   /* User Order style */
@@ -386,13 +394,13 @@
   }
 
   .userOrder_container-heading {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 500;
   }
 
   .userOrder_order-summary p,
   .userOrder_address-summary p {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
 
   .userOrder_order-summary p span,
@@ -413,7 +421,7 @@
 
   .userOrder_order-productList .product_info-partTwo h3 {
     width: 100%;
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 
   .userOrder_order-productList .product_info-partTwo p span {
@@ -422,57 +430,29 @@
 }
 
 /* 38em === 608px */
-@media (max-width: 38em) {
+@media (max-width: 608px) {
   .userProfile_container-heading,
   .userAddress_container-heading,
   .userOrder_container-heading {
-    font-size: 1.8rem;
+    font-size: 1.65rem;
   }
 
   .userProfile-name,
   .userProfile-email {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 
   .logOutBtn {
-    padding: 0.2rem 0.4rem;
-    font-size: 1.7rem;
-    border-radius: 4px;
+    padding: 3px 6px;
+    font-size: 1.4rem;
   }
 
   .userAddressList_container {
     padding: 1rem 0;
   }
 
-  .addNewAddressBtn {
-    font-size: 1.8rem;
-    font-weight: 600;
-    padding-bottom: 1rem;
-    margin-top: 0;
-  }
-
   .userAddress_card-container {
     padding-bottom: 1.25rem;
-  }
-
-  .userAddress-details p {
-    font-size: 1.7rem;
-  }
-
-  .userAddress-details .name {
-    font-size: 1.8rem;
-    font-weight: 400;
-  }
-
-  .userAddress-details .mobileNumber svg {
-    font-size: 2rem;
-  }
-
-  .userAddress_cardBtn-container .editBtn,
-  .userAddress_cardBtn-container .removeBtn {
-    padding: 0.25rem 0.6rem;
-    font-size: 1.7rem;
-    border-radius: 5px;
   }
 
   /* Address Modal container */
@@ -484,7 +464,7 @@
   }
 
   .address_modal-heading {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
 
   .form_container.type-2 {
@@ -493,14 +473,18 @@
 
   .form_btn-container {
     margin-top: 1rem;
+    gap: 1rem;
+  }
+
+  .form_container input,
+  .form_container select {
+    font-size: 1.5rem;
   }
 
   .saveBtn,
   .cancelBtn,
   .fillDummyBtn {
-    padding: 0.4rem 0.6rem;
-    font-size: 1.6rem;
-    border-radius: 5px;
+    font-size: 1.45rem;
   }
 
   /* User Order style */
@@ -511,6 +495,24 @@
 
   .userOrder_order-productList .product_info-partTwo h3 {
     width: 100%;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
+  }
+
+  .userOrder_order-summary p,
+  .userOrder_address-summary p {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .saveBtn,
+  .cancelBtn,
+  .fillDummyBtn {
+    font-size: 1.35rem;
+    padding: 3px 5px;
+  }
+
+  .form_btn-container {
+    gap: 0.5rem;
   }
 }

@@ -18,11 +18,11 @@ const CartPage = () => {
             <img
               src={EmptyCartImg}
               alt="empty cartlist"
-              width="400px"
-              height="400px"
+              width="300px"
+              height="300px"
             />
           </div>
-          <div className="emptyCart_text-Container flex-column flex-center gap-s">
+          <div className="emptyCart_text-Container flex-column flex-center gap-sm">
             <h3>Your cart is empty!</h3>
             <p>Go ahead and explore top categories.</p>
             <button

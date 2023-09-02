@@ -53,7 +53,6 @@ const CheckoutDetailCard = () => {
       );
     });
 
-    console.log(cartlist);
     navigate("/profile/userOrder");
   };
 

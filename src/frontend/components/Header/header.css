@@ -5,6 +5,7 @@
   top: 0;
   z-index: 100;
   height: 100%;
+  height: fit-content;
   background-color: var(--secondary-color-one);
   box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.06);
   padding: 0 3.5rem;
@@ -15,6 +16,7 @@
   grid-template-areas: "logo search icons";
   grid-template-columns: 1fr 1fr 1fr;
   height: 100%;
+  height: fit-content;
 }
 
 .header_container-partOne {
@@ -42,6 +44,7 @@
   background-color: var(--background-color-one);
   border-radius: var(--border-radius);
   width: 100%;
+  font-family: inherit;
 }
 
 .searchInputPrimary_container label {
@@ -51,7 +54,7 @@
 }
 
 .searchInputPrimary_container svg {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
 }
 
 .searchInputPrimary_container span {
@@ -60,9 +63,9 @@
 }
 
 .searchInput_primary {
-  padding: 1rem;
+  padding: 0.6rem 1.2rem;
   border: none;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   overflow: hidden;
 }
 
@@ -89,12 +92,12 @@
 }
 
 .header_container-partTwo svg {
-  font-size: 3.2rem;
+  font-size: 3rem;
 }
 
 .logInBtn {
-  padding: 0.6rem 1.6rem;
-  font-size: 1.8rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 1.7rem;
   transition: all 0.3s;
 }
 
@@ -138,7 +141,7 @@
 }
 
 /*  1028px = 64rem */
-@media (max-width: 64em) {
+@media (max-width: 1028px) {
   .searchInputPrimary_container label {
     width: 35rem;
   }
@@ -149,13 +152,13 @@
 }
 
 /*  944px = 59rem */
-@media (max-width: 59em) {
+@media (max-width: 944px) {
   .header_container-partOne .logo {
-    width: 6.5rem;
+    width: 5.5rem;
   }
 
   .header_container-partOne h2 {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     margin-left: -0.5rem;
   }
 
@@ -173,7 +176,7 @@
 }
 
 /* 48em === 768px */
-@media (max-width: 48em) {
+@media (max-width: 768px) {
   .header_container {
     padding: 0 2rem;
     height: 100%;
@@ -186,13 +189,14 @@
       "logo icons"
       "search search";
     height: 100%;
-    gap: 1.5rem;
+    column-gap: 1.5rem;
   }
 
   .searchInputPrimary_container {
     max-width: 80rem;
     width: 100%;
     margin-left: 0;
+    margin-top: 1rem;
   }
 
   .searchInputPrimary_container label {
@@ -202,7 +206,7 @@
   }
 
   .header_container-partOne .logo {
-    width: 6rem;
+    width: 5.5rem;
   }
 
   .header_container-partOne h2 {
@@ -215,15 +219,26 @@
   }
 
   .logInBtn {
-    padding: 0.6rem 1rem;
-    font-size: 1.7rem;
-    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 1.6rem;
+    border-radius: 8px;
+  }
+
+  .wishlistCount,
+  .cartCount {
+    top: 4%;
+    right: -58%;
+    height: 2rem;
+    width: 2rem;
+    padding: 0.22rem;
+    line-height: 1.2;
+    font-size: 1.4rem;
   }
 }
 
 /*  544px = 34rem */
 
-@media (max-width: 34em) {
+@media (max-width: 544px) {
   .header_container {
     padding: 0 1.5rem;
     height: 100%;
@@ -238,35 +253,68 @@
     margin-left: -1rem;
   }
 
+  .searchInput_primary {
+    padding: 0.5rem 1rem;
+    font-size: 1.6rem;
+  }
+
   .header_container-partTwo {
     gap: 2rem;
   }
+
   .header_container-partTwo svg {
     font-size: 2.8rem;
   }
 
   .logInBtn {
-    padding: 0.3rem 0.3rem;
-    font-size: 1.6rem;
-    border-radius: 5px;
+    padding: 4px 6px;
+    font-size: 1.55rem;
+    border-radius: 6px;
     font-weight: 400;
   }
 }
 
 /*  432px = 27rem */
-
-@media (max-width: 27em) {
+@media (max-width: 432px) {
   .header_container {
     padding: 0 1rem;
     height: 100%;
+  }
+
+  .header_container-partOne .logo {
+    width: 4.75rem;
   }
 
   .header_container-partTwo {
     gap: 1.5rem;
   }
 
+  .searchInput_primary {
+    padding: 0.4rem 1rem;
+    font-size: 1.55rem;
+  }
+
   .logInBtn {
-    padding: 0.2rem 0.2rem;
-    font-size: 1.5rem;
+    padding: 3px 4px;
+    font-size: 1.45rem;
+  }
+
+  .header_container-partTwo {
+    gap: 1.25rem;
+  }
+
+  .header_container-partTwo svg {
+    font-size: 2.6rem;
+  }
+
+  .wishlistCount,
+  .cartCount {
+    top: 4%;
+    right: -55%;
+    height: 1.8rem;
+    width: 1.8rem;
+    padding: 0.18rem;
+    line-height: 1.2;
+    font-size: 1.3rem;
   }
 }

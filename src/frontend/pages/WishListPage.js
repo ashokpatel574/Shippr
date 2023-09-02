@@ -17,8 +17,8 @@ const WishListPage = () => {
             <img
               src={EmptyWishList}
               alt="empty wishlist"
-              width="400px"
-              height="400px"
+              width="300px"
+              height="300px"
             />
           </div>
           <div className="emptyWishlist_text-Container ">

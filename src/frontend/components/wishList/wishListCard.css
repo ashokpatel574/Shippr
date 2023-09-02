@@ -1,6 +1,5 @@
 .wishList_card-container {
   max-width: 30rem;
-
   width: 100%;
   border: 2px solid var(--border-color-normal);
   justify-content: center;
@@ -25,12 +24,16 @@
   padding: 0.3rem 0.6rem;
   background-color: var(--success-color);
   color: var(--secondary-color-one);
-  font-size: 2rem;
+  font-size: 1.8rem;
+}
+
+.wishlist_card-imgContainer .product-rating span {
+  font-size: 1.7rem;
 }
 
 .wishlist_card-imgContainer .product-rating svg {
-  margin-left: 0.3rem;
-  font-size: 2rem;
+  margin-left: 3px;
+  font-size: 1.8rem;
 }
 
 .wishlist_card-imgContainer .remove-card {
@@ -38,7 +41,7 @@
   top: 7%;
   right: -3%;
   transform: translate(-50%, -50%);
-  padding: 0.6rem;
+  padding: 6px;
   background-color: var(--secondary-color-three);
   color: var(--dark-color-one);
   border-radius: 50%;
@@ -47,7 +50,7 @@
 }
 
 .wishListIcon_container .closeIcon {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
 }
 
 .wishlist_card-imgContainer .remove-card:hover .closeIcon {
@@ -66,7 +69,7 @@
 }
 
 .wishListpage_productList_card-textContainer .discountPrice {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--success-color);
 }
 
@@ -83,10 +86,10 @@
 .wishListpage_productList_card-textContainer .addToCartBtn {
   width: 100%;
   text-align: center;
-  padding: 0.6rem 1.2rem;
-  font-size: 1.8rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.7rem;
   border-radius: 0.5rem;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
   transition: all 0.1s;
 }
 
@@ -103,7 +106,7 @@
 }
 
 /* 48em === 768px */
-@media (max-width: 48em) {
+@media (max-width: 768px) {
   .wishList_card-container {
     max-width: 28rem;
     gap: 1rem;
@@ -113,12 +116,15 @@
     bottom: -3.25%;
     right: 0;
     padding: 0.3rem 0.6rem;
-    font-size: 1.8rem;
+  }
+
+  .wishlist_card-imgContainer .product-rating span {
+    font-size: 1.6rem;
   }
 
   .wishlist_card-imgContainer .product-rating svg {
     margin-left: 0.3rem;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .wishlist_card-imgContainer .remove-card {
@@ -128,7 +134,7 @@
   }
 
   .wishListIcon_container .closeIcon {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 
   .wishListpage_productList_card-textContainer {
@@ -136,19 +142,19 @@
   }
 
   .wishListpage_productList_card-textContainer .discountPrice {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 
   .wishListpage_productList_card-textContainer .addToCartBtn {
-    padding: 0.5rem 0.8rem;
-    font-size: 1.8rem;
+    padding: 5px 8px;
+    font-size: 1.6rem;
     margin-top: 0;
   }
 }
 
 /*  544px = 34rem */
 
-@media (max-width: 34em) {
+@media (max-width: 544px) {
   .wishList_card-container {
     max-width: 30rem;
   }

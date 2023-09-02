@@ -13,13 +13,8 @@
 }
 
 .footer-logo-text {
-  transition: all 0.3s;
-  cursor: pointer;
-  letter-spacing: 1px;
-}
-
-.footer-logo-text:hover {
-  color: var(--primary-color-one);
+  letter-spacing: 1.75px;
+  font-weight: 500;
 }
 
 .footer_copyright-text {
@@ -122,14 +117,23 @@
     padding: 3rem 0 2rem 0;
   }
 
+  .footer-logo-text {
+    font-size: 1.6rem;
+  }
+
   .footer_copyright-text {
     grid-column: span 2;
     flex-direction: row;
     margin-left: 0;
   }
 
+  .footer_copyright-text span {
+    font-size: 1.45rem;
+    letter-spacing: 0.5px;
+  }
+
   .footer_socials svg {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
 
   .footer_socials {
@@ -156,5 +160,13 @@
   .btn_pageUp-wrap::before {
     height: 5.5rem;
     width: 5.5em;
+  }
+
+  .footer-logo-text {
+    font-size: 1.5rem;
+  }
+
+  .footer_copyright-text span {
+    font-size: 1.4rem;
   }
 }

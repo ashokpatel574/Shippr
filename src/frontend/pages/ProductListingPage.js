@@ -40,7 +40,7 @@ const ProductListingPage = () => {
               </span>
             </div>
 
-            {filteredData.length ? (
+            {filteredData?.length ? (
               <ul className=" flex-wrap flex-space-evenly gap-xl ">
                 {filteredData?.map((productItem, id) => (
                   <ProductCard productItem={productItem} key={id} />

@@ -7,17 +7,18 @@
 }
 
 .productslisting_side-navbar-header span:first-child {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   letter-spacing: 0.7px;
 }
 
 .clearFilter {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   cursor: pointer;
   border: 2px solid var(--primary-color-one);
-  padding: 0.3rem 0.6rem;
-  border-radius: 0.5rem;
+  padding: 2.5px 5px;
+  border-radius: 5px;
   transition: all 0.3s;
+  font-weight: 500;
 }
 
 .clearFilter:hover {
@@ -42,8 +43,9 @@
 .sideNavbar_sort-container p,
 .sideNavbar_availablity-container p {
   margin-bottom: 1.5rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--primary-color-one);
+  font-size: 1.7rem;
 }
 
 .sideNavbar_category-container ul,
@@ -59,7 +61,7 @@
 .sideNavbar_customerRating-container ul li label,
 .sideNavbar_sort-container ul li label,
 .sideNavbar_availablity-container ul li label {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
 }
 
 .sideNavbar_category-container input,
@@ -67,8 +69,8 @@
 .sideNavbar_customerRating-container input,
 .sideNavbar_sort-container input,
 .sideNavbar_availablity-container input {
-  height: 1.7rem;
-  width: 1.7rem;
+  height: 1.6rem;
+  width: 1.6rem;
 }
 
 /* price Range */
@@ -83,6 +85,7 @@
 .sideNavbar_priceRange-container input {
   max-width: 20rem;
   width: 100%;
+  accent-color: var(--primary-color-one);
 }
 
 .filter_side-navbar {
@@ -94,7 +97,7 @@
 }
 
 .filterMenu-close-icon svg {
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   border: 1px solid var(--dark-color-two);
   border-radius: 50%;
   padding: 0.25rem;
@@ -106,7 +109,7 @@
 }
 
 /* 64em === 1028px */
-@media (max-width: 64em) {
+@media (max-width: 1028px) {
   .filter_side-navbar.close {
     display: none;
   }
@@ -117,5 +120,35 @@
 
   .filterMenu-close-icon.open {
     display: inline-block;
+  }
+}
+
+@media (max-width: 768px) {
+  .sideNavbar_category-container,
+  .sideNavbar_price-container,
+  .sideNavbar_size-container,
+  .sideNavbar_customerRating-container,
+  .sideNavbar_sort-container,
+  .sideNavbar_availablity-container {
+    padding: 1.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 544px) {
+  .sideNavbar_category-container p,
+  .sideNavbar_price-container p,
+  .sideNavbar_size-container p,
+  .sideNavbar_customerRating-container p,
+  .sideNavbar_sort-container p,
+  .sideNavbar_availablity-container p {
+    font-size: 1.65rem;
+  }
+
+  .sideNavbar_category-container ul li label,
+  .sideNavbar_size-container ul li label,
+  .sideNavbar_customerRating-container ul li label,
+  .sideNavbar_sort-container ul li label,
+  .sideNavbar_availablity-container ul li label {
+    font-size: 1.5rem;
   }
 }

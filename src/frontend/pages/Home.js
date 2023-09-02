@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 import { useData } from "../context/DataContext";
 import CategoriesContainer from "../components/category/CategoriesContainer";
 import Loader from "../components/loader/Loader";
-import HeroImg from "../../assets/HeroImg/HeroImgOne.webp";
+
+import HeroImgWide from "../../assets/HeroImg/heroImg-wideframe.webp";
+import HeroImgMedium from "../../assets/HeroImg/heroImg-mediumframe.webp";
+import HeroImgSmall from "../../assets/HeroImg/heroImg-mobileframe.webp";
 
 const Home = () => {
   const { isLoading } = useData();
@@ -12,10 +15,15 @@ const Home = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <article className="hero_container fillContainer ">
-          <div className="heroImg_container fillContainer padding-tp-btm-xxl">
+        <article className="hero_container fillContainer">
+          <div className="heroImg_container fillContainer">
             <Link to="products">
-              <img src={HeroImg} alt="Hero" className="fillContainer" />
+              <picture>
+                <source media="(max-width: 950px)" srcset={HeroImgMedium} />
+                <source media="(max-width: 800px)" srcset={HeroImgSmall} />
+                <img src={HeroImgWide} alt="Hero" className="fillContainer" />
+              </picture>
+
               <span>Explore</span>
             </Link>
           </div>
