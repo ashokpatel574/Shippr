@@ -1,5 +1,22 @@
 .loader_container {
-  max-width: 50rem;
+  max-width: 40rem;
   margin: 0 auto;
-  height: 70vh;
+  height: 60vh;
+  height: 60dvh;
+}
+
+.loader_container h3 {
+  font-size: 2rem;
+}
+
+@media (max-width: 544px) {
+  .loader_container h3 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .loader_container h3 {
+    font-size: 1.6rem;
+  }
 }

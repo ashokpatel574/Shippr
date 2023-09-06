@@ -112,7 +112,7 @@ const LoginPage = () => {
 
   return (
     <section className="loginpage_container flex-column padding-xxl">
-      <article className="login_container flex- flex-column flex-center gap-l">
+      <article className="login_container  flex-column flex-center gap-l">
         {loginCredentialError && (
           <p className="loginApiError">{loginCredentialError?.data}</p>
         )}
@@ -148,18 +148,18 @@ const LoginPage = () => {
               {isPasswordVisible ? (
                 <VisibilityIcon
                   className="password-visible-icon"
-                  onMouseOver={(e) => passwordViewHandler(e)}
-                  onMouseOut={(e) => passwordViewHandler(e)}
                   onTouchStart={(e) => passwordViewHandler(e)}
                   onTouchEnd={(e) => passwordViewHandler(e)}
+                  onMouseOver={(e) => passwordViewHandler(e)}
+                  onMouseOut={(e) => passwordViewHandler(e)}
                 />
               ) : (
                 <VisibilityOffIcon
                   className="password-hidden-icon"
-                  onMouseOver={(e) => passwordViewHandler(e)}
-                  onMouseOut={(e) => passwordViewHandler(e)}
                   onTouchStart={(e) => passwordViewHandler(e)}
                   onTouchEnd={(e) => passwordViewHandler(e)}
+                  onMouseOver={(e) => passwordViewHandler(e)}
+                  onMouseOut={(e) => passwordViewHandler(e)}
                 />
               )}
             </span>

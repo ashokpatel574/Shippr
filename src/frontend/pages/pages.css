@@ -228,7 +228,7 @@
   .grid-productsListlayout-container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-areas: " main";
+    grid-template-areas: "main";
     scroll-behavior: smooth;
   }
 
@@ -311,11 +311,11 @@
 
 @media (max-width: 350px) {
   .productsListing_main-container {
-    padding: 2.5rem 1rem;
+    padding: 1.5rem 1rem;
   }
 
   .productsListing_container {
-    padding: 1rem 0.5rem;
+    padding: 1rem 1rem;
   }
 }
 
@@ -827,18 +827,11 @@
 
 /* Login page and sign up style */
 
-.loginpage_container {
-  background-color: var(--background-color-one);
-  width: 100%;
-  min-height: 58rem;
-  height: 100%;
-}
-
+.loginpage_container,
 .signUpPage_container {
   background-color: var(--background-color-one);
   width: 100%;
-  min-height: 75rem;
-  height: 100%;
+  height: fit-content;
 }
 
 .login_container,
@@ -874,8 +867,9 @@
 .signUp_password-container label,
 .signUp_passwordConfirm-container label {
   display: inline-block;
-  font-size: 1.8rem;
-  padding-bottom: 0.5rem;
+  font-size: 1.7rem;
+  padding-bottom: 4px;
+  font-family: inherit;
 }
 
 .login_email-container input,
@@ -886,12 +880,13 @@
 .signUp_passwordConfirm-container input {
   display: inline-block;
   width: 100%;
-  padding: 1.25rem 2rem;
-  font-size: 1.8rem;
+  padding: 0.6rem 1.6rem;
+  font-size: 1.7rem;
   border: none;
   border: 1px solid var(--border-color-normal);
   border-radius: 5px;
   margin-bottom: 0.4rem;
+  font-family: inherit;
 }
 
 .login_password-container {
@@ -908,7 +903,7 @@
 }
 
 .password-icon svg {
-  font-size: 2.2rem;
+  font-size: 2rem;
 }
 
 .name-error,
@@ -916,16 +911,17 @@
 .password-error,
 .passwordConfirm-error {
   color: var(--error-color);
-  font-size: 1.6rem;
+  font-size: 1.55rem;
 }
 
 .loginApiError {
   border: 1px solid var(--error-color);
-  padding: 0.8rem 2.4rem;
+  padding: 0.7rem 1.8rem;
   margin-top: 1rem;
   background-color: var(--error-color);
   color: var(--secondary-color-one);
-  border-radius: 0.8rem;
+  border-radius: 8px;
+  font-size: 1.7rem;
 }
 
 .signUp_name-container span,
@@ -941,13 +937,31 @@
 .loginGuestBtn,
 .signUpUserBtn {
   width: 100%;
-  padding: 0.75rem 1.5rem;
-  font-size: 2rem;
+  padding: 0.7rem 1.4rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  transition: all 0.2s ease-in;
+}
+
+.loginUserBtn:hover,
+.signUpUserBtn:hover {
+  background-color: var(--primary-color-two);
+}
+
+.loginGuestBtn {
+  background-color: var(--secondary-color-one);
+  color: var(--primary-color-one);
+  border: 1px solid var(--primary-color-one);
+}
+
+.loginGuestBtn:hover {
+  background-color: var(--primary-color-two);
+  color: var(--secondary-color-one);
 }
 
 .loginPage-switchtext,
 .signUpPage-switchtext {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   padding-bottom: 1rem;
 }
 
@@ -960,12 +974,198 @@
   padding: 0 0.75rem;
 }
 
-/*-----------------*/
+@media (max-width: 768px) {
+  .login_container h3,
+  .signUp_container h3 {
+    font-size: 2.4rem;
+  }
 
-.login_container h3,
-.signUp_container h3 {
-  font-size: 2.8rem;
+  .login_email-container label,
+  .login_password-container label,
+  .signUp_name-container label,
+  .signUp_email-container label,
+  .signUp_password-container label,
+  .signUp_passwordConfirm-container label,
+  .login_email-container input,
+  .login_password-container input,
+  .signUp_name-container input,
+  .signUp_email-container input,
+  .signUp_password-container input,
+  .signUp_passwordConfirm-container input {
+    font-size: 1.65rem;
+  }
+
+  .password-icon svg {
+    font-size: 1.8rem;
+  }
+
+  .name-error,
+  .email-error,
+  .password-error,
+  .passwordConfirm-error,
+  .signUp_name-container span,
+  .signUp_email-container span,
+  .signUp_password-container span,
+  .signUp_passwordConfirm-container span {
+    font-size: 1.55rem;
+  }
+
+  .loginApiError {
+    padding: 0.6rem 1.4rem;
+    font-size: 1.65rem;
+  }
+
+  .loginUserBtn,
+  .loginGuestBtn,
+  .signUpUserBtn {
+    padding: 0.6rem 1.4rem;
+    font-size: 1.7rem;
+  }
+
+  .loginPage-switchtext,
+  .signUpPage-switchtext {
+    font-size: 1.65rem;
+  }
 }
+
+@media (max-width: 544px) {
+  .loginpage_container,
+  .signUpPage_container {
+    padding: 3rem;
+  }
+
+  .login_container,
+  .signUp_container {
+    padding: 2rem 2rem;
+    border-radius: 1rem;
+  }
+
+  .login_container h3,
+  .signUp_container h3 {
+    font-size: 2.2rem;
+  }
+
+  .login_email-container label,
+  .login_password-container label,
+  .signUp_name-container label,
+  .signUp_email-container label,
+  .signUp_password-container label,
+  .signUp_passwordConfirm-container label {
+    font-size: 1.6rem;
+  }
+
+  .login_email-container input,
+  .login_password-container input,
+  .signUp_name-container input,
+  .signUp_email-container input,
+  .signUp_password-container input,
+  .signUp_passwordConfirm-container input {
+    padding: 0.5rem 1.2rem;
+    font-size: 1.6rem;
+  }
+
+  .password-icon svg {
+    font-size: 1.8rem;
+  }
+
+  .name-error,
+  .email-error,
+  .password-error,
+  .passwordConfirm-error,
+  .signUp_name-container span,
+  .signUp_email-container span,
+  .signUp_password-container span,
+  .signUp_passwordConfirm-container span {
+    font-size: 1.5rem;
+  }
+
+  .loginApiError {
+    padding: 0.5rem 1.2rem;
+    font-size: 1.6rem;
+  }
+
+  .loginUserBtn,
+  .loginGuestBtn,
+  .signUpUserBtn {
+    padding: 0.5rem 1.2rem;
+    font-size: 1.65rem;
+  }
+
+  .loginPage-switchtext,
+  .signUpPage-switchtext {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .loginpage_container,
+  .signUpPage_container {
+    padding: 2rem;
+  }
+
+  .login_container,
+  .signUp_container {
+    padding: 1.5rem;
+  }
+
+  .login_container h3,
+  .signUp_container h3 {
+    font-size: 2rem;
+  }
+
+  .login_email-container label,
+  .login_password-container label,
+  .signUp_name-container label,
+  .signUp_email-container label,
+  .signUp_password-container label,
+  .signUp_passwordConfirm-container label {
+    font-size: 1.5rem;
+  }
+
+  .login_email-container input,
+  .login_password-container input,
+  .signUp_name-container input,
+  .signUp_email-container input,
+  .signUp_password-container input,
+  .signUp_passwordConfirm-container input {
+    padding: 0.4rem 1rem;
+    font-size: 1.5rem;
+  }
+
+  .password-icon svg {
+    font-size: 1.6rem;
+  }
+
+  .name-error,
+  .email-error,
+  .password-error,
+  .passwordConfirm-error,
+  .signUp_name-container span,
+  .signUp_email-container span,
+  .signUp_password-container span,
+  .signUp_passwordConfirm-container span {
+    font-size: 1.4rem;
+  }
+
+  .loginApiError {
+    padding: 0.4rem 1rem;
+    font-size: 1.5rem;
+  }
+
+  .loginUserBtn,
+  .loginGuestBtn,
+  .signUpUserBtn {
+    padding: 0.4rem 1rem;
+    font-size: 1.6rem;
+  }
+
+  .loginPage-switchtext,
+  .signUpPage-switchtext {
+    font-size: 1.45rem;
+  }
+}
+
+/*-----------------*/
 
 /* WishList page style */
 
@@ -1111,6 +1311,7 @@
   width: 100%;
   padding: 4rem 0 8rem 0;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .userInfo_container-title {

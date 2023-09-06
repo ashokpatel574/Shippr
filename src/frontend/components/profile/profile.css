@@ -96,7 +96,7 @@
 
 .address_modal {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 50;
@@ -493,14 +493,30 @@
     font-size: 1.8rem;
   }
 
-  .userOrder_order-productList .product_info-partTwo h3 {
-    width: 100%;
-    font-size: 1.7rem;
-  }
-
   .userOrder_order-summary p,
   .userOrder_address-summary p {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 544px) {
+  .userOrder_order-productList .product_info-partTwo {
+    gap: 5px;
+  }
+
+  .userOrder_order-productList .product_info-partTwo h3 {
+    width: 100%;
+    font-size: 1.6rem;
+  }
+
+  .userOrder_order-productList .product_info-partTwo p {
+    width: 100%;
+    font-size: 1.5rem;
+    color: var(--dark-color-one);
+  }
+
+  .userOrder_order-productList .product_info-partTwo p span {
+    font-weight: 400;
   }
 }
 

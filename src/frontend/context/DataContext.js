@@ -9,6 +9,7 @@ import DataReducer, { initialState } from "../reducer/DataReducer";
 import { useAuth } from "./AuthContext";
 import { getServerData } from "../utils/apiService";
 import { useFilterData } from "../utils/filterUtils";
+import { ActionType } from "../constant";
 
 const DataContext = createContext();
 
@@ -26,7 +27,7 @@ const DataContextProvider = ({ children }) => {
   });
   const [filterDrawer, setFilterDrawer] = useState(false);
   const [editAddressTask, setEditAddressTask] = useState(false);
-  const { token } = useAuth();
+  const { token, currentUser } = useAuth();
 
   const cartPriceSummary = state.cartlist.reduce(
     (acc, curr) => {
@@ -52,6 +53,23 @@ const DataContextProvider = ({ children }) => {
   useEffect(() => {
     getServerData(token, dispatch, setIsLoading);
   }, [token]);
+
+  useEffect(() => {
+    if (currentUser) {
+      dispatch({
+        type: ActionType.SetWishList,
+        payload: { wishlist: currentUser?.wishlist || [] },
+      });
+      dispatch({
+        type: ActionType.SetCartList,
+        payload: { cartlist: currentUser?.cart || [] },
+      });
+      dispatch({
+        type: ActionType.SetOrderList,
+        payload: { order: currentUser?.orderlist || [] },
+      });
+    }
+  }, [currentUser]);
 
   return (
     <DataContext.Provider

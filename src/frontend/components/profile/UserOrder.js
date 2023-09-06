@@ -61,7 +61,7 @@ const UserOrder = () => {
                     </div>
 
                     <div className="userOrderListItem_container-part-two flex-column gap-s ">
-                      {productList.map((productItem) => {
+                      {productList?.map((productItem) => {
                         const { title, images, discountprice, qty } =
                           productItem;
                         return (
@@ -73,7 +73,7 @@ const UserOrder = () => {
                               <img src={images[0]} alt={title} />
                             </div>
 
-                            <div className="product_info-partTwo flex-column gap-m ">
+                            <div className="product_info-partTwo flex-column gap-s ">
                               <h3>Product Details</h3>
                               <p className="product_info-partOne-title">
                                 {title}

@@ -178,6 +178,8 @@ a {
   grid-template-columns: 22% 1fr;
   grid-template-areas: "sidebar  main";
   scroll-behavior: smooth;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 /* Gutters */

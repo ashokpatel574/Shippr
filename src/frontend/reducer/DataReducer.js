@@ -75,7 +75,7 @@ const DataReducer = (state, action) => {
     case ActionType.SetCartList: {
       return {
         ...state,
-        cartlist: [...action.payload.cart],
+        cartlist: [...action.payload.cartlist],
       };
     }
 

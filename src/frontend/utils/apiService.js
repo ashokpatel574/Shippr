@@ -32,7 +32,7 @@ export const getServerData = async (token, dispatch, setIsLoading) => {
       if (cartData.status === 200 || cartData.status === 201) {
         dispatch({
           type: ActionType.SetCartList,
-          payload: { cart: cartData.data.cart },
+          payload: { cartlist: cartData.data.cart },
         });
         setIsLoading(false);
       }

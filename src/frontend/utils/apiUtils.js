@@ -111,7 +111,7 @@ export const PostCartItem = async (
       dispatch({
         type: ActionType.SetCartList,
         payload: {
-          cart: cartData?.data?.cart,
+          cartlist: cartData?.data?.cart,
         },
       });
       setIsLoading(false);
@@ -138,7 +138,7 @@ export const DeleteCartItem = async (
       dispatch({
         type: ActionType.SetCartList,
         payload: {
-          cart: cartData?.data?.cart,
+          cartlist: cartData?.data?.cart,
         },
       });
       setIsLoading(false);
@@ -171,7 +171,7 @@ export const UpdateCartItemQty = async (
       dispatch({
         type: ActionType.SetCartList,
         payload: {
-          cart: cartData?.data?.cart,
+          cartlist: cartData?.data?.cart,
         },
       });
       setIsLoading(false);

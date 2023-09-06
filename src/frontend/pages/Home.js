@@ -19,8 +19,8 @@ const Home = () => {
           <div className="heroImg_container fillContainer">
             <Link to="products">
               <picture>
-                <source media="(max-width: 950px)" srcset={HeroImgMedium} />
-                <source media="(max-width: 800px)" srcset={HeroImgSmall} />
+                <source media="(max-width: 950px)" srcSet={HeroImgMedium} />
+                <source media="(max-width: 800px)" srcSet={HeroImgSmall} />
                 <img src={HeroImgWide} alt="Hero" className="fillContainer" />
               </picture>
 

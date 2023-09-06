@@ -23,12 +23,15 @@ export const getUserCredentials = async (
     if (status === 200 || status === 201) {
       localStorage.setItem(
         `loginCredentials`,
-        JSON.stringify({ token: encodedToken, user: foundUser })
+        JSON.stringify({
+          token: encodedToken,
+          user: { ...foundUser, orderlist: [] },
+        })
       );
 
       setLoginCredentialError(null);
       ToastHandler(ToastType.Success, "Successfully logged in");
-      setCurrentUser(foundUser);
+      setCurrentUser({ ...foundUser, orderlist: [] });
       setToken(encodedToken);
       setIsLoading(false);
     }
@@ -82,12 +85,15 @@ export const setUserCredentials = async (
     if (status === 200 || status === 201) {
       localStorage.setItem(
         `loginCredentials`,
-        JSON.stringify({ token: encodedToken, user: createdUser })
+        JSON.stringify({
+          token: encodedToken,
+          user: { ...createdUser, orderlist: [] },
+        })
       );
 
       setSignUpCredentialError(null);
       ToastHandler(ToastType.Success, "Successfully logged in");
-      setCurrentUser(createdUser);
+      setCurrentUser({ ...createdUser, orderlist: [] });
       setToken(encodedToken);
       setIsLoading(false);
       setSignUpDetails({

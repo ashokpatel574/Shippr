@@ -2,10 +2,10 @@ import { Oval } from "react-loader-spinner";
 
 const Loader = () => {
   return (
-    <section className="loader_container flex-center flex-column gap-l">
+    <section className="loader_container flex-center flex-column gap-s">
       <Oval
-        height={90}
-        width={90}
+        height={65}
+        width={65}
         color="#3c0ac2"
         wrapperStyle={{}}
         wrapperClass=""

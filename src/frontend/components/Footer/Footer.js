@@ -20,17 +20,20 @@ const Footer = () => {
 
         <ul className="footer_socials flex-center gap-xl">
           <li>
-            <Link class="link" to="https://twitter.com/ashokpatel574">
+            <Link className="link" to="https://twitter.com/ashokpatel574">
               <TwitterIcon />
             </Link>
           </li>
           <li>
-            <Link class="link" to="https://www.linkedin.com/in/ashokpatel574/">
+            <Link
+              className="link"
+              to="https://www.linkedin.com/in/ashokpatel574/"
+            >
               <LinkedInIcon />
             </Link>
           </li>
           <li>
-            <Link class="link" to="https://github.com/ashokpatel574">
+            <Link className="link" to="https://github.com/ashokpatel574">
               <GitHubIcon />
             </Link>
           </li>
